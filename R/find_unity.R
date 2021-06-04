@@ -41,5 +41,8 @@ find_unity <- function() {
          "Please make sure the path provided to 'unity' is correct.")
   }
 
+  if (!grepl("^\"", unity)) unity <- paste0('"', unity)
+  if (!grepl("\"$", unity)) unity <- paste0(unity, '"')
+
   unity
 }
