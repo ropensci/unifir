@@ -7,9 +7,9 @@
 #' 2. Attempt to load the "unifir_unity_path" option.
 #'
 #' @export
-find_unity <- function() {
+find_unity <- function(unity = NULL) {
 
-  unity <- Sys.getenv("unifir_unity_path")
+  if (is.null(unity)) unity <- Sys.getenv("unifir_unity_path")
 
   if (unity == '') unity <- options("unifir_unity_path")[[1]]
 
@@ -33,7 +33,16 @@ find_unity <- function() {
       }
     }
 
-    # TODO: MacOS goes here; I don't have a system to test with
+    if ("darwin" == sysname) {
+      if (dir.exists("/Applications/Unity/Hub/Editor")) {
+        # This works on at least one Mac
+        unity <- tail(
+          list.files("/Applications/Unity/Hub/Editor", full.names = TRUE),
+          1
+        )
+        unity <- paste0(unity, "Unity.app/Contents/MacOS/Unity")
+      }
+    }
   }
 
   if (is.null(unity) || !file.exists(unity)) {

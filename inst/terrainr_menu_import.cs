@@ -10,8 +10,6 @@ public class TerrainrImport : EditorWindow {
        
     private static EditorWindow window;
     
-    private static Vector2 tileAmount = Vector2.one;
-    
     private float width  = 4097;
     private float length = 4097;
     private float height = 2394;
