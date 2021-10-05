@@ -4,10 +4,12 @@
 \alias{create_unity_project}
 \title{Create a new Unity project.}
 \usage{
-create_unity_project(path, unity = NULL)
+create_unity_project(path, quit = TRUE, unity = NULL)
 }
 \arguments{
 \item{path}{The path to create a new Unity project at.}
+
+\item{quit}{Logical: quit Unity after creating the project?}
 
 \item{unity}{The path to the Unity executable on your system (importantly,
 _not_ the UnityHub executable). If `NULL`, checks to see if the environment

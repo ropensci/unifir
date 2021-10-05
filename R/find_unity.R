@@ -53,5 +53,9 @@ find_unity <- function(unity = NULL) {
   if (!grepl("^\"", unity)) unity <- paste0('"', unity)
   if (!grepl("\"$", unity)) unity <- paste0(unity, '"')
 
+  if (Sys.getenv("unifir_unity_path") == '') {
+    Sys.setenv("unifir_unity_path" = unity)
+  }
+
   unity
 }

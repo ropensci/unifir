@@ -4,7 +4,7 @@
 \alias{find_unity}
 \title{Find the Unity executable on a machine.}
 \usage{
-find_unity()
+find_unity(unity = NULL)
 }
 \description{
 If the path to Unity is not provided to a function, this function is invoked
