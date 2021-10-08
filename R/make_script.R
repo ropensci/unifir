@@ -21,7 +21,7 @@ make_script <- function(project,
 }
 
 #' @export
-action <- function(script) {
+action <- function(script, write = TRUE, exec = TRUE, quit = TRUE) {
 
   if (
     # If initialize_project is NULL and the directory is missing:
@@ -53,8 +53,6 @@ action <- function(script) {
     script$scene_exists <- TRUE
   }
 
-  script$props[[1]] <- NULL
-
   if (length(script$props) > 0) {
     for (i in seq_along(script$props)) {
       script$props[[i]] <- script$props[[i]]$build(script, script$props[[i]])
@@ -68,70 +66,42 @@ action <- function(script) {
   script$using <- unique(script$using)
   script$using <- paste0("using ", script$using, ";", collapse = "\n")
 
-  writeLines(
-    c(
-      paste(script$using, "\n"),
-      paste("public class", script$script_name, "{"),
-      script$props,
-      "    static void MainFunc() {",
-      paste0("        ", beats),
-      "    }",
-      "}"
-    ),
-    file.path(script$project, "Assets", "Editor", paste0(script$script_name, ".cs"))
-  )
-
-  output <- system(
-    paste0(
-      find_unity(),
-      " -batchmode",
-      " -quit",
-      " -projectPath ",
-      script$project,
-      " -executeMethod ",
-      script$script_name,
-      ".MainFunc"
+  if (write) {
+    writeLines(
+      c(
+        paste(script$using, "\n"),
+        paste("public class", script$script_name, "{"),
+        script$props,
+        "    static void MainFunc() {",
+        paste0("        ", beats),
+        "    }",
+        "}"
+      ),
+      file.path(script$project, "Assets", "Editor", paste0(script$script_name, ".cs"))
     )
-  )
+  }
 
-  if (output != "0") stop(output)
+  # nocov start
+  # Skipping test coverage here because I can't install Unity on GH Actions
+  # So unless I set up my own build box for CI this is a manual test job
+  if (exec) {
+    output <- system(
+      paste0(
+        find_unity(),
+        " -batchmode",
+        if (quit) " -quit",
+        " -projectPath ",
+        script$project,
+        " -executeMethod ",
+        script$script_name,
+        ".MainFunc"
+      )
+    )
+
+    if (output != "0") stop(output)
+  }
+  # nocov end
 
   return(invisible(script))
 
-}
-
-#' @export
-prop_save_scene <- function(script,
-                            method_name = proceduralnames::make_english_names(1, 2, sep = '', case = "title"),
-                            scene_name = NULL) {
-  script$props <- list(
-    script$props,
-    list(
-      prop_file = system.file("SaveScene.cs", package = "unifir"),
-      method_name = method_name,
-      parameters = list(
-        scene_name = scene_name
-      ),
-      build = function(script, prop) {
-        scene_name <- ifelse(is.null(prop$scene_name), script$scene_name, prop$scene_name)
-        glue::glue(
-          readChar(system.file("SaveScene.cs", package = "unifir"),
-                   file.info(system.file("SaveScene.cs", package = "unifir"))$size),
-          .open = "%", .close = "%",
-          method_name = prop$method_name, scene_name = scene_name
-        )
-      }
-    )
-  )
-  idx <- nrow(script$beats) + 1
-  script$beats[idx, ]$idx <- idx
-  script$beats[idx, ]$name <- method_name
-  script$using <- c(script$using, "UnityEngine", "UnityEditor", "UnityEditor.SceneManagement")
-  script
-}
-
-create_if_not <- function(path, recur = FALSE) {
-  if (!dir.exists(path)) {
-    dir.create(path, recursive = recur)
-  }
 }

@@ -1,4 +1,4 @@
 
     static void %method_name%() {
-        bool saveOK = EditorSceneManager.SaveScene(EditorSceneManager.GetActiveScene(), "%scene_name%.unity");
+        bool saveOK = EditorSceneManager.SaveScene(EditorSceneManager.GetActiveScene(), "Assets/Scenes/%scene_name%.unity");
     }
