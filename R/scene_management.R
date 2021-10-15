@@ -13,10 +13,10 @@
 #' be randomly generated if not set.
 #'
 #' @export
-add_prop_new_scene <- function(script,
-                               setup = c("EmptyScene", "DefaultGameObjects"),
-                               mode = c("Additive", "Single"),
-                               method_name = NULL) {
+new_scene <- function(script,
+                      setup = c("EmptyScene", "DefaultGameObjects"),
+                      mode = c("Additive", "Single"),
+                      method_name = NULL) {
   setup <- setup[[1]]
   mode <- mode[[1]]
   if (!(mode %in% c("Additive", "Single"))) {
@@ -34,9 +34,10 @@ add_prop_new_scene <- function(script,
                                                        case = "title")
   }
 
-  prop <- list(
+  prop <- unifir_prop$new(
     prop_file = system.file("NewScene.cs", package = "unifir"),
     method_name = method_name,
+    method_type = "NewScene",
     parameters = list(
       setup = setup,
       mode = mode
@@ -58,10 +59,15 @@ add_prop_new_scene <- function(script,
 
 }
 
+#' Load a scene in a Unity project.
+#'
+#' @inheritParams new_scene
+#' @param scene_name The name of the scene to load.
+#'
 #' @export
-add_prop_load_scene <- function(script,
-                                scene_name,
-                                method_name = NULL) {
+load_scene <- function(script,
+                       scene_name,
+                       method_name = NULL) {
   if (is.null(method_name)) {
     method_name <- proceduralnames::make_english_names(n = 1,
                                                        n_words = 2,
@@ -69,9 +75,10 @@ add_prop_load_scene <- function(script,
                                                        case = "title")
   }
 
-  prop <- list(
+  prop <- unifir_prop$new(
     prop_file = system.file("OpenScene.cs", package = "unifir"),
     method_name = method_name,
+    method_type = "LoadScene",
     parameters = list(
       scene_name = scene_name
     ),
@@ -98,10 +105,15 @@ add_prop_load_scene <- function(script,
 }
 
 
+#' Save a scene in a Unity project.
+#'
+#' @inheritParams new_scene
+#' @param scene_name The name to save the scene to.
+#'
 #' @export
-add_prop_save_scene <- function(script,
-                                scene_name = NULL,
-                                method_name = NULL) {
+save_scene <- function(script,
+                       scene_name = NULL,
+                       method_name = NULL) {
 
   if (is.null(method_name)) {
     method_name <- proceduralnames::make_english_names(n = 1,
@@ -110,9 +122,10 @@ add_prop_save_scene <- function(script,
                                                        case = "title")
   }
 
-  prop <- list(
+  prop <- unifir_prop$new(
     prop_file = system.file("SaveScene.cs", package = "unifir"),
     method_name = method_name,
+    method_type = "SaveScene",
     parameters = list(
       scene_name = scene_name
     ),

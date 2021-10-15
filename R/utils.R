@@ -23,6 +23,7 @@ add_prop <- function(script, prop) {
 
   script$beats[idx, ]$idx <- idx
   script$beats[idx, ]$name <- prop$method_name
+  script$beats[idx, ]$type <- prop$method_type
   script$using <- c(script$using, prop$using)
   script
 
