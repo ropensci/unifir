@@ -6,6 +6,11 @@
 \usage{
 find_unity(unity = NULL)
 }
+\arguments{
+\item{unity}{Character: If provided, this function will quote the provided
+string (if necessary) and return it without searching other paths (or
+confirming that the provided path exists).}
+}
 \description{
 If the path to Unity is not provided to a function, this function is invoked
 to attempt to find it. To do so, it goes through the following steps:

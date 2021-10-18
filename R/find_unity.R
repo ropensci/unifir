@@ -6,6 +6,10 @@
 #' 1. Attempt to load the "unifir_unity_path" environment variable.
 #' 2. Attempt to load the "unifir_unity_path" option.
 #'
+#' @param unity Character: If provided, this function will quote the provided
+#' string (if necessary) and return it without searching other paths (or
+#' confirming that the provided path exists).
+#'
 #' @export
 find_unity <- function(unity = NULL) {
 
