@@ -11,12 +11,15 @@
 #' opened.")
 #' @param method_name The internal name to use for the C# method created. Will
 #' be randomly generated if not set.
+#' @param exec Logical: Should the C# method be included in the set executed by
+#' MainFunc?
 #'
 #' @export
 new_scene <- function(script,
                       setup = c("EmptyScene", "DefaultGameObjects"),
                       mode = c("Additive", "Single"),
-                      method_name = NULL) {
+                      method_name = NULL,
+                      exec = TRUE) {
   setup <- setup[[1]]
   mode <- mode[[1]]
   if (!(mode %in% c("Additive", "Single"))) {
@@ -34,7 +37,7 @@ new_scene <- function(script,
                                                        case = "title")
   }
 
-  prop <- unifir_prop$new(
+  prop <- unifir_prop(
     prop_file = system.file("NewScene.cs", package = "unifir"),
     method_name = method_name,
     method_type = "NewScene",
@@ -55,7 +58,7 @@ new_scene <- function(script,
     using = c("UnityEngine.SceneManagement", "UnityEditor", "UnityEditor.SceneManagement")
   )
 
-  add_prop(script, prop)
+  add_prop(script, prop, exec)
 
 }
 
@@ -67,7 +70,8 @@ new_scene <- function(script,
 #' @export
 load_scene <- function(script,
                        scene_name,
-                       method_name = NULL) {
+                       method_name = NULL,
+                       exec = TRUE) {
   if (is.null(method_name)) {
     method_name <- proceduralnames::make_english_names(n = 1,
                                                        n_words = 2,
@@ -75,7 +79,7 @@ load_scene <- function(script,
                                                        case = "title")
   }
 
-  prop <- unifir_prop$new(
+  prop <- unifir_prop(
     prop_file = system.file("OpenScene.cs", package = "unifir"),
     method_name = method_name,
     method_type = "LoadScene",
@@ -101,7 +105,7 @@ load_scene <- function(script,
     using = c("UnityEngine", "UnityEditor", "UnityEditor.SceneManagement")
   )
 
-  add_prop(script, prop)
+  add_prop(script, prop, exec)
 }
 
 
@@ -113,7 +117,8 @@ load_scene <- function(script,
 #' @export
 save_scene <- function(script,
                        scene_name = NULL,
-                       method_name = NULL) {
+                       method_name = NULL,
+                       exec = TRUE) {
 
   if (is.null(method_name)) {
     method_name <- proceduralnames::make_english_names(n = 1,
@@ -122,7 +127,7 @@ save_scene <- function(script,
                                                        case = "title")
   }
 
-  prop <- unifir_prop$new(
+  prop <- unifir_prop(
     prop_file = system.file("SaveScene.cs", package = "unifir"),
     method_name = method_name,
     method_type = "SaveScene",
@@ -147,6 +152,25 @@ save_scene <- function(script,
     using = c("UnityEngine", "UnityEditor", "UnityEditor.SceneManagement")
   )
 
-  add_prop(script, prop)
+  add_prop(script, prop, exec)
 
+}
+
+#' Set a single scene to active.
+#'
+#' @inheritParams new_scene
+#' @param scene_name The name of the scene to set as the active scene.
+#' @export
+set_active_scene <- function(script,
+                             scene_name = NULL) {
+  if (is.null(scene_name)) scene_name <- script$scene_name
+  stopifnot(!is.null(scene_name))
+  writeLines(
+    paste0(
+      "sceneSetups:\n- path: ",
+      file.path("Assets", "Scenes", scene_name),
+      ".unity\n  isLoaded: 1\n  isActive: 1\n  isSubScene: 0"
+      ),
+    file.path(script$project, "Library", "LastSceneManagerSetup.txt")
+  )
 }

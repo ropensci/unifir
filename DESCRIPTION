@@ -12,7 +12,9 @@ Imports:
     glue,
     methods,
     proceduralnames,
-    terrainr
+    R6,
+    terrainr,
+    utils
 Suggests: 
     covr,
     knitr,

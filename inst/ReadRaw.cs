@@ -4,7 +4,7 @@
         byte[] data;
         using (BinaryReader br = new BinaryReader(File.Open(path, FileMode.Open, FileAccess.Read)))
         {
-            data = br.ReadBytes(heightmapResolution * heightmapResolution * (int)m_Depth);
+            data = br.ReadBytes(heightmapResolution * heightmapResolution * (int)2);
             br.Close();
         }
 

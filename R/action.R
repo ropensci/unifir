@@ -9,6 +9,7 @@
 #' @export
 action <- function(script, write = TRUE, exec = TRUE, quit = TRUE) {
 
+  create_project <- FALSE
   if (
     # If initialize_project is NULL and the directory is missing:
     (is.null(script$initialize_project) && !dir.exists(script$project)) ||
@@ -17,8 +18,6 @@ action <- function(script, write = TRUE, exec = TRUE, quit = TRUE) {
     # Create a unity project at that directory:
     create_unity_project(script$project, unity = script$unity)
   }
-
-  stopifnot(dir.exists(script$project))
 
   scene_dir <- file.path(script$project, "Assets", "Scenes")
   create_if_not(scene_dir, TRUE)
@@ -44,7 +43,9 @@ action <- function(script, write = TRUE, exec = TRUE, quit = TRUE) {
       script$props[[i]] <- script$props[[i]]$build(script, script$props[[i]])
     }
     script$props <- paste0(script$props, sep = "\n")
-    beats <- paste0(script$beats$name, "();", collapse = "\n        ")
+    beats <- paste0(script$beats[script$beats$exec, ]$name,
+                    "();",
+                    collapse = "\n        ")
   }
 
   create_if_not(file.path(script$project, "Assets", "Editor"))

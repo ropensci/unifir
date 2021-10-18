@@ -8,7 +8,8 @@ new_scene(
   script,
   setup = c("EmptyScene", "DefaultGameObjects"),
   mode = c("Additive", "Single"),
-  method_name = NULL
+  method_name = NULL,
+  exec = TRUE
 )
 }
 \arguments{
@@ -26,6 +27,9 @@ opened.")}
 
 \item{method_name}{The internal name to use for the C# method created. Will
 be randomly generated if not set.}
+
+\item{exec}{Logical: Should the C# method be included in the set executed by
+MainFunc?}
 }
 \description{
 Create a new scene in a Unity project.

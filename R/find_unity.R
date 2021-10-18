@@ -18,7 +18,7 @@ find_unity <- function(unity = NULL) {
     sysname <- tolower(Sys.info()[["sysname"]])
     if ("windows" == sysname) {
       if (dir.exists("C:\\Program Files\\Unity\\Hub\\Editor")) {
-        unity <- tail(
+        unity <- utils::tail(
           list.files("C:\\Program Files\\Unity\\Hub\\Editor",
                      full.names = TRUE),
           1)
@@ -28,7 +28,7 @@ find_unity <- function(unity = NULL) {
 
     if ("linux" == sysname) {
       if (dir.exists("~/Unity/Hub/Editor")) {
-        unity <- tail(list.files("~/Unity/Hub/Editor", full.names = TRUE), 1)
+        unity <- utils::tail(list.files("~/Unity/Hub/Editor", full.names = TRUE), 1)
         unity <- paste0(unity, "/Editor/Unity")
       }
     }
@@ -36,7 +36,7 @@ find_unity <- function(unity = NULL) {
     if ("darwin" == sysname) {
       if (dir.exists("/Applications/Unity/Hub/Editor")) {
         # This works on at least one Mac
-        unity <- tail(
+        unity <- utils::tail(
           list.files("/Applications/Unity/Hub/Editor", full.names = TRUE),
           1
         )

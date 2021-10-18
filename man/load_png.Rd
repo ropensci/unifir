@@ -4,7 +4,7 @@
 \alias{load_png}
 \title{Create a Texture2D from a PNG file}
 \usage{
-load_png(script, method_name = NULL)
+load_png(script, method_name = NULL, exec = FALSE)
 }
 \arguments{
 \item{script}{A `unifir_script` object, created by [make_script] or returned
@@ -12,6 +12,9 @@ by an `add_prop_*` function.}
 
 \item{method_name}{The internal name to use for the C# method created. Will
 be randomly generated if not set.}
+
+\item{exec}{Logical: Should the C# method be included in the set executed by
+MainFunc?}
 }
 \description{
 Create a Texture2D from a PNG file

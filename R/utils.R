@@ -15,7 +15,17 @@ create_if_not <- function(path, recur = FALSE) {
   }
 }
 
-add_prop <- function(script, prop) {
+#' Add a prop to a unifir script
+#'
+#' @param script A script object (from [make_script]) to append the prop to.
+#' @param prop A [unifir_prop] object to add to the script
+#' @param exec Logical: Should the method created by the prop be called in the
+#' MainFunc method?
+#'
+#' @export
+add_prop <- function(script, prop, exec = TRUE) {
+
+  stopifnot(is.logical(exec))
 
   idx <- nrow(script$beats) + 1
 
@@ -24,6 +34,7 @@ add_prop <- function(script, prop) {
   script$beats[idx, ]$idx <- idx
   script$beats[idx, ]$name <- prop$method_name
   script$beats[idx, ]$type <- prop$method_type
+  script$beats[idx, ]$exec <- exec
   script$using <- c(script$using, prop$using)
   script
 

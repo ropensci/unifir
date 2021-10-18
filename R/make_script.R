@@ -13,7 +13,10 @@ make_script <- function(project,
     unity = unity,
     initialize_project = initialize_project,
     props = list(),
-    beats = data.frame(idx = numeric(0), name = character(0), type = character(0)),
+    beats = data.frame(idx = numeric(0),
+                       name = character(0),
+                       type = character(0),
+                       exec = logical(0)),
     using = character(0)
   )
   class(script) <- "unifir_script"

@@ -2,3 +2,7 @@
 ^\.Rproj\.user$
 ^README\.Rmd$
 ^LICENSE\.md$
+^dev\.Rmd$
+zion
+import_*
+^terrainr\.manifest$

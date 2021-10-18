@@ -1,6 +1,4 @@
-library(R6)
-
-unifir_prop <- R6Class(
+.unifir_prop <- R6::R6Class(
   "unifir_prop",
   list(
     prop_file = NULL,
@@ -29,3 +27,23 @@ unifir_prop <- R6Class(
     }
     )
   )
+
+#' The class for unifir prop objects
+#'
+#' @param prop_file The system location for the C# template file
+#' @param method_name The name of the method, in C# code
+#' @param method_type The type of the method (usually matches its file name);
+#' scripts can have multiple versions of the same method, each with different
+#' method_name values, all sharing the same method_type.
+#' @param parameters Method-specific parameters, typically used in the build
+#' stage.
+#' @param build A function that takes two arguments, `script` and `prop`, and
+#' uses those to construct the C# method.
+#' @param using A character vector of imports required for the method.
+#'
+#' @return An R6 object of class `unifir_prop`
+#'
+#' @export
+unifir_prop <- function(prop_file, method_name, method_type, parameters, build, using) {
+  .unifir_prop$new(prop_file, method_name, method_type, parameters, build, using)
+}
