@@ -12,7 +12,7 @@ create_terrain <- function(script,
                            height,
                            length,
                            heightmap_resolution,
-                           texturePath = '',
+                           texture_path = '',
                            exec = TRUE) {
   if (is.null(method_name)) {
     method_name <- proceduralnames::make_english_names(n = 1,
@@ -47,14 +47,11 @@ create_terrain <- function(script,
       height = height,
       length = length,
       heightmap_resolution = heightmap_resolution,
-      texturePath = texturePath,
+      texturePath = texture_path,
       add_texture_method = add_texture_method,
       read_raw_method = read_raw_method
     ),
     build = function(script, prop) {
-
-
-
       glue::glue(
         readChar(prop$prop_file, file.info(prop$prop_file)$size),
         .open = "%",
