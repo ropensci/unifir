@@ -13,7 +13,6 @@ Imports:
     methods,
     proceduralnames,
     R6,
-    terrainr,
     utils
 Suggests: 
     covr,
