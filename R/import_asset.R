@@ -12,7 +12,6 @@
 #' @export
 import_asset <- function(script,
                          package,
-                         exec = TRUE,
                          lazy = TRUE) {
 
   # Should I be checking this here or in build()?
