@@ -3,6 +3,6 @@
 .RData
 .Ruserdata
 zion/
-import_*
+^import_*
 terrainr.manifest
 dev.Rmd

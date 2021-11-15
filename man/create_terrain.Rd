@@ -14,7 +14,7 @@ create_terrain(
   height,
   length,
   heightmap_resolution,
-  texturePath = "",
+  texture_path = "",
   exec = TRUE
 )
 }

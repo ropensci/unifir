@@ -8,7 +8,9 @@
     build = NULL,
     using = NA_character_,
     initialize = function(prop_file, method_name, method_type, parameters, build, using) {
-      stopifnot(is.character(prop_file), length(prop_file) == 1, file.exists(prop_file))
+      if (!("waiver" %in% class(prop_file))) {
+        stopifnot(is.character(prop_file), length(prop_file) == 1, file.exists(prop_file))
+      }
       stopifnot(is.character(method_name), length(method_name) == 1)
       stopifnot(is.character(method_type), length(method_type) == 1)
 

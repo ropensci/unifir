@@ -4,5 +4,5 @@
 ^LICENSE\.md$
 ^dev\.Rmd$
 zion
-import_*
+^import_*
 ^terrainr\.manifest$
