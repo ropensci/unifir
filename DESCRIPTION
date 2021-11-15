@@ -13,6 +13,7 @@ Imports:
     methods,
     proceduralnames,
     R6,
+    rlang,
     utils
 Suggests: 
     covr,

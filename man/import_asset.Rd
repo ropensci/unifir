@@ -4,7 +4,7 @@
 \alias{import_asset}
 \title{Import assets into Unity.}
 \usage{
-import_asset(script, package, exec = TRUE, lazy = TRUE)
+import_asset(script, package, lazy = TRUE)
 }
 \arguments{
 \item{script}{A `unifir_script` object, created by [make_script] or returned
@@ -12,9 +12,6 @@ by an `add_prop_*` function.}
 
 \item{package}{The file path to the asset to import. If a directory, the
 entire directory will be recursively copied.}
-
-\item{exec}{Logical: Should the C# method be included in the set executed by
-MainFunc?}
 
 \item{lazy}{Boolean: if TRUE, unifir will attempt to only copy the files
 once; if FALSE, unifir will copy the files as many times as requested,
