@@ -1,12 +1,14 @@
 Type: Package
 Package: unifir
-Title: What the Package Does (Title Case)
+Title: A Unifying API for Calling 'Unity' from R
 Version: 0.1.0
 Authors@R: 
     person("Michael", "Mahoney", , "mike.mahoney.218@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-2402-304X"))
-Description: More about what it does (maybe more than one line) Use four
-    spaces when indenting paragraphs within the Description.
+Description: Functions for the creation and manipulation of scenes and objects
+    within the 'Unity' '3D' video game engine ('<https://unity.com/>'). Specific
+    focuses include the creation and import of terrain data and 'GameObjects' as
+    well as scene management.
 License: MIT + file LICENSE
 Imports: 
     glue,
@@ -16,6 +18,7 @@ Imports:
     rlang,
     utils
 Suggests: 
+    terrainr,
     covr,
     knitr,
     lintr,

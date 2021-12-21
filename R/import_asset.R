@@ -1,7 +1,7 @@
 #' Import assets into Unity.
 #'
 #' @inheritParams new_scene
-#' @param package The file path to the asset to import. If a directory, the
+#' @param asset_path The file path to the asset to import. If a directory, the
 #' entire directory will be recursively copied.
 #' @param lazy Boolean: if TRUE, unifir will attempt to only copy the files
 #' once; if FALSE, unifir will copy the files as many times as requested,
@@ -11,41 +11,40 @@
 #'
 #' @export
 import_asset <- function(script,
-                         package,
+                         asset_path,
                          lazy = TRUE) {
 
   # Should I be checking this here or in build()?
   # Here seems more friendly (fail fast) but at the same time,
-  # it's not impossible that package doesn't exist at script writing time
+  # it's not impossible that asset_path doesn't exist at script writing time
   # but does at execution
-  stopifnot(file.exists(package))
+  stopifnot(file.exists(asset_path))
 
   if (!lazy ||
-      (!any(script$beats$type == "ImportPackage") &&
-      !any(package %in% script$beats$name))) {
+      !any(asset_path %in% script$beats$name)) {
 
     prop <- unifir_prop(
       prop_file = waiver(),
-      method_name = package,
-      method_type = "ImportPackage",
+      method_name = asset_path,
+      method_type = "Importasset_path",
       parameters = list(
-        package = package
+        asset_path = asset_path
       ),
       build = function(script, prop) {
 
-        if (dir.exists(prop$parameters$package)) {
+        if (dir.exists(prop$parameters$asset_path)) {
           dir.create(
             file.path(
               script$project,
               "Assets",
-              basename(prop$parameters$package)
+              basename(prop$parameters$asset_path)
             ),
             recursive = TRUE
           )
         }
 
         file.copy(
-          package,
+          asset_path,
           file.path(
             script$project,
             "Assets"

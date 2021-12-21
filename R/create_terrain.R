@@ -1,6 +1,12 @@
 #' Create a terrain tile with optional image overlay
 #'
 #' @inheritParams new_scene
+#' @param heightmap_path The file path to the heightmap to import as terrain.
+#' @param x_pos,z_pos The position of the corner of the terrain.
+#' @param width,height,length The dimensions of the terrain tile, in linear units.
+#' @param heightmap_resolution The resolution of the heightmap image.
+#' @param texture_path Optional: the file path to the image to use as a terrain
+#' overlay.
 #'
 #' @export
 create_terrain <- function(script,

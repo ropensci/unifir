@@ -25,6 +25,17 @@ by an `add_prop_*` function.}
 \item{method_name}{The internal name to use for the C# method created. Will
 be randomly generated if not set.}
 
+\item{heightmap_path}{The file path to the heightmap to import as terrain.}
+
+\item{x_pos, z_pos}{The position of the corner of the terrain.}
+
+\item{width, height, length}{The dimensions of the terrain tile, in linear units.}
+
+\item{heightmap_resolution}{The resolution of the heightmap image.}
+
+\item{texture_path}{Optional: the file path to the image to use as a terrain
+overlay.}
+
 \item{exec}{Logical: Should the C# method be included in the set executed by
 MainFunc?}
 }

@@ -4,13 +4,13 @@
 \alias{import_asset}
 \title{Import assets into Unity.}
 \usage{
-import_asset(script, package, lazy = TRUE)
+import_asset(script, asset_path, lazy = TRUE)
 }
 \arguments{
 \item{script}{A `unifir_script` object, created by [make_script] or returned
 by an `add_prop_*` function.}
 
-\item{package}{The file path to the asset to import. If a directory, the
+\item{asset_path}{The file path to the asset to import. If a directory, the
 entire directory will be recursively copied.}
 
 \item{lazy}{Boolean: if TRUE, unifir will attempt to only copy the files
