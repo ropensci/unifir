@@ -11,6 +11,12 @@
       if (!("waiver" %in% class(prop_file))) {
         stopifnot(is.character(prop_file), length(prop_file) == 1, file.exists(prop_file))
       }
+      if (is.null(method_name)) {
+        method_name <- proceduralnames::make_english_names(n = 1,
+                                                           n_words = 2,
+                                                           sep = '',
+                                                           case = "title")
+      }
       stopifnot(is.character(method_name), length(method_name) == 1)
       stopifnot(is.character(method_type), length(method_type) == 1)
 
