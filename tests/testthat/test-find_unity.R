@@ -76,11 +76,6 @@ test_that("find_unity behaves as expected when (not) checking paths", {
     }
   )
 
-  expect_error(
-    find_unity(check_path = FALSE),
-    NA
-  )
-
   Sys.setenv("unifir_unity_path" = "")
   options("unifir_unity_path" = NULL)
 })
