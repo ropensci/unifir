@@ -74,8 +74,8 @@ test_that("load_png actions as expected", {
   actual <- tempfile()
   expected <- tempfile()
 
-  writeLines(outcome$props[[1]], actual)
-  writeLines("    private static Texture2D LoadTest(string imagePath){\n        Texture2D texture = null;\n        byte[] imgData;\n\n        imgData = File.ReadAllBytes(imagePath);\n        texture = new Texture2D(2, 2);\n        texture.LoadImage(imgData);\n\n        return texture;\n    }\n", #nolint
+  writeLines(gsub(" ", "", outcome$props[[1]]), actual)
+  writeLines(gsub(" ", "", "    private static Texture2D LoadTest(string imagePath){\n        Texture2D texture = null;\n        byte[] imgData;\n\n        imgData = File.ReadAllBytes(imagePath);\n        texture = new Texture2D(2, 2);\n        texture.LoadImage(imgData);\n\n        return texture;\n    }\n"), #nolint
              expected)
 
 

@@ -79,8 +79,8 @@ test_that("validate_single_path actions as expected", {
   actual <- tempfile()
   expected <- tempfile()
 
-  writeLines(outcome$props[[1]], actual)
-  writeLines("    static void ValidPath(string file_path) {\n        if(File.Exists(file_path) == false){\n            throw new ArgumentException(\"Could not find file: \" + file_path);\n        }\n    }\n", # nolint
+  writeLines(gsub(" ", "", outcome$props[[1]]), actual)
+  writeLines(gsub(" ", "", "    static void ValidPath(string file_path) {\n        if(File.Exists(file_path) == false){\n            throw new ArgumentException(\"Could not find file: \" + file_path);\n        }\n    }\n"), # nolint
              expected)
 
 
@@ -176,8 +176,8 @@ test_that("validate_single_path actions as expected", {
   actual <- tempfile()
   expected <- tempfile()
 
-  writeLines(outcome$props[[1]], actual)
-  writeLines("    static void InstantTest() {\n        if(File.Exists(\"junk_string\") == false){\n            throw new ArgumentException(\"Could not find file: junk_string\");\n        }\n    }\n", # nolint
+  writeLines(gsub(" ", "", outcome$props[[1]]), actual)
+  writeLines(gsub(" ", "", "    static void InstantTest() {\n        if(File.Exists(\"junk_string\") == false){\n            throw new ArgumentException(\"Could not find file: junk_string\");\n        }\n    }\n"), # nolint
              expected)
 
 
