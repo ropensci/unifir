@@ -11,3 +11,4 @@ zion
 ^pkgdown$
 ^\.github$
 ^codecov\.yml$
+^\.covrignore$

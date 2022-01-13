@@ -24,15 +24,6 @@ test_that("make_script always produces the same script", {
     names(saved_script$beats)
   )
 
-  example_init <- example_script$initialize
-  saved_init <- saved_script$initialize
-  environment(example_init) <- environment(saved_init) <- environment()
-  expect_identical(
-    example_init,
-    saved_init
-  )
-  rm(example_init, saved_init)
-
   expect_equal(
     nrow(example_script$beats),
     0
@@ -81,4 +72,28 @@ test_that("make_script always produces the same script", {
   )
 
   rm(example_script, saved_script)
+})
+
+test_that("initalize methods are stable", {
+  skip_on_covr()
+
+  example_script <- make_script(
+    project = "test_project",
+    script_name = "test_script",
+    scene_name = "test_scene",
+    unity = find_unity("junk_string", FALSE),
+    initialize_project = NULL
+  )
+
+  saved_script <- readRDS("testdata/example_script.rds")
+
+  example_init <- example_script$initialize
+  saved_init <- saved_script$initialize
+  environment(example_init) <- environment(saved_init) <- environment()
+  expect_identical(
+    example_init,
+    saved_init
+  )
+  rm(example_init, saved_init)
+
 })

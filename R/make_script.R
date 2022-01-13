@@ -42,10 +42,6 @@ make_script <- function(project,
   script
 }
 
-# Code coverage was potentially causing CI issues
-# This does no checking beyond enforcing types
-# so I think this is fine
-# nocov start
 .unifir_script <- R6::R6Class(
   "unifir_script",
   list(
@@ -84,4 +80,3 @@ make_script <- function(project,
     }
   )
 )
-# nocov end
