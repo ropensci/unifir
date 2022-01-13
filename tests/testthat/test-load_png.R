@@ -64,14 +64,25 @@ test_that("load_png adds a prop as expected", {
 })
 
 test_that("load_png actions as expected", {
+
   Sys.setenv("unifir_debugmode" = "true")
   script <- readRDS("testdata/example_script.rds")
   script <- load_png(script = script, method_name = "LoadTest")
 
   outcome <- action(script)
 
+  actual <- tempfile()
+  expected <- tempfile()
+
+  writeLines(outcome$props[[1]], actual)
+  writeLines("    private static Texture2D LoadTest(string imagePath){\n        Texture2D texture = null;\n        byte[] imgData;\n\n        imgData = File.ReadAllBytes(imagePath);\n        texture = new Texture2D(2, 2);\n        texture.LoadImage(imgData);\n\n        return texture;\n    }\n", #nolint
+             expected)
+
+
   expect_identical(
-    outcome$props[[1]],
-    "    private static Texture2D LoadTest(string imagePath){\n        Texture2D texture = null;\n        byte[] imgData;\n\n        imgData = File.ReadAllBytes(imagePath);\n        texture = new Texture2D(2, 2);\n        texture.LoadImage(imgData);\n\n        return texture;\n    }\n" # nolint
+    readLines(actual),
+    readLines(expected)
   )
+
+  rm(script, outcome)
 })

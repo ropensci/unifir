@@ -76,10 +76,21 @@ test_that("validate_single_path actions as expected", {
 
   outcome <- action(script)
 
+  actual <- tempfile()
+  expected <- tempfile()
+
+  writeLines(outcome$props[[1]], actual)
+  writeLines("    static void ValidPath(string file_path) {\n        if(File.Exists(file_path) == false){\n            throw new ArgumentException(\"Could not find file: \" + file_path);\n        }\n    }\n", # nolint
+             expected)
+
+
   expect_identical(
-    outcome$props[[1]],
-    "    static void ValidPath(string file_path) {\n        if(File.Exists(file_path) == false){\n            throw new ArgumentException(\"Could not find file: \" + file_path);\n        }\n    }\n" # nolint
+    readLines(actual),
+    readLines(expected)
   )
+
+  rm(script, outcome)
+
 })
 
 test_that("validate_single_path adds a prop as expected", {
@@ -162,8 +173,19 @@ test_that("validate_single_path actions as expected", {
 
   outcome <- action(script)
 
+  actual <- tempfile()
+  expected <- tempfile()
+
+  writeLines(outcome$props[[1]], actual)
+  writeLines("    static void InstantTest() {\n        if(File.Exists(\"junk_string\") == false){\n            throw new ArgumentException(\"Could not find file: junk_string\");\n        }\n    }\n", # nolint
+             expected)
+
+
   expect_identical(
-    outcome$props[[1]],
-    "    static void InstantTest() {\n        if(File.Exists(\"junk_string\") == false){\n            throw new ArgumentException(\"Could not find file: junk_string\");\n        }\n    }\n" # nolint
+    readLines(actual),
+    readLines(expected)
   )
+
+  rm(script, outcome)
+
 })
