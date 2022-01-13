@@ -13,7 +13,7 @@
       }
       if (is.null(method_name)) {
         method_name <- proceduralnames::make_english_names(n = 1,
-                                                           n_words = 2,
+                                                           n_words = 4,
                                                            sep = '',
                                                            case = "title")
       }

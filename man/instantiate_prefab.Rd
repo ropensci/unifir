@@ -7,8 +7,8 @@
 instantiate_prefab(
   script,
   method_name = NULL,
-  prefab_path,
   destination_scene = NULL,
+  prefab_path,
   x_position = 0,
   y_position = 0,
   z_position = 0,
@@ -28,12 +28,12 @@ by an `add_prop_*` function.}
 \item{method_name}{The internal name to use for the C# method created. Will
 be randomly generated if not set.}
 
+\item{destination_scene}{Optionally, the scene to instantiate the prefabs
+in. Ignored if NULL, the default.}
+
 \item{prefab_path}{File path to the prefab to be instantiated. This should
 be relative to the Unity project root directory, and likely begins with
 "Assets".}
-
-\item{destination_scene}{Optionally, the scene to instantiate the prefabs
-in. Ignored if NULL, the default.}
 
 \item{x_position, y_position, z_position}{The position of the GameObject in
 world space.}
@@ -48,5 +48,9 @@ create, as Euler angles.}
 MainFunc?}
 }
 \description{
-Add a prefab to a Unity scene
+This function creates objects (specifically, prefabs) within a Unity scene.
+This function is vectorized over all functions from `prefab_path` through
+`z_rotation`; to add multiple objects, simply provide vectors to each
+argument. Note that all arguments will be automatically recycled if not the
+same length; this may produce undesired results.
 }

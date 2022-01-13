@@ -4,8 +4,8 @@
 #' @param asset_path The file path to the asset to import. If a directory, the
 #' entire directory will be recursively copied.
 #' @param lazy Boolean: if TRUE, unifir will attempt to only copy the files
-#' once; if FALSE, unifir will copy the files as many times as requested,
-#' overwriting pre-existing files each time.
+#' once per run of a script; if FALSE, unifir will copy the files as many times as
+#' requested, overwriting pre-existing files each time.
 #'
 #' @return `script` with a new prop.
 #'
@@ -31,14 +31,15 @@ import_asset <- function(script,
         asset_path = asset_path
       ),
       build = function(script, prop) {
+        asset_dir <- file.path(
+          script$project,
+          "Assets",
+          basename(prop$parameters$asset_path)
+        )
 
-        if (dir.exists(prop$parameters$asset_path)) {
+        if (!dir.exists(asset_dir)) {
           dir.create(
-            file.path(
-              script$project,
-              "Assets",
-              basename(prop$parameters$asset_path)
-            ),
+            asset_dir,
             recursive = TRUE
           )
         }
