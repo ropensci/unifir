@@ -19,7 +19,6 @@ make_script <- function(project,
                         scene_name = NULL,
                         unity = find_unity(),
                         initialize_project = NULL) {
-
   script <- .unifir_script$new(
     project = project,
     script_name = script_name,
@@ -28,10 +27,12 @@ make_script <- function(project,
     unity = unity,
     initialize_project = initialize_project,
     props = list(),
-    beats = data.frame(idx = numeric(0),
-                       name = character(0),
-                       type = character(0),
-                       exec = logical(0)),
+    beats = data.frame(
+      idx = numeric(0),
+      name = character(0),
+      type = character(0),
+      exec = logical(0)
+    ),
     using = character(0)
   )
 
@@ -58,10 +59,12 @@ make_script <- function(project,
                           unity = find_unity(),
                           initialize_project = NULL,
                           props = list(),
-                          beats = data.frame(idx = numeric(0),
-                                             name = character(0),
-                                             type = character(0),
-                                             exec = logical(0)),
+                          beats = data.frame(
+                            idx = numeric(0),
+                            name = character(0),
+                            type = character(0),
+                            exec = logical(0)
+                          ),
                           using = character(0)) {
       self$project <- project
       self$script_name <- script_name
@@ -74,4 +77,4 @@ make_script <- function(project,
       self$using <- using
     }
   )
-  )
+)

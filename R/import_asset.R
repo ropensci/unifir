@@ -21,8 +21,7 @@ import_asset <- function(script,
   stopifnot(file.exists(asset_path))
 
   if (!lazy ||
-      !any(asset_path %in% script$beats$name)) {
-
+    !any(asset_path %in% script$beats$name)) {
     prop <- unifir_prop(
       prop_file = waiver(),
       method_name = asset_path,
@@ -55,15 +54,12 @@ import_asset <- function(script,
         )
 
         return("") # Don't add any text to the script
-
       },
       using = character(0)
     )
 
     add_prop(script, prop, FALSE)
-
   } else {
     script
   }
-
 }

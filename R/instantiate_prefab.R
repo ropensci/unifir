@@ -36,7 +36,6 @@ instantiate_prefab <- function(script,
                                y_rotation = 0,
                                z_rotation = 0,
                                exec = TRUE) {
-
   if (!is.null(destination_scene)) {
     destination_scene <- paste0(", ", destination_scene)
   } else {
@@ -63,7 +62,6 @@ instantiate_prefab <- function(script,
       )
     ),
     build = function(script, prop) {
-
       manifest_path <- file.path(
         script$project,
         paste0(

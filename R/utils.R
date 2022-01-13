@@ -24,7 +24,6 @@ create_if_not <- function(path, recur = FALSE) {
 #'
 #' @export
 add_prop <- function(script, prop, exec = TRUE) {
-
   stopifnot(is.logical(exec))
 
   idx <- nrow(script$beats) + 1
@@ -37,7 +36,6 @@ add_prop <- function(script, prop, exec = TRUE) {
   script$beats[idx, ]$exec <- exec
   script$using <- c(script$using, prop$using)
   script
-
 }
 
 #' A waiver object.
@@ -52,6 +50,5 @@ add_prop <- function(script, prop, exec = TRUE) {
 #'
 #' @examples
 #' waiver()
-#'
 #' @export
 waiver <- function() structure(list(), class = "waiver")

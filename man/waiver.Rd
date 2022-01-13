@@ -15,7 +15,6 @@ elsewhere in the script for an acceptable value.
 }
 \examples{
 waiver()
-
 }
 \references{
 H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York, 2016.

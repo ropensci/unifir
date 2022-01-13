@@ -52,5 +52,7 @@ This function creates objects (specifically, prefabs) within a Unity scene.
 This function is vectorized over all functions from `prefab_path` through
 `z_rotation`; to add multiple objects, simply provide vectors to each
 argument. Note that all arguments will be automatically recycled if not the
-same length; this may produce undesired results.
+same length; this may produce undesired results. This function is only
+capable of altering a single scene at once -- call the function multiple
+times if you need to manipulate multiple scenes.
 }

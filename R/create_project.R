@@ -13,7 +13,6 @@
 create_unity_project <- function(path,
                                  quit = TRUE,
                                  unity = NULL) {
-
   if (is.null(unity)) {
     unity <- find_unity()
   }
@@ -30,5 +29,4 @@ create_unity_project <- function(path,
 
   if (output != "0") stop(output)
   invisible(TRUE)
-
 }

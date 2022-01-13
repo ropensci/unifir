@@ -18,13 +18,15 @@ create_terrain <- function(script,
                            height,
                            length,
                            heightmap_resolution,
-                           texture_path = '',
+                           texture_path = "",
                            exec = TRUE) {
   if (is.null(method_name)) {
-    method_name <- proceduralnames::make_english_names(n = 1,
-                                                       n_words = 2,
-                                                       sep = '',
-                                                       case = "title")
+    method_name <- proceduralnames::make_english_names(
+      n = 1,
+      n_words = 2,
+      sep = "",
+      case = "title"
+    )
   }
 
   if (any(script$beats$type == "AddTexture")) {

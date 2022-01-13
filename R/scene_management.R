@@ -31,10 +31,12 @@ new_scene <- function(script,
   }
 
   if (is.null(method_name)) {
-    method_name <- proceduralnames::make_english_names(n = 1,
-                                                       n_words = 2,
-                                                       sep = '',
-                                                       case = "title")
+    method_name <- proceduralnames::make_english_names(
+      n = 1,
+      n_words = 2,
+      sep = "",
+      case = "title"
+    )
   }
 
   prop <- unifir_prop(
@@ -59,7 +61,6 @@ new_scene <- function(script,
   )
 
   add_prop(script, prop, exec)
-
 }
 
 #' Load a scene in a Unity project.
@@ -73,10 +74,12 @@ load_scene <- function(script,
                        method_name = NULL,
                        exec = TRUE) {
   if (is.null(method_name)) {
-    method_name <- proceduralnames::make_english_names(n = 1,
-                                                       n_words = 2,
-                                                       sep = '',
-                                                       case = "title")
+    method_name <- proceduralnames::make_english_names(
+      n = 1,
+      n_words = 2,
+      sep = "",
+      case = "title"
+    )
   }
 
   prop <- unifir_prop(
@@ -87,10 +90,11 @@ load_scene <- function(script,
       scene_name = scene_name
     ),
     build = function(script, prop) {
-
       scene_name <- if (methods::is(prop$parameters$scene_name, "waiver")) {
         script$scene_name
-      } else scene_name <- prop$parameters$scene_name
+      } else {
+        scene_name <- prop$parameters$scene_name
+      }
 
       stopifnot(!is.null(scene_name))
 
@@ -119,12 +123,13 @@ save_scene <- function(script,
                        scene_name = NULL,
                        method_name = NULL,
                        exec = TRUE) {
-
   if (is.null(method_name)) {
-    method_name <- proceduralnames::make_english_names(n = 1,
-                                                       n_words = 2,
-                                                       sep = '',
-                                                       case = "title")
+    method_name <- proceduralnames::make_english_names(
+      n = 1,
+      n_words = 2,
+      sep = "",
+      case = "title"
+    )
   }
 
   prop <- unifir_prop(
@@ -153,7 +158,6 @@ save_scene <- function(script,
   )
 
   add_prop(script, prop, exec)
-
 }
 
 #' Set a single scene to active.
@@ -170,7 +174,7 @@ set_active_scene <- function(script,
       "sceneSetups:\n- path: ",
       file.path("Assets", "Scenes", scene_name),
       ".unity\n  isLoaded: 1\n  isActive: 1\n  isSubScene: 0"
-      ),
+    ),
     file.path(script$project, "Library", "LastSceneManagerSetup.txt")
   )
 }

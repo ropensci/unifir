@@ -7,10 +7,12 @@ add_texture <- function(script,
                         method_name = NULL,
                         exec = FALSE) {
   if (is.null(method_name)) {
-    method_name <- proceduralnames::make_english_names(n = 1,
-                                                       n_words = 2,
-                                                       sep = '',
-                                                       case = "title")
+    method_name <- proceduralnames::make_english_names(
+      n = 1,
+      n_words = 2,
+      sep = "",
+      case = "title"
+    )
   }
 
   if (any(script$beats$type == "LoadPNG")) {

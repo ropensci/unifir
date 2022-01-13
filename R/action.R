@@ -8,13 +8,12 @@
 #'
 #' @export
 action <- function(script, write = TRUE, exec = TRUE, quit = TRUE) {
-
   create_project <- FALSE
   if (
     # If initialize_project is NULL and the directory is missing:
     (is.null(script$initialize_project) && !dir.exists(script$project)) ||
-    # Or if initialize_project is TRUE:
-    (!is.null(script$initialize_project) && script$initialize_project)) {
+      # Or if initialize_project is TRUE:
+      (!is.null(script$initialize_project) && script$initialize_project)) {
     # Create a unity project at that directory:
     create_unity_project(script$project, unity = script$unity)
   }
@@ -23,15 +22,17 @@ action <- function(script, write = TRUE, exec = TRUE, quit = TRUE) {
   create_if_not(scene_dir, TRUE)
   if (is.null(script$scene_name)) {
     script$scene_name <- proceduralnames::make_english_names(1,
-                                                             2,
-                                                             sep = "",
-                                                             case = "title")
+      2,
+      sep = "",
+      case = "title"
+    )
   }
   if (is.null(script$script_name)) {
     script$script_name <- proceduralnames::make_english_names(1,
-                                                              2,
-                                                              sep = "",
-                                                              case = "title")
+      2,
+      sep = "",
+      case = "title"
+    )
   }
 
   if (file.exists(file.path(scene_dir, script$scene_name))) {
@@ -44,8 +45,9 @@ action <- function(script, write = TRUE, exec = TRUE, quit = TRUE) {
     }
     script$props <- paste0(script$props, sep = "\n")
     beats <- paste0(script$beats[script$beats$exec, ]$name,
-                    "();",
-                    collapse = "\n        ")
+      "();",
+      collapse = "\n        "
+    )
   }
 
   create_if_not(file.path(script$project, "Assets", "Editor"))
@@ -94,5 +96,4 @@ action <- function(script, write = TRUE, exec = TRUE, quit = TRUE) {
   # nocov end
 
   return(invisible(script))
-
 }

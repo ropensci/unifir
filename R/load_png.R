@@ -7,10 +7,12 @@ load_png <- function(script,
                      method_name = NULL,
                      exec = FALSE) {
   if (is.null(method_name)) {
-    method_name <- proceduralnames::make_english_names(n = 1,
-                                                       n_words = 2,
-                                                       sep = '',
-                                                       case = "title")
+    method_name <- proceduralnames::make_english_names(
+      n = 1,
+      n_words = 2,
+      sep = "",
+      case = "title"
+    )
   }
 
   prop <- unifir_prop(
@@ -19,7 +21,6 @@ load_png <- function(script,
     method_type = "LoadPNG",
     parameters = list(),
     build = function(script, prop) {
-
       glue::glue(
         readChar(prop$prop_file, file.info(prop$prop_file)$size),
         .open = "%",

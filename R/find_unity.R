@@ -12,10 +12,9 @@
 #'
 #' @export
 find_unity <- function(unity = NULL) {
-
   if (is.null(unity)) unity <- Sys.getenv("unifir_unity_path")
 
-  if (unity == '') unity <- options("unifir_unity_path")[[1]]
+  if (unity == "") unity <- options("unifir_unity_path")[[1]]
 
   # Check OS standard locations...
   if (is.null(unity) || !file.exists(unity)) {
@@ -24,8 +23,10 @@ find_unity <- function(unity = NULL) {
       if (dir.exists("C:\\Program Files\\Unity\\Hub\\Editor")) {
         unity <- utils::tail(
           list.files("C:\\Program Files\\Unity\\Hub\\Editor",
-                     full.names = TRUE),
-          1)
+            full.names = TRUE
+          ),
+          1
+        )
         unity <- paste0(unity, "\\Editor\\Unity.exe")
       }
     }
@@ -50,14 +51,16 @@ find_unity <- function(unity = NULL) {
   }
 
   if (is.null(unity) || !file.exists(unity)) {
-    stop("Couldn't find Unity executable at provided path. \n",
-         "Please make sure the path provided to 'unity' is correct.")
+    stop(
+      "Couldn't find Unity executable at provided path. \n",
+      "Please make sure the path provided to 'unity' is correct."
+    )
   }
 
   if (!grepl("^\"", unity)) unity <- paste0('"', unity)
   if (!grepl("\"$", unity)) unity <- paste0(unity, '"')
 
-  if (Sys.getenv("unifir_unity_path") == '') {
+  if (Sys.getenv("unifir_unity_path") == "") {
     Sys.setenv("unifir_unity_path" = unity)
   }
 
