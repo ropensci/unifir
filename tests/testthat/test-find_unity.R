@@ -66,12 +66,12 @@ test_that("find_unity behaves as expected when (not) checking paths", {
 
   tryCatch(
     {
-      find_unity()
+      invisible(find_unity())
     },
     error = function(e) {
       expect_error(
         find_unity(),
-        "Couldn't find Unity executable at provided path. \nPlease make sure the path provided to 'unity' is correct."
+        "Couldn't find Unity executable at provided path. \\nPlease make sure the path provided to 'unity' is correct."
       )
     }
   )
