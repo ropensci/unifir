@@ -57,6 +57,13 @@ This package also integrates with other R packages to create terrain
 surfaces and game objects within scenes. This API is still unstable and
 mostly undocumented.
 
+## Code of Conduct
+
+Please note that the unifir project is released with a [Contributor Code
+of
+Conduct](https://mikemahoney218.github.io/unifir/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.
+
 ## Disclaimer
 
 These materials are not sponsored by or affiliated with Unity
