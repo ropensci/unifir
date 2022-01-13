@@ -6,3 +6,8 @@
 zion
 ^import_*
 ^terrainr\.manifest$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.github$
+^codecov\.yml$
