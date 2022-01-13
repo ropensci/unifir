@@ -13,7 +13,7 @@ get_players <- function(directory = NULL) {
   if (is.null(directory)) {
     directory <- tools::R_user_dir("unifir")
   }
-  if (!dir.exists(directory)) dir.create(directory, recursive = TRUE)
+  create_if_not(directory, TRUE)
   stopifnot(dir.exists(directory))
 
   dl <- tempfile(fileext = ".zip")

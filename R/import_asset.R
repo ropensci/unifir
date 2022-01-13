@@ -2,7 +2,8 @@
 #'
 #' @inheritParams new_scene
 #' @param asset_path The file path to the asset to import. If a directory, the
-#' entire directory will be recursively copied.
+#' entire directory will be recursively copied. Note that this function doesn't
+#' have a `method_name` argument: the `asset_path` is used as the method name.
 #' @param lazy Boolean: if TRUE, unifir will attempt to only copy the files
 #' once per run of a script; if FALSE, unifir will copy the files as many times as
 #' requested, overwriting pre-existing files each time.
@@ -27,7 +28,7 @@ import_asset <- function(script,
     prop <- unifir_prop(
       prop_file = waiver(),
       method_name = asset_path,
-      method_type = "Importasset_path",
+      method_type = "ImportAsset",
       parameters = list(
         asset_path = asset_path
       ),

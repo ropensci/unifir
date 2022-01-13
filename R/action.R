@@ -44,20 +44,18 @@ action <- function(script, write = TRUE, exec = TRUE, quit = TRUE) {
     script$scene_exists <- TRUE
   }
 
-  if (length(script$props) > 0) {
-    for (i in seq_along(script$props)) {
-      script$props[[i]] <- script$props[[i]]$build(
-        script,
-        script$props[[i]],
-        debug
-      )
-    }
-    script$props <- paste0(script$props, sep = "\n")
-    beats <- paste0(script$beats[script$beats$exec, ]$name,
-      "();",
-      collapse = "\n        "
+  for (i in seq_along(script$props)) {
+    script$props[[i]] <- script$props[[i]]$build(
+      script,
+      script$props[[i]],
+      debug
     )
   }
+  script$props <- paste0(script$props, sep = "\n")
+  beats <- paste0(script$beats[script$beats$exec, ]$name,
+    "();",
+    collapse = "\n        "
+  )
 
   if (!debug) create_if_not(file.path(script$project, "Assets", "Editor"))
 

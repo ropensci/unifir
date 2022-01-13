@@ -11,7 +11,8 @@ import_asset(script, asset_path, lazy = TRUE)
 by an `add_prop_*` function.}
 
 \item{asset_path}{The file path to the asset to import. If a directory, the
-entire directory will be recursively copied.}
+entire directory will be recursively copied. Note that this function doesn't
+have a `method_name` argument: the `asset_path` is used as the method name.}
 
 \item{lazy}{Boolean: if TRUE, unifir will attempt to only copy the files
 once per run of a script; if FALSE, unifir will copy the files as many times as
