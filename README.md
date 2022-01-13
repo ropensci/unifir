@@ -5,11 +5,18 @@
 
 <!-- badges: start -->
 
+[![License:
+MIT](https://img.shields.io/badge/license-MIT-green)](https://choosealicense.com/licenses/mit/)
+[![Project Status: WIP – Initial development is in progress, but there
+has not yet been a stable, usable release suitable for the
+public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/unifir)](https://CRAN.R-project.org/package=unifir)
 [![R-CMD-check](https://github.com/mikemahoney218/unifir/workflows/R-CMD-check/badge.svg)](https://github.com/mikemahoney218/unifir/actions)
+[![Codecov test
+coverage](https://codecov.io/gh/mikemahoney218/unifir/branch/main/graph/badge.svg)](https://app.codecov.io/gh/mikemahoney218/unifir?branch=main)
 <!-- badges: end -->
 
 unifir is a unifying API for creating and managing Unity scenes directly
