@@ -6,6 +6,8 @@
 #' @param directory Optionally, the directory to extract the downloaded models
 #' in. If NULL, the default, saves to `tools::R_user_dir("unifir")`.
 #'
+#' @family utilities
+#'
 #' @export
 get_players <- function(directory = NULL) {
   if (is.null(directory)) {
@@ -15,11 +17,11 @@ get_players <- function(directory = NULL) {
   stopifnot(dir.exists(directory))
 
   dl <- tempfile(fileext = ".zip")
-  download.file(
+  utils::download.file(
     "https://github.com/boaheck/TheFirstPerson/archive/refs/heads/master.zip",
     dl
   )
-  unzip(
+  utils::unzip(
     dl,
     exdir = directory
   )

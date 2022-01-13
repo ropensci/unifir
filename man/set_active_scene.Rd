@@ -4,14 +4,52 @@
 \alias{set_active_scene}
 \title{Set a single scene to active.}
 \usage{
-set_active_scene(script, scene_name = NULL)
+set_active_scene(script, method_name = NULL, scene_name = NULL, exec = TRUE)
 }
 \arguments{
 \item{script}{A `unifir_script` object, created by [make_script] or returned
 by an `add_prop_*` function.}
 
+\item{method_name}{The internal name to use for the C# method created. Will
+be randomly generated if not set.}
+
 \item{scene_name}{The name of the scene to set as the active scene.}
+
+\item{exec}{Logical: Should the C# method be included in the set executed by
+MainFunc?}
 }
 \description{
 Set a single scene to active.
 }
+\seealso{
+Other props: 
+\code{\link{add_default_player}()},
+\code{\link{add_light}()},
+\code{\link{add_prop}()},
+\code{\link{add_texture}()},
+\code{\link{create_terrain}()},
+\code{\link{import_asset}()},
+\code{\link{instantiate_prefab}()},
+\code{\link{load_png}()},
+\code{\link{load_scene}()},
+\code{\link{new_scene}()},
+\code{\link{read_raw}()},
+\code{\link{save_scene}()},
+\code{\link{validate_path}()}
+
+Other utilities: 
+\code{\link{add_default_player}()},
+\code{\link{add_prop}()},
+\code{\link{create_unity_project}()},
+\code{\link{find_unity}()},
+\code{\link{get_players}()},
+\code{\link{load_png}()},
+\code{\link{load_scene}()},
+\code{\link{new_scene}()},
+\code{\link{read_raw}()},
+\code{\link{save_scene}()},
+\code{\link{validate_path}()},
+\code{\link{waiver}()}
+}
+\concept{props}
+\concept{utilities}

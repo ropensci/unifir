@@ -14,3 +14,19 @@ in. If NULL, the default, saves to `tools::R_user_dir("unifir")`.}
 This is a simple helper function downloading the player prefabs stored at
 https://github.com/boaheck/TheFirstPerson .
 }
+\seealso{
+Other utilities: 
+\code{\link{add_default_player}()},
+\code{\link{add_prop}()},
+\code{\link{create_unity_project}()},
+\code{\link{find_unity}()},
+\code{\link{load_png}()},
+\code{\link{load_scene}()},
+\code{\link{new_scene}()},
+\code{\link{read_raw}()},
+\code{\link{save_scene}()},
+\code{\link{set_active_scene}()},
+\code{\link{validate_path}()},
+\code{\link{waiver}()}
+}
+\concept{utilities}

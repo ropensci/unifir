@@ -7,6 +7,8 @@
 #' once per run of a script; if FALSE, unifir will copy the files as many times as
 #' requested, overwriting pre-existing files each time.
 #'
+#' @family props
+#'
 #' @return `script` with a new prop.
 #'
 #' @export
@@ -29,29 +31,31 @@ import_asset <- function(script,
       parameters = list(
         asset_path = asset_path
       ),
-      build = function(script, prop) {
+      build = function(script, prop, debug) {
         asset_dir <- file.path(
           script$project,
           "Assets",
           basename(prop$parameters$asset_path)
         )
 
-        if (!dir.exists(asset_dir)) {
-          dir.create(
-            asset_dir,
+        if (!debug) {
+          if (!dir.exists(asset_dir)) {
+            dir.create(
+              asset_dir,
+              recursive = TRUE
+            )
+          }
+
+          file.copy(
+            asset_path,
+            file.path(
+              script$project,
+              "Assets"
+            ),
+            overwrite = TRUE,
             recursive = TRUE
           )
         }
-
-        file.copy(
-          asset_path,
-          file.path(
-            script$project,
-            "Assets"
-          ),
-          overwrite = TRUE,
-          recursive = TRUE
-        )
 
         return("") # Don't add any text to the script
       },

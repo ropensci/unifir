@@ -8,6 +8,8 @@
 #' @param texture_path Optional: the file path to the image to use as a terrain
 #' overlay.
 #'
+#' @family props
+#'
 #' @export
 create_terrain <- function(script,
                            method_name = NULL,
@@ -20,15 +22,6 @@ create_terrain <- function(script,
                            heightmap_resolution,
                            texture_path = "",
                            exec = TRUE) {
-  if (is.null(method_name)) {
-    method_name <- proceduralnames::make_english_names(
-      n = 1,
-      n_words = 2,
-      sep = "",
-      case = "title"
-    )
-  }
-
   if (any(script$beats$type == "AddTexture")) {
     add_texture_method <- utils::head(script$beats[script$beats$type == "AddTexture", ]$name, 1)
   } else {
@@ -59,7 +52,7 @@ create_terrain <- function(script,
       add_texture_method = add_texture_method,
       read_raw_method = read_raw_method
     ),
-    build = function(script, prop) {
+    build = function(script, prop, debug) {
       glue::glue(
         readChar(prop$prop_file, file.info(prop$prop_file)$size),
         .open = "%",

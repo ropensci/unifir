@@ -56,3 +56,20 @@ same length; this may produce undesired results. This function is only
 capable of altering a single scene at once -- call the function multiple
 times if you need to manipulate multiple scenes.
 }
+\seealso{
+Other props: 
+\code{\link{add_default_player}()},
+\code{\link{add_light}()},
+\code{\link{add_prop}()},
+\code{\link{add_texture}()},
+\code{\link{create_terrain}()},
+\code{\link{import_asset}()},
+\code{\link{load_png}()},
+\code{\link{load_scene}()},
+\code{\link{new_scene}()},
+\code{\link{read_raw}()},
+\code{\link{save_scene}()},
+\code{\link{set_active_scene}()},
+\code{\link{validate_path}()}
+}
+\concept{props}

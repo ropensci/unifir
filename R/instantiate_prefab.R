@@ -21,6 +21,8 @@
 #' @param x_rotation,y_rotation,z_rotation The rotation of the GameObject to
 #' create, as Euler angles.
 #'
+#' @family props
+#'
 #' @export
 instantiate_prefab <- function(script,
                                method_name = NULL,
@@ -61,7 +63,7 @@ instantiate_prefab <- function(script,
         z_rotation = z_rotation
       )
     ),
-    build = function(script, prop) {
+    build = function(script, prop, debug) {
       manifest_path <- file.path(
         script$project,
         paste0(
@@ -70,14 +72,16 @@ instantiate_prefab <- function(script,
         )
       )
 
-      utils::write.table(
-        prop$parameters$arguments,
-        manifest_path,
-        row.names = FALSE,
-        col.names = FALSE,
-        sep = "\t",
-        quote = FALSE
-      )
+      if (!debug) {
+        utils::write.table(
+          prop$parameters$arguments,
+          manifest_path,
+          row.names = FALSE,
+          col.names = FALSE,
+          sep = "\t",
+          quote = FALSE
+        )
+      }
 
       glue::glue(
         readChar(prop$prop_file, file.info(prop$prop_file)$size),

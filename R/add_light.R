@@ -9,6 +9,8 @@
 #' @param light_name The name to assign the Light object.
 #' @inheritParams instantiate_prefab
 #'
+#' @family props
+#'
 #' @export
 add_light <- function(script,
                       light_type = c(
@@ -29,7 +31,6 @@ add_light <- function(script,
                       y_rotation = -30,
                       z_rotation = 0,
                       exec = TRUE) {
-
   light_type <- light_type[[1]]
   stopifnot(light_type %in% c(
     "Directional",
@@ -55,7 +56,7 @@ add_light <- function(script,
       y_rotation = y_rotation,
       z_rotation = z_rotation
     ),
-    build = function(script, prop) {
+    build = function(script, prop, debug) {
       glue::glue(
         readChar(prop$prop_file, file.info(prop$prop_file)$size),
         .open = "%",

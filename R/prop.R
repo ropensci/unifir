@@ -23,7 +23,7 @@
       stopifnot(is.character(method_type), length(method_type) == 1)
 
       stopifnot(is.function(build))
-      stopifnot(formalArgs(build) == c("script", "prop"))
+      stopifnot(formalArgs(build) == c("script", "prop", "debug"))
 
       stopifnot(is.character(using))
 

@@ -2,19 +2,12 @@
 #'
 #' @inheritParams new_scene
 #'
+#' @family props
+#'
 #' @export
 add_texture <- function(script,
                         method_name = NULL,
                         exec = FALSE) {
-  if (is.null(method_name)) {
-    method_name <- proceduralnames::make_english_names(
-      n = 1,
-      n_words = 2,
-      sep = "",
-      case = "title"
-    )
-  }
-
   if (any(script$beats$type == "LoadPNG")) {
     loadpng_method <- utils::head(script$beats[script$beats$type == "LoadPNG", ]$name, 1)
   } else {
@@ -29,7 +22,7 @@ add_texture <- function(script,
     parameters = list(
       loadpng_method = loadpng_method
     ),
-    build = function(script, prop) {
+    build = function(script, prop, debug) {
       glue::glue(
         readChar(prop$prop_file, file.info(prop$prop_file)$size),
         .open = "%",

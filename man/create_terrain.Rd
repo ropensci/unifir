@@ -42,3 +42,20 @@ MainFunc?}
 \description{
 Create a terrain tile with optional image overlay
 }
+\seealso{
+Other props: 
+\code{\link{add_default_player}()},
+\code{\link{add_light}()},
+\code{\link{add_prop}()},
+\code{\link{add_texture}()},
+\code{\link{import_asset}()},
+\code{\link{instantiate_prefab}()},
+\code{\link{load_png}()},
+\code{\link{load_scene}()},
+\code{\link{new_scene}()},
+\code{\link{read_raw}()},
+\code{\link{save_scene}()},
+\code{\link{set_active_scene}()},
+\code{\link{validate_path}()}
+}
+\concept{props}

@@ -68,3 +68,20 @@ This function creates light objects within a Unity scene. This function can
 only add one light at a time -- call the function multiple times to add
 more than one light.
 }
+\seealso{
+Other props: 
+\code{\link{add_default_player}()},
+\code{\link{add_prop}()},
+\code{\link{add_texture}()},
+\code{\link{create_terrain}()},
+\code{\link{import_asset}()},
+\code{\link{instantiate_prefab}()},
+\code{\link{load_png}()},
+\code{\link{load_scene}()},
+\code{\link{new_scene}()},
+\code{\link{read_raw}()},
+\code{\link{save_scene}()},
+\code{\link{set_active_scene}()},
+\code{\link{validate_path}()}
+}
+\concept{props}

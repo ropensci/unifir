@@ -8,7 +8,10 @@ unity_version <- function(unity = NULL) {
   system(paste(unity, "-version"), intern = TRUE)
 }
 
-
+#' Create directory if it doesn't exist
+#'
+#' @param path The path to be created
+#' @param recur Boolean: create directories recursively?
 create_if_not <- function(path, recur = FALSE) {
   if (!dir.exists(path)) {
     dir.create(path, recursive = recur)
@@ -21,6 +24,9 @@ create_if_not <- function(path, recur = FALSE) {
 #' @param prop A [unifir_prop] object to add to the script
 #' @param exec Logical: Should the method created by the prop be called in the
 #' MainFunc method?
+#'
+#' @family props
+#' @family utilities
 #'
 #' @export
 add_prop <- function(script, prop, exec = TRUE) {
@@ -46,9 +52,23 @@ add_prop <- function(script, prop, exec = TRUE) {
 #' result in an error, while passing `waiver()` will cause the function to look
 #' elsewhere in the script for an acceptable value.
 #'
+#' @family utilities
+#'
 #' @references H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York, 2016.
 #'
 #' @examples
 #' waiver()
 #' @export
 waiver <- function() structure(list(), class = "waiver")
+
+#' Check if unifir should run in debug mode
+#'
+#' When running in debug mode, unifir will write nothing to disk.
+check_debug <- function() {
+  debug <- FALSE
+  if (Sys.getenv("unifir_debugmode") != "" ||
+    !is.null(options("unifir_debugmode")$unifir_debugmode)) {
+    debug <- TRUE
+  }
+  debug
+}

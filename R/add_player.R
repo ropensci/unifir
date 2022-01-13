@@ -1,9 +1,18 @@
 #' Add default player
 #'
+#' This function adds "player" controllers to a Unity scene. It is
+#' in effect a thin wrapper across `instantiate_prefab` to add a
+#' pre-defined player object to a specific location in a scene;
+#' however, this function will first download the player prefab if
+#' necessary and handles the default file paths.
+#'
 #' @inheritParams instantiate_prefab
 #' @inheritParams import_asset
 #' @param player_path The path to which the default player should be saved.
 #' Defaults to `tools::R_user_dir("unifir")`.
+#'
+#' @family props
+#' @family utilities
 #'
 #' @export
 add_default_player <- function(script,

@@ -8,28 +8,33 @@
 #'
 #' @export
 action <- function(script, write = TRUE, exec = TRUE, quit = TRUE) {
-  create_project <- FALSE
+  debug <- check_debug()
+  if (debug) write <- exec <- FALSE
+
+  if (!write && exec) stop("Cannot execute script without writing it!")
+
   if (
-    # If initialize_project is NULL and the directory is missing:
-    (is.null(script$initialize_project) && !dir.exists(script$project)) ||
-      # Or if initialize_project is TRUE:
-      (!is.null(script$initialize_project) && script$initialize_project)) {
+    !debug &&
+      ( # If initialize_project is NULL and the directory is missing:
+        (is.null(script$initialize_project) && !dir.exists(script$project)) ||
+          # Or if initialize_project is TRUE:
+          (!is.null(script$initialize_project) && script$initialize_project))) {
     # Create a unity project at that directory:
     create_unity_project(script$project, unity = script$unity)
   }
 
   scene_dir <- file.path(script$project, "Assets", "Scenes")
-  create_if_not(scene_dir, TRUE)
+  if (!debug) create_if_not(scene_dir, TRUE)
   if (is.null(script$scene_name)) {
     script$scene_name <- proceduralnames::make_english_names(1,
-      2,
+      4,
       sep = "",
       case = "title"
     )
   }
   if (is.null(script$script_name)) {
     script$script_name <- proceduralnames::make_english_names(1,
-      2,
+      4,
       sep = "",
       case = "title"
     )
@@ -41,7 +46,11 @@ action <- function(script, write = TRUE, exec = TRUE, quit = TRUE) {
 
   if (length(script$props) > 0) {
     for (i in seq_along(script$props)) {
-      script$props[[i]] <- script$props[[i]]$build(script, script$props[[i]])
+      script$props[[i]] <- script$props[[i]]$build(
+        script,
+        script$props[[i]],
+        debug
+      )
     }
     script$props <- paste0(script$props, sep = "\n")
     beats <- paste0(script$beats[script$beats$exec, ]$name,
@@ -50,7 +59,7 @@ action <- function(script, write = TRUE, exec = TRUE, quit = TRUE) {
     )
   }
 
-  create_if_not(file.path(script$project, "Assets", "Editor"))
+  if (!debug) create_if_not(file.path(script$project, "Assets", "Editor"))
 
   script$using <- unique(script$using)
   script$using <- paste0("using ", script$using, ";", collapse = "\n")
@@ -68,10 +77,6 @@ action <- function(script, write = TRUE, exec = TRUE, quit = TRUE) {
       ),
       file.path(script$project, "Assets", "Editor", paste0(script$script_name, ".cs"))
     )
-  }
-
-  if (!write && (write != exec)) {
-    stop("Cannot execute script without writing file")
   }
 
   # nocov start

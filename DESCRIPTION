@@ -25,7 +25,9 @@ Suggests:
     pkgdown,
     rmarkdown,
     styler,
-    testthat
+    testthat (>= 3.0.0)
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.2
+Config/testthat/edition: 3
+Config/testthat/parallel: true

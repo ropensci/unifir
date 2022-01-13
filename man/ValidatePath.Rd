@@ -5,7 +5,7 @@
 \alias{validate_single_path}
 \title{Validate a file path exists}
 \usage{
-validate_path(script, path, method_name = NULL, exec = FALSE)
+validate_path(script, method_name = NULL, exec = FALSE)
 
 validate_single_path(script, path, method_name = NULL, exec = TRUE)
 }
@@ -13,13 +13,13 @@ validate_single_path(script, path, method_name = NULL, exec = TRUE)
 \item{script}{A `unifir_script` object, created by [make_script] or returned
 by an `add_prop_*` function.}
 
-\item{path}{The file path to validate}
-
 \item{method_name}{The internal name to use for the C# method created. Will
 be randomly generated if not set.}
 
 \item{exec}{Logical: Should the C# method be included in the set executed by
 MainFunc?}
+
+\item{path}{The file path to validate}
 }
 \description{
 `validate_path` creates a generic C# method which takes a single argument
@@ -28,3 +28,35 @@ provide the path to validate.
 `validate_single_path` hard-codes the path to check in the C# code. This
 allows you to specify the path to check from R.
 }
+\seealso{
+Other props: 
+\code{\link{add_default_player}()},
+\code{\link{add_light}()},
+\code{\link{add_prop}()},
+\code{\link{add_texture}()},
+\code{\link{create_terrain}()},
+\code{\link{import_asset}()},
+\code{\link{instantiate_prefab}()},
+\code{\link{load_png}()},
+\code{\link{load_scene}()},
+\code{\link{new_scene}()},
+\code{\link{read_raw}()},
+\code{\link{save_scene}()},
+\code{\link{set_active_scene}()}
+
+Other utilities: 
+\code{\link{add_default_player}()},
+\code{\link{add_prop}()},
+\code{\link{create_unity_project}()},
+\code{\link{find_unity}()},
+\code{\link{get_players}()},
+\code{\link{load_png}()},
+\code{\link{load_scene}()},
+\code{\link{new_scene}()},
+\code{\link{read_raw}()},
+\code{\link{save_scene}()},
+\code{\link{set_active_scene}()},
+\code{\link{waiver}()}
+}
+\concept{props}
+\concept{utilities}

@@ -22,3 +22,19 @@ TRUE, invisibly.
 \description{
 Create a new Unity project.
 }
+\seealso{
+Other utilities: 
+\code{\link{add_default_player}()},
+\code{\link{add_prop}()},
+\code{\link{find_unity}()},
+\code{\link{get_players}()},
+\code{\link{load_png}()},
+\code{\link{load_scene}()},
+\code{\link{new_scene}()},
+\code{\link{read_raw}()},
+\code{\link{save_scene}()},
+\code{\link{set_active_scene}()},
+\code{\link{validate_path}()},
+\code{\link{waiver}()}
+}
+\concept{utilities}

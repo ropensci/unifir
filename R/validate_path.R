@@ -9,35 +9,25 @@
 #' @inheritParams new_scene
 #' @param path The file path to validate
 #'
+#' @family props
+#' @family utilities
+#'
 #' @rdname ValidatePath
 #' @export
 validate_path <- function(script,
-                          path,
                           method_name = NULL,
                           exec = FALSE) {
-  if (is.null(method_name)) {
-    method_name <- proceduralnames::make_english_names(
-      n = 1,
-      n_words = 2,
-      sep = "",
-      case = "title"
-    )
-  }
-
   prop <- unifir_prop(
     prop_file = system.file("ValidatePath.cs", package = "unifir"),
     method_name = method_name,
     method_type = "ValidatePath",
-    parameters = list(
-      path = path
-    ),
-    build = function(script, prop) {
+    parameters = list(),
+    build = function(script, prop, debug) {
       glue::glue(
         readChar(prop$prop_file, file.info(prop$prop_file)$size),
         .open = "%",
         .close = "%",
-        method_name = prop$method_name,
-        file_path = prop$parameters$path
+        method_name = prop$method_name
       )
     },
     using = c("System", "System.IO")
@@ -68,7 +58,7 @@ validate_single_path <- function(script,
     parameters = list(
       path = path
     ),
-    build = function(script, prop) {
+    build = function(script, prop, debug) {
       glue::glue(
         readChar(prop$prop_file, file.info(prop$prop_file)$size),
         .open = "%",

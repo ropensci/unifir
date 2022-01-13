@@ -7,9 +7,15 @@
 #' variable or option `unifir_unity_path` is set; if so, uses that path
 #' (preferring the environment variable over the option if the two disagree).
 #'
+#' @family utilities
+#'
 #' @return TRUE, invisibly.
 #'
 #' @export
+# nocov start
+# This function is not included in codecov metrics because it only runs when
+# Unity is installed, which it is not on CRAN or on GitHub Actions CI.
+# This function is tested in test-not_on_ci.R.
 create_unity_project <- function(path,
                                  quit = TRUE,
                                  unity = NULL) {
@@ -30,3 +36,4 @@ create_unity_project <- function(path,
   if (output != "0") stop(output)
   invisible(TRUE)
 }
+# nocov end

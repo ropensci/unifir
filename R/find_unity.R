@@ -7,50 +7,51 @@
 #' 2. Attempt to load the "unifir_unity_path" option.
 #'
 #' @param unity Character: If provided, this function will quote the provided
-#' string (if necessary) and return it without searching other paths (or
-#' confirming that the provided path exists).
+#' string (if necessary) and return it.
+#' @param check_path Logical: If `TRUE`, this function will check if the Unity
+#' executable provided as an argument, environment variable, or option exists.
+#' If it does not, this function will then attempt to find one, and will error
+#' if not found. If `FALSE`, this function will never error.
+#'
+#' @family utilities
 #'
 #' @export
-find_unity <- function(unity = NULL) {
+find_unity <- function(unity = NULL, check_path = TRUE) {
   if (is.null(unity)) unity <- Sys.getenv("unifir_unity_path")
 
   if (unity == "") unity <- options("unifir_unity_path")[[1]]
 
   # Check OS standard locations...
-  if (is.null(unity) || !file.exists(unity)) {
+  if (is.null(unity) || (check_path && !file.exists(unity))) {
     sysname <- tolower(Sys.info()[["sysname"]])
-    if ("windows" == sysname) {
-      if (dir.exists("C:\\Program Files\\Unity\\Hub\\Editor")) {
+
+    unity <- switch(sysname,
+      "windows" = if (dir.exists("C:\\Program Files\\Unity\\Hub\\Editor")) {
         unity <- utils::tail(
           list.files("C:\\Program Files\\Unity\\Hub\\Editor",
             full.names = TRUE
           ),
           1
         )
-        unity <- paste0(unity, "\\Editor\\Unity.exe")
-      }
-    }
-
-    if ("linux" == sysname) {
-      if (dir.exists("~/Unity/Hub/Editor")) {
+        paste0(unity, "\\Editor\\Unity.exe")
+      },
+      "linux" = if (dir.exists("~/Unity/Hub/Editor")) {
         unity <- utils::tail(list.files("~/Unity/Hub/Editor", full.names = TRUE), 1)
-        unity <- paste0(unity, "/Editor/Unity")
-      }
-    }
-
-    if ("darwin" == sysname) {
-      if (dir.exists("/Applications/Unity/Hub/Editor")) {
+        paste0(unity, "/Editor/Unity")
+      },
+      "darwin" = if (dir.exists("/Applications/Unity/Hub/Editor")) {
         # This works on at least one Mac
         unity <- utils::tail(
           list.files("/Applications/Unity/Hub/Editor", full.names = TRUE),
           1
         )
-        unity <- paste0(unity, "Unity.app/Contents/MacOS/Unity")
-      }
-    }
+        paste0(unity, "Unity.app/Contents/MacOS/Unity")
+      },
+      NULL
+    )
   }
 
-  if (is.null(unity) || !file.exists(unity)) {
+  if (is.null(unity) || (check_path && !file.exists(unity))) {
     stop(
       "Couldn't find Unity executable at provided path. \n",
       "Please make sure the path provided to 'unity' is correct."

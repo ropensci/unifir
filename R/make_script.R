@@ -13,6 +13,8 @@
 #' a Unity project at `project`. If FALSE, will not create a new project. If NULL,
 #' will create a new project if `project` does not exist.
 #'
+#' @family scripts
+#'
 #' @export
 make_script <- function(project,
                         script_name = NULL,
