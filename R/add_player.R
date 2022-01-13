@@ -8,6 +8,10 @@
 #'
 #' @inheritParams instantiate_prefab
 #' @inheritParams import_asset
+#' @param controller Which controller to use? `Player`, the default,
+#' is a simple first-person controller. `FootstepsPlayer` adds footsteps
+#' to this controller, while `JetpackPlayer` adds a "jetpack" with limited
+#' fuel. `Third Person` lets you control a small cylinder in third person.
 #' @param player_path The path to which the default player should be saved.
 #' Defaults to `tools::R_user_dir("unifir")`.
 #'
@@ -16,6 +20,10 @@
 #'
 #' @export
 add_default_player <- function(script,
+                               controller = c("Player",
+                                              "FootstepsPlayer",
+                                              "JetpackPlayer",
+                                              "Third Person"),
                                player_path = NULL,
                                lazy = TRUE,
                                method_name = NULL,
@@ -30,6 +38,14 @@ add_default_player <- function(script,
                                y_rotation = 0,
                                z_rotation = 0,
                                exec = TRUE) {
+
+  controller <- controller[[1]]
+  stopifnot(controller %in% c("Player",
+                              "FootstepsPlayer",
+                              "JetpackPlayer",
+                              "Third Person"))
+  controller <- paste0(controller, ".prefab")
+
   if (is.null(player_path)) {
     player_path <- tools::R_user_dir("unifir")
   }
@@ -48,7 +64,7 @@ add_default_player <- function(script,
     script,
     method_name = method_name,
     destination_scene = destination_scene,
-    prefab_path = file.path("Assets", "TheFirstPerson", "Prefabs", "Player.prefab"),
+    prefab_path = file.path("Assets", "TheFirstPerson", "Prefabs", controller),
     x_position = x_position,
     y_position = y_position,
     z_position = z_position,

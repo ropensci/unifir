@@ -6,6 +6,7 @@
 \usage{
 add_default_player(
   script,
+  controller = c("Player", "FootstepsPlayer", "JetpackPlayer", "Third Person"),
   player_path = NULL,
   lazy = TRUE,
   method_name = NULL,
@@ -25,6 +26,11 @@ add_default_player(
 \arguments{
 \item{script}{A `unifir_script` object, created by [make_script] or returned
 by an `add_prop_*` function.}
+
+\item{controller}{Which controller to use? `Player`, the default,
+is a simple first-person controller. `FootstepsPlayer` adds footsteps
+to this controller, while `JetpackPlayer` adds a "jetpack" with limited
+fuel. `Third Person` lets you control a small cylinder in third person.}
 
 \item{player_path}{The path to which the default player should be saved.
 Defaults to `tools::R_user_dir("unifir")`.}
