@@ -1,4 +1,4 @@
-test_that("instantiate_prefab adds a prop as expected", {
+test_that("import_asset adds a prop as expected", {
   script <- readRDS("testdata/example_script.rds")
   junk_string <- tempfile()
   file.create(junk_string)
@@ -34,11 +34,6 @@ test_that("instantiate_prefab adds a prop as expected", {
   )
 
   expect_match(
-    script$props[[1]]$method_name,
-    script$beats[1, ]$name
-  )
-
-  expect_match(
     script$props[[1]]$method_type,
     script$beats[1, ]$type
   )
@@ -68,7 +63,7 @@ test_that("instantiate_prefab adds a prop as expected", {
   rm(script)
 })
 
-test_that("instantiate_prefab actions as expected", {
+test_that("import_asset actions as expected", {
   Sys.setenv("unifir_debugmode" = "true")
   script <- readRDS("testdata/example_script.rds")
   junk_string <- tempfile()
@@ -83,8 +78,8 @@ test_that("instantiate_prefab actions as expected", {
   actual <- tempfile()
   expected <- tempfile()
 
-  writeLines(gsub(" ", "", outcome$props[[1]]), actual)
-  writeLines(gsub(" ", "", "\n"), expected)
+  writeLines(gsub(" |\\n|\\r", "", outcome$props[[1]]), actual)
+  writeLines(gsub(" |\\n|\\r", "", "\n"), expected)
 
   expect_identical(
     readLines(actual),
@@ -92,5 +87,4 @@ test_that("instantiate_prefab actions as expected", {
   )
 
   rm(script, outcome)
-
 })

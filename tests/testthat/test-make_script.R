@@ -95,5 +95,4 @@ test_that("initalize methods are stable", {
     saved_init
   )
   rm(example_init, saved_init)
-
 })

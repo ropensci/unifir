@@ -94,9 +94,11 @@ test_that("add_texture actions as expected", {
   actual <- tempfile()
   expected <- tempfile()
 
-  writeLines(gsub(" ", "", outcome$props[[2]]), actual)
-  writeLines(gsub(" ", "", "    static void TextureTest(string path, TerrainData terrainData, float width, float length)\n    {\n        Texture2D texture = LoadPNGAutoAdd(path);\n        AssetDatabase.CreateAsset(texture, \"Assets/texture_\" + path + \".asset\");\n        TerrainLayer overlay = new TerrainLayer();\n        overlay.tileSize = new Vector2(width, length);\n        overlay.diffuseTexture = texture;\n        AssetDatabase.CreateAsset(overlay, \"Assets/overlay_\" + path + \".asset\");\n        var layers = terrainData.terrainLayers;\n        int newIndex = layers.Length;\n        var newarray = new TerrainLayer[newIndex + 1];\n        Array.Copy(layers, 0, newarray, 0, newIndex);\n        newarray[newIndex] = overlay;\n        terrainData.SetTerrainLayersRegisterUndo(newarray, \"Add terrain layer\");\n    }\n"), # nolint
-             expected)
+  writeLines(gsub(" |\\n|\\r", "", outcome$props[[2]]), actual)
+  writeLines(
+    gsub(" |\\n|\\r", "", "    static void TextureTest(string path, TerrainData terrainData, float width, float length)\n    {\n        Texture2D texture = LoadPNGAutoAdd(path);\n        AssetDatabase.CreateAsset(texture, \"Assets/texture_\" + path + \".asset\");\n        TerrainLayer overlay = new TerrainLayer();\n        overlay.tileSize = new Vector2(width, length);\n        overlay.diffuseTexture = texture;\n        AssetDatabase.CreateAsset(overlay, \"Assets/overlay_\" + path + \".asset\");\n        var layers = terrainData.terrainLayers;\n        int newIndex = layers.Length;\n        var newarray = new TerrainLayer[newIndex + 1];\n        Array.Copy(layers, 0, newarray, 0, newIndex);\n        newarray[newIndex] = overlay;\n        terrainData.SetTerrainLayersRegisterUndo(newarray, \"Add terrain layer\");\n    }\n"), # nolint
+    expected
+  )
 
 
   expect_identical(
@@ -105,5 +107,4 @@ test_that("add_texture actions as expected", {
   )
 
   rm(script, outcome)
-
 })

@@ -6,7 +6,8 @@ test_that("unifir_prop generates method names", {
       method_type = "TestMethod",
       parameters = list(),
       build = function(script, prop, debug) {},
-      using = character(0)),
+      using = character(0)
+    ),
     NA
   )
 })

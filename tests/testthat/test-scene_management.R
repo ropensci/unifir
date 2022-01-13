@@ -82,9 +82,11 @@ test_that("new_scene actions as expected", {
   actual <- tempfile()
   expected <- tempfile()
 
-  writeLines(gsub(" ", "", outcome$props[[1]]), actual)
-  writeLines(gsub(" ", "", "    static void NewSceneTest() {\n        var newScene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Additive);\n    }\n"), # nolint
-             expected)
+  writeLines(gsub(" |\\n|\\r", "", outcome$props[[1]]), actual)
+  writeLines(
+    gsub(" |\\n|\\r", "", "    static void NewSceneTest() {\n        var newScene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Additive);\n    }\n"), # nolint
+    expected
+  )
 
 
   expect_identical(
@@ -93,7 +95,6 @@ test_that("new_scene actions as expected", {
   )
 
   rm(script, outcome)
-
 })
 
 test_that("load_scene adds a prop as expected", {
@@ -181,9 +182,11 @@ test_that("load_scene actions as expected", {
   actual <- tempfile()
   expected <- tempfile()
 
-  writeLines(gsub(" ", "", outcome$props[[1]]), actual)
-  writeLines(gsub(" ", "", "    static void LoadSceneTest() {\n        EditorSceneManager.OpenScene(\"Assets/Scenes/junk_string.unity\");\n    }\n"), # nolint
-             expected)
+  writeLines(gsub(" |\\n|\\r", "", outcome$props[[1]]), actual)
+  writeLines(
+    gsub(" |\\n|\\r", "", "    static void LoadSceneTest() {\n        EditorSceneManager.OpenScene(\"Assets/Scenes/junk_string.unity\");\n    }\n"), # nolint
+    expected
+  )
 
 
   expect_identical(
@@ -192,7 +195,6 @@ test_that("load_scene actions as expected", {
   )
 
   rm(script, outcome)
-
 })
 
 test_that("save_scene adds a prop as expected", {
@@ -280,9 +282,11 @@ test_that("save_scene actions as expected", {
   actual <- tempfile()
   expected <- tempfile()
 
-  writeLines(gsub(" ", "", outcome$props[[1]]), actual)
-  writeLines(gsub(" ", "", "    static void SceneTest() {\n        bool saveOK = EditorSceneManager.SaveScene(EditorSceneManager.GetActiveScene(), \"Assets/Scenes/junk_string.unity\");\n    }\n"), # nolint
-             expected)
+  writeLines(gsub(" |\\n|\\r", "", outcome$props[[1]]), actual)
+  writeLines(
+    gsub(" |\\n|\\r", "", "    static void SceneTest() {\n        bool saveOK = EditorSceneManager.SaveScene(EditorSceneManager.GetActiveScene(), \"Assets/Scenes/junk_string.unity\");\n    }\n"), # nolint
+    expected
+  )
 
 
   expect_identical(
@@ -291,7 +295,6 @@ test_that("save_scene actions as expected", {
   )
 
   rm(script, outcome)
-
 })
 
 test_that("set_active_scene adds a prop as expected", {
@@ -379,9 +382,11 @@ test_that("set_active_scene actions as expected", {
   actual <- tempfile()
   expected <- tempfile()
 
-  writeLines(gsub(" ", "", outcome$props[[1]]), actual)
-  writeLines(gsub(" ", "", "\n"), # nolint
-             expected)
+  writeLines(gsub(" |\\n|\\r", "", outcome$props[[1]]), actual)
+  writeLines(
+    gsub(" |\\n|\\r", "", "\n"), # nolint
+    expected
+  )
 
 
   expect_identical(
@@ -390,6 +395,4 @@ test_that("set_active_scene actions as expected", {
   )
 
   rm(script, outcome)
-
 })
-

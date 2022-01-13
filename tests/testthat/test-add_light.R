@@ -1,4 +1,4 @@
-test_that("instantiate_prefab adds a prop as expected", {
+test_that("add_light adds a prop as expected", {
   script <- readRDS("testdata/example_script.rds")
   script <- add_light(
     script = script,
@@ -78,7 +78,7 @@ test_that("instantiate_prefab adds a prop as expected", {
   rm(script)
 })
 
-test_that("instantiate_prefab actions as expected", {
+test_that("add_light actions as expected", {
   Sys.setenv("unifir_debugmode" = "true")
   script <- readRDS("testdata/example_script.rds")
   script <- add_light(
@@ -91,9 +91,11 @@ test_that("instantiate_prefab actions as expected", {
   actual <- tempfile()
   expected <- tempfile()
 
-  writeLines(gsub(" ", "", outcome$props[[1]]), actual)
-  writeLines(gsub(" ", "", "     static void LightTest()\n     {\n        GameObject lightGameObject = new GameObject(\"Light\");\n        lightGameObject.transform.position = new Vector3(0, 0, 0);\n        lightGameObject.transform.localScale = new Vector3(1, 1, 1);\n        lightGameObject.transform.eulerAngles = new Vector3(50, -30, 0);\n\n        Light lightComp = lightGameObject.AddComponent<Light>();\n        lightComp.type = LightType.Directional;\n     }\n"), # nolint
-             expected)
+  writeLines(gsub(" |\\n|\\r", "", outcome$props[[1]]), actual)
+  writeLines(
+    gsub(" |\\n|\\r", "", "     static void LightTest()\n     {\n        GameObject lightGameObject = new GameObject(\"Light\");\n        lightGameObject.transform.position = new Vector3(0, 0, 0);\n        lightGameObject.transform.localScale = new Vector3(1, 1, 1);\n        lightGameObject.transform.eulerAngles = new Vector3(50, -30, 0);\n\n        Light lightComp = lightGameObject.AddComponent<Light>();\n        lightComp.type = LightType.Directional;\n     }\n"), # nolint
+    expected
+  )
 
 
   expect_identical(
@@ -102,5 +104,4 @@ test_that("instantiate_prefab actions as expected", {
   )
 
   rm(script, outcome)
-
 })

@@ -80,8 +80,10 @@ test_that("read_raw actions as expected", {
   expected <- tempfile()
 
   writeLines(gsub(" ", "", outcome$props[[1]]), actual)
-  writeLines(gsub(" ", "", "    static float[,] RawTest(string path, int heightmapResolution)\n    {\n        byte[] data;\n        using (BinaryReader br = new BinaryReader(File.Open(path, FileMode.Open, FileAccess.Read)))\n        {\n            data = br.ReadBytes(heightmapResolution * heightmapResolution * (int)2);\n            br.Close();\n        }\n\n        float[,] heights = new float[heightmapResolution, heightmapResolution];\n\n            float normalize = 1.0F / (1 << 16);\n            for (int y = 0; y < heightmapResolution; ++y)\n            {\n                for (int x = 0; x < heightmapResolution; ++x)\n                {\n                    int index = Mathf.Clamp(x, 0, heightmapResolution - 1) + Mathf.Clamp(y, 0, heightmapResolution - 1) * heightmapResolution;\n                    ushort compressedHeight = System.BitConverter.ToUInt16(data, index * 2);\n                    float height = compressedHeight * normalize;\n                    heights[y, x] = height;\n                }\n            }\n\n        return heights;\n    }\n"), # nolint
-             expected)
+  writeLines(
+    gsub(" ", "", "    static float[,] RawTest(string path, int heightmapResolution)\n    {\n        byte[] data;\n        using (BinaryReader br = new BinaryReader(File.Open(path, FileMode.Open, FileAccess.Read)))\n        {\n            data = br.ReadBytes(heightmapResolution * heightmapResolution * (int)2);\n            br.Close();\n        }\n\n        float[,] heights = new float[heightmapResolution, heightmapResolution];\n\n            float normalize = 1.0F / (1 << 16);\n            for (int y = 0; y < heightmapResolution; ++y)\n            {\n                for (int x = 0; x < heightmapResolution; ++x)\n                {\n                    int index = Mathf.Clamp(x, 0, heightmapResolution - 1) + Mathf.Clamp(y, 0, heightmapResolution - 1) * heightmapResolution;\n                    ushort compressedHeight = System.BitConverter.ToUInt16(data, index * 2);\n                    float height = compressedHeight * normalize;\n                    heights[y, x] = height;\n                }\n            }\n\n        return heights;\n    }\n"), # nolint
+    expected
+  )
 
 
   expect_identical(
@@ -90,5 +92,4 @@ test_that("read_raw actions as expected", {
   )
 
   rm(script, outcome)
-
 })

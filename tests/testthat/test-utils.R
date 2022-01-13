@@ -15,5 +15,4 @@ test_that("create_if_not works", {
     ),
     NA
   )
-
 })

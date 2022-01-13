@@ -37,7 +37,6 @@ test_that("create_terrain adds a prop as expected", {
   expect_true(
     "waiver" %in% class(script$props[[4]]$prop_file) ||
       file.exists(script$props[[4]]$prop_file)
-
   )
 
   expect_match(
@@ -107,9 +106,11 @@ test_that("create_terrain actions as expected", {
   actual <- tempfile()
   expected <- tempfile()
 
-  writeLines(gsub(" ", "", outcome$props[[4]]), actual)
-  writeLines(gsub(" ", "", "static void TerrainTest()\n{\n    string heightmapPath = \"heightmap_test\";\n    float x_pos = 0F;\n    float z_pos = 0F;\n    float width = 4097F;\n    float height = 4097F;\n    float length = 4097F;\n    int heightmapResolution = 4097;\n    string texturePath = \"texture_test\";\n\n    TerrainData terrainData = new TerrainData();\n    terrainData.size = new Vector3(width / 128, height, length / 128);\n    terrainData.heightmapResolution = heightmapResolution;\n\n    GameObject terrain = (GameObject)Terrain.CreateTerrainGameObject(terrainData);\n    terrain.transform.position = new Vector3(x_pos, 0, z_pos);\n    float [,] heights = ReadRawAutoAdd(heightmapPath, heightmapResolution);\n    terrainData.SetHeights(0, 0, heights);\n    if(texturePath != string.Empty){\n        AddTextureAutoAdd(texturePath, terrainData, width, length);\n    }\n    AssetDatabase.CreateAsset(terrainData, \"Assets/\" + heightmapPath + \".asset\");\n}\n"), # nolint
-             expected)
+  writeLines(gsub(" |\\n|\\r", "", outcome$props[[4]]), actual)
+  writeLines(
+    gsub(" |\\n|\\r", "", "static void TerrainTest()\n{\n    string heightmapPath = \"heightmap_test\";\n    float x_pos = 0F;\n    float z_pos = 0F;\n    float width = 4097F;\n    float height = 4097F;\n    float length = 4097F;\n    int heightmapResolution = 4097;\n    string texturePath = \"texture_test\";\n\n    TerrainData terrainData = new TerrainData();\n    terrainData.size = new Vector3(width / 128, height, length / 128);\n    terrainData.heightmapResolution = heightmapResolution;\n\n    GameObject terrain = (GameObject)Terrain.CreateTerrainGameObject(terrainData);\n    terrain.transform.position = new Vector3(x_pos, 0, z_pos);\n    float [,] heights = ReadRawAutoAdd(heightmapPath, heightmapResolution);\n    terrainData.SetHeights(0, 0, heights);\n    if(texturePath != string.Empty){\n        AddTextureAutoAdd(texturePath, terrainData, width, length);\n    }\n    AssetDatabase.CreateAsset(terrainData, \"Assets/\" + heightmapPath + \".asset\");\n}\n"), # nolint
+    expected
+  )
 
   expect_identical(
     readLines(actual),
@@ -117,5 +118,4 @@ test_that("create_terrain actions as expected", {
   )
 
   rm(script, outcome)
-
 })

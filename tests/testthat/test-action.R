@@ -6,7 +6,6 @@ test_that("action fails as expected", {
   )
   # be very, very sure to not delete this:
   Sys.setenv("unifir_debugmode" = "true")
-
 })
 
 test_that("action will generate names as needed", {
@@ -52,5 +51,4 @@ test_that("action will create project directories", {
 
   # be very, very sure to not delete this:
   Sys.setenv("unifir_debugmode" = "true")
-
 })
