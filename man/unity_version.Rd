@@ -15,3 +15,9 @@ variable or option `unifir_unity_path` is set; if so, uses that path
 \description{
 Print the version of the Unity Editor in use.
 }
+\examples{
+try(
+  unity_version()
+)
+
+}

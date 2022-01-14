@@ -2,6 +2,11 @@
 #'
 #' @inheritParams create_unity_project
 #'
+#' @examples
+#' try(
+#'   unity_version()
+#' )
+#'
 #' @export
 unity_version <- function(unity = NULL) {
   if (is.null(unity)) unity <- find_unity()

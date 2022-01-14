@@ -7,15 +7,18 @@
 #' @param quit Boolean: Quit Unity after execution?
 #'
 #' @examples
-#' ## First, create a script object:
-#' script <- make_script("example_script")
+#' # First, create a script object.
+#' # CRAN doesn't have Unity installed, so pass
+#' # a waiver object to skip the Unity-lookup stage:
+#' script <- make_script("example_script",
+#'                       unity = waiver())
 #'
-#' ## Then add any number of props to it:
+#' # Then add any number of props to it:
 #' script <- add_light(script)
 #'
-#' ## Then call `action` to execute the script!
+#' # Then call `action` to execute the script!
 #'
-#' if (FALSE) { # Avoid accidentally creating Unity projects on your computer
+#' if (interactive()) {
 #'   action(script)
 #' }
 #'

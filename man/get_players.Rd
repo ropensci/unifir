@@ -16,9 +16,8 @@ https://github.com/boaheck/TheFirstPerson .
 }
 \examples{
 
-if (FALSE) { # This function downloads data over the internet,
-             # so we won't run it during examples
-  get_players()
+if (interactive()) {
+  get_players(directory = tempdir())
 }
 
 }

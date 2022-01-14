@@ -83,13 +83,16 @@ however, this function will first download the player prefab if
 necessary and handles the default file paths.
 }
 \examples{
-## First make a new script object:
-script <- make_script("example_project")
+# First, create a script object.
+# CRAN doesn't have Unity installed, so pass
+# a waiver object to skip the Unity-lookup stage:
+script <- make_script("example_script",
+                      unity = waiver())
 
-## Then add a player controller:
+# Now add props:
 script <- add_default_player(script)
 
-## Lastly, execute the script via the `action` function
+# Lastly, execute the script via the `action` function
 
 }
 \seealso{

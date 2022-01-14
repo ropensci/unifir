@@ -14,7 +14,9 @@
 #' if not found. If `FALSE`, this function will never error.
 #'
 #' @examples
-#' try(find_unity())
+#' if (interactive()) {
+#'   try(find_unity())
+#' }
 #'
 #' @family utilities
 #'

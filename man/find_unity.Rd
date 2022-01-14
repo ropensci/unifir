@@ -24,7 +24,9 @@ to attempt to find it. To do so, it goes through the following steps:
 2. Attempt to load the "unifir_unity_path" option.
 }
 \examples{
-try(find_unity())
+if (interactive()) {
+  try(find_unity())
+}
 
 }
 \seealso{

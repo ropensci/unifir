@@ -68,6 +68,19 @@ This function creates light objects within a Unity scene. This function can
 only add one light at a time -- call the function multiple times to add
 more than one light.
 }
+\examples{
+# First, create a script object.
+# CRAN doesn't have Unity installed, so pass
+# a waiver object to skip the Unity-lookup stage:
+script <- make_script("example_script",
+                      unity = waiver())
+
+# Now add props:
+script <- add_light(script)
+
+# Lastly, execute the script via the `action` function
+
+}
 \seealso{
 Other props: 
 \code{\link{add_default_player}()},
