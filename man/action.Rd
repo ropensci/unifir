@@ -19,3 +19,17 @@ that if `write = FALSE`, `exec` cannot be `TRUE`.}
 \description{
 Build and execute a `unifir_script`
 }
+\examples{
+## First, create a script object:
+script <- make_script("example_script")
+
+## Then add any number of props to it:
+script <- add_light(script)
+
+## Then call `action` to execute the script!
+
+if (FALSE) { # Avoid accidentally creating Unity projects on your computer
+  action(script)
+}
+
+}

@@ -14,6 +14,14 @@ in. If NULL, the default, saves to `tools::R_user_dir("unifir")`.}
 This is a simple helper function downloading the player prefabs stored at
 https://github.com/boaheck/TheFirstPerson .
 }
+\examples{
+
+if (FALSE) { # This function downloads data over the internet,
+             # so we won't run it during examples
+  get_players()
+}
+
+}
 \seealso{
 Other utilities: 
 \code{\link{add_default_player}()},

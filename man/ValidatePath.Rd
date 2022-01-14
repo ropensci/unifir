@@ -28,6 +28,13 @@ provide the path to validate.
 `validate_single_path` hard-codes the path to check in the C# code. This
 allows you to specify the path to check from R.
 }
+\examples{
+script <- make_script("example_script")
+script <- validate_patch(script) # Don't specify the path in R
+script <- validate_patch(script,
+                         "file_that_exists.txt") # Specify the path in R
+
+}
 \seealso{
 Other props: 
 \code{\link{add_default_player}()},

@@ -23,6 +23,10 @@ to attempt to find it. To do so, it goes through the following steps:
 1. Attempt to load the "unifir_unity_path" environment variable.
 2. Attempt to load the "unifir_unity_path" option.
 }
+\examples{
+try(find_unity())
+
+}
 \seealso{
 Other utilities: 
 \code{\link{add_default_player}()},

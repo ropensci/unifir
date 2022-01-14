@@ -82,6 +82,16 @@ pre-defined player object to a specific location in a scene;
 however, this function will first download the player prefab if
 necessary and handles the default file paths.
 }
+\examples{
+## First make a new script object:
+script <- make_script("example_project")
+
+## Then add a player controller:
+script <- add_default_player(script)
+
+## Lastly, execute the script via the `action` function
+
+}
 \seealso{
 Other props: 
 \code{\link{add_light}()},

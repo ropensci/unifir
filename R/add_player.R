@@ -18,6 +18,15 @@
 #' @family props
 #' @family utilities
 #'
+#' @examples
+#' ## First make a new script object:
+#' script <- make_script("example_project")
+#'
+#' ## Then add a player controller:
+#' script <- add_default_player(script)
+#'
+#' ## Lastly, execute the script via the `action` function
+#'
 #' @export
 add_default_player <- function(script,
                                controller = c("Player",

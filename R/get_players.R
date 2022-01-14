@@ -8,6 +8,13 @@
 #'
 #' @family utilities
 #'
+#' @examples
+#'
+#' if (FALSE) { # This function downloads data over the internet,
+#'              # so we won't run it during examples
+#'   get_players()
+#' }
+#'
 #' @export
 get_players <- function(directory = NULL) {
   if (is.null(directory)) {

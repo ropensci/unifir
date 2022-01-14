@@ -13,6 +13,9 @@
 #' If it does not, this function will then attempt to find one, and will error
 #' if not found. If `FALSE`, this function will never error.
 #'
+#' @examples
+#' try(find_unity())
+#'
 #' @family utilities
 #'
 #' @export
