@@ -36,9 +36,9 @@ script <- make_script("example_script",
                       unity = waiver())
 
 # Now add props:
-script <- validate_patch(script) # Don't specify the path in R
-script <- validate_patch(script,
-                         "file_that_exists.txt") # Specify the path in R
+script <- validate_path(script) # Don't specify the path in R
+script <- validate_single_path(script,
+                               "file_that_exists.txt") # Specify the path in R
 
 }
 \seealso{
