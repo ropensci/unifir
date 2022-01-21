@@ -115,7 +115,7 @@ unifir_prop <- function(prop_file, method_name, method_type, parameters, build, 
 #' @family utilities
 #'
 #' @examples
-#' script <- make_script("example_script", waiver())
+#' script <- make_script("example_script", unity = waiver())
 #' prop <- unifir_prop(
 #'   prop_file = waiver(), # Must be a file that exists or waiver()
 #'   method_name = NULL, # Auto-generated if NULL or NA
