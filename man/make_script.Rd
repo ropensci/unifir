@@ -31,4 +31,11 @@ will create a new project if `project` does not exist.}
 unifir relies upon "script" objects, which collect "prop" objects (C# methods)
 which then may be executed within a Unity project via the [action] function.
 }
+\examples{
+# Create an empty script file
+# In practice, you'll want to set `project` to the project path to create
+# and `unity` to `NULL` (the default)
+make_script(project = waiver(), unity = waiver())
+
+}
 \concept{scripts}

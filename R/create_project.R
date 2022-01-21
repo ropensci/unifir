@@ -11,6 +11,13 @@
 #'
 #' @return TRUE, invisibly.
 #'
+#' @examples
+#' \donttest{
+#'
+#' if (interactive()) create_unity_project(file.path(tempdir(), "project"))
+#'
+#' }
+#'
 #' @export
 # nocov start
 # This function is not included in codecov metrics because it only runs when

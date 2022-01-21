@@ -23,6 +23,18 @@
 #'
 #' @family props
 #'
+#' @examples
+#' # First, create a script object.
+#' # CRAN doesn't have Unity installed, so pass
+#' # a waiver object to skip the Unity-lookup stage:
+#' script <- make_script("example_script",
+#'                       unity = waiver())
+#'
+#' # Now add props:
+#' script <- instantiate_prefab(script, prefab_path = "Assets/some.prefab")
+#'
+#' # Lastly, execute the script via the `action` function
+#'
 #' @export
 instantiate_prefab <- function(script,
                                method_name = NULL,

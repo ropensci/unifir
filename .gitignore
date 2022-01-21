@@ -7,3 +7,6 @@ zion/
 terrainr.manifest
 dev.Rmd
 docs
+inst/doc
+/doc/
+/Meta/

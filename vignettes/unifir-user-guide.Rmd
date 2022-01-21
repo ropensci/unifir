@@ -1,0 +1,157 @@
+---
+title: "unifir 101 - A user's guide"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{unifir 101 - A user's guide}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(unifir)
+```
+
+This document aims to provide a quickstart guide to using unifir. 
+By that, I mean on how an end user could use unifir to produce and create
+Unity scenes. For more information on how the underlying framework functions,
+check out unifir 102 - A developer's guide. This vignette is going to assume you
+want 
+
+But before we get into that, we should answer a question: why use unifir at all?
+
+## Why unifir?
+
+[Unity](https://unity.com/) is a video game engine which can be used to produce
+any number of immersive experiences, ranging from fantastical video game worlds
+to more grounded representations of real-world places. Typically, a Unity 
+project is created and edited entirely in the Unity GUI, with the landscape
+and everything in it placed very intentionally by a designer.
+
+That approach works really well when attempting to build artistic experiences,
+but limits the power of this tool as a way to represent very specific scenarios.
+If you have a landscape you want to represent in a game engine -- be it a
+real world location or the outputs from a simulation program -- actually 
+creating that representation is a painstaking manual process. And that's a 
+shame, because the sorts of immersive virtual environments that you can make in
+Unity have the potential to be really powerful communication tools.
+
+It's into that world that we're launching unifir. This package aims to connect
+R -- one of the best tools in existence for wrangling data, be it about the real
+world or a simulated output -- with Unity, so that creating data-driven 
+representations can be less painful (and as a nice side effect, more 
+reproducible and less error-prone as well). Hopefully, by providing a 
+well-structured set of tools for interacting with the Unity scripting API, we
+can make it easier to produce these sorts of data-driven virtual environments
+moving forward.
+
+## How unifir?
+
+With the why answered, it's time to move on to the how. Before we get into the
+R specifics, it's probably worthwhile to define a few terms.
+
+We'll be talking a lot about Unity _projects_, which are single directories 
+inside which all of the code and data associated with a single Unity environment
+are stored. unifir operates on a single project at a time; there's not a way to
+have a single pipeline work across two different projects. Similarly, a given
+Unity GUI window only operates on a single project at a time.
+The next level of organization within Unity is a _scene_, which is a collection
+of objects and code that are present in the user's environment at the same time.
+unifir can operate on multiple _scenes_ within a single _project_ with no 
+problem. 
+
+With that sorted, we can move on to unifir itself.
+The first part of working with Unity from R is [installing Unity](https://unity.com/download).
+Once Unity is installed on your machine, you should be able to locate it using 
+the function `find_unity()`:
+
+```{r eval = FALSE}
+library(unifir)
+find_unity()
+```
+
+This function finds the path to the Unity executable on your system that unifir
+will use to execute all its commands. Should you want to use a different Unity
+version, you can set the environment variable `unifir_unity_path` (or the option
+of the same name) to the path to the version you want to use.
+
+With your Unity location set, you should be ready to start working with unifir.
+The key object of the unifir package is the "script" object, which unifir uses
+to store all of the commands you're going to execute in Unity before actually
+running them. We can use the `make_script()` function to make a script, using 
+the `project` argument to specify where on our machine we want the Unity project
+to exist. If the project directory doesn't exist, it will be created 
+automatically unless you set `initialize_project = FALSE`.
+
+```{r eval = FALSE}
+script <- make_script(
+  project = file.path(tempdir(), "unifir")
+)
+```
+
+Our object `script` is now an R6 object of the class `unifir_script`. By itself,
+this object isn't super exciting; however, it provides the basic shell we're 
+going to use to keep track of all the things we want to do to our project.
+
+In order to specify those things, we can go ahead and add "props" to our 
+"script" object. unifir comes with a number of prop-building functions 
+pre-specified, though the hope is that with time other packages can add their
+own props to this framework, enabling a wider variety of functionality than is
+currently implemented. For instance, the 
+[terrainr](https://github.com/ropensci/terrainr) package provides a function,
+`make_unity` (currently only in the development build) 
+which converts any files that can be read by the `raster` package into 
+terrain surfaces you can actually walk across.
+That function wraps a number of unifir props to actually interact with the Unity
+engine, but also performs some spatial data wrangling that make sense to live in
+a more specialized package.
+
+As a result, the props that are actually implemented in unifir tend to be a 
+little more elemental -- creating and saving scenes, adding lights and player
+controllers, the sorts of things that are applicable to most Unity projects.
+If we wanted to add a character controller to our scene, for instance, we
+can use the `add_default_player()` function to modify our `script`:
+
+```{r eval = FALSE}
+script <- add_default_player(script)
+```
+
+On the surface, our `script` object doesn't change when we do this. However,
+if we look at `script$props` instead, we'd see that we now have three 
+`unifir_prop` objects in our script. This list is how unifir keeps track of what
+exactly it needs to do to make your script into a scene; it will run through 
+your props in the order you added them to the script.
+
+One thing to highlight is that we need to explicitly save our scenes at the end
+of any script. If you don't save your scene, then after your script executes
+you'll find that Unity hasn't made any changes to your project! Always be sure
+to add a `save_scene()` call to the end of your script:
+
+```{r eval = FALSE}
+script <- save_scene(script)
+```
+
+Now that we've added props to our script, it's time to actually make our
+scene a reality. You can play out your script using the function `action()`,
+which will create a Unity project, turn your props into C# code, and then 
+execute that code inside the project to produce your scenes!
+
+```{r eval = FALSE}
+action(script)
+```
+
+And just like that, you've created a Unity project that you can open and look
+around in! Note that your scene won't be open by default (unless you've used
+the `set_active_scene()` function) -- to actually _see_ all the changes you've
+made, make sure to load the scene located in the `Scenes` folder inside your
+project.
+
+And there's all you need to know to start using unifir! If you're looking to get
+even more in the weeds about how unifir works, make sure to check out
+unifir 102 - A developer's guide.

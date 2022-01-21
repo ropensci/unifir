@@ -31,8 +31,10 @@ script <- add_light(script)
 
 # Then call `action` to execute the script!
 
+\donttest{
 if (interactive()) {
   action(script)
+}
 }
 
 }

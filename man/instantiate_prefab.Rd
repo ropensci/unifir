@@ -56,6 +56,19 @@ same length; this may produce undesired results. This function is only
 capable of altering a single scene at once -- call the function multiple
 times if you need to manipulate multiple scenes.
 }
+\examples{
+# First, create a script object.
+# CRAN doesn't have Unity installed, so pass
+# a waiver object to skip the Unity-lookup stage:
+script <- make_script("example_script",
+                      unity = waiver())
+
+# Now add props:
+script <- instantiate_prefab(script, prefab_path = "Assets/some.prefab")
+
+# Lastly, execute the script via the `action` function
+
+}
 \seealso{
 Other props: 
 \code{\link{add_default_player}()},

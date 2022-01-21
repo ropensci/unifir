@@ -21,6 +21,19 @@ MainFunc?}
 \description{
 Set a single scene to active.
 }
+\examples{
+# First, create a script object.
+# CRAN doesn't have Unity installed, so pass
+# a waiver object to skip the Unity-lookup stage:
+script <- make_script("example_script",
+                      unity = waiver())
+
+# Now add props:
+script <- set_active_scene(script, scene_name = "some_scene")
+
+# Lastly, execute the script via the `action` function
+
+}
 \seealso{
 Other props: 
 \code{\link{add_default_player}()},

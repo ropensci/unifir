@@ -22,6 +22,14 @@ TRUE, invisibly.
 \description{
 Create a new Unity project.
 }
+\examples{
+\donttest{
+
+if (interactive()) create_unity_project(file.path(tempdir(), "project"))
+
+}
+
+}
 \seealso{
 Other utilities: 
 \code{\link{add_default_player}()},

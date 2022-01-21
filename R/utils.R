@@ -13,42 +13,6 @@ unity_version <- function(unity = NULL) {
   system(paste(unity, "-version"), intern = TRUE)
 }
 
-#' Create directory if it doesn't exist
-#'
-#' @param path The path to be created
-#' @param recur Boolean: create directories recursively?
-create_if_not <- function(path, recur = FALSE) {
-  if (!dir.exists(path)) {
-    dir.create(path, recursive = recur)
-  }
-}
-
-#' Add a prop to a unifir script
-#'
-#' @param script A script object (from [make_script]) to append the prop to.
-#' @param prop A [unifir_prop] object to add to the script
-#' @param exec Logical: Should the method created by the prop be called in the
-#' MainFunc method?
-#'
-#' @family props
-#' @family utilities
-#'
-#' @export
-add_prop <- function(script, prop, exec = TRUE) {
-  stopifnot(is.logical(exec))
-
-  idx <- nrow(script$beats) + 1
-
-  script$props[[idx]] <- prop
-
-  script$beats[idx, ]$idx <- idx
-  script$beats[idx, ]$name <- prop$method_name
-  script$beats[idx, ]$type <- prop$method_type
-  script$beats[idx, ]$exec <- exec
-  script$using <- c(script$using, prop$using)
-  script
-}
-
 #' A waiver object.
 #'
 #' This function is borrowed from ggplot2. It creates a "flag" object indicating
@@ -66,14 +30,3 @@ add_prop <- function(script, prop, exec = TRUE) {
 #' @export
 waiver <- function() structure(list(), class = "waiver")
 
-#' Check if unifir should run in debug mode
-#'
-#' When running in debug mode, unifir will write nothing to disk.
-check_debug <- function() {
-  debug <- FALSE
-  if (Sys.getenv("unifir_debugmode") != "" ||
-    !is.null(options("unifir_debugmode")$unifir_debugmode)) {
-    debug <- TRUE
-  }
-  debug
-}

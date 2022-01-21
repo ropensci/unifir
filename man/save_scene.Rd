@@ -21,6 +21,19 @@ MainFunc?}
 \description{
 Save a scene in a Unity project.
 }
+\examples{
+# First, create a script object.
+# CRAN doesn't have Unity installed, so pass
+# a waiver object to skip the Unity-lookup stage:
+script <- make_script("example_script",
+                      unity = waiver())
+
+# Now add props:
+script <- save_scene(script, scene_name = "some_scene")
+
+# Lastly, execute the script via the `action` function
+
+}
 \seealso{
 Other props: 
 \code{\link{add_default_player}()},

@@ -18,8 +18,8 @@ method_name values, all sharing the same method_type.}
 \item{parameters}{Method-specific parameters, typically used in the build
 stage.}
 
-\item{build}{A function that takes two arguments, `script` and `prop`, and
-uses those to construct the C# method.}
+\item{build}{A function that takes three arguments, `script`, `prop`, and
+`debug`, and uses those to construct the C# method.}
 
 \item{using}{A character vector of imports required for the method.}
 }
@@ -27,5 +27,48 @@ uses those to construct the C# method.}
 An R6 object of class `unifir_prop`
 }
 \description{
-The class for unifir prop objects
+This function is exported so that developers can add their own props
+in new packages, without needing to re-implement the prop and script
+classes themselves. It is not expected that end users will need this
+function.
+}
+\details{
+This function will check each argument for correctness. To be specific,
+it performs the following checks:
+
+* `prop_file` must be either a `waiver()` object or a file path of
+  length 1 pointing to a file that exists
+* `method_name` will be automatically generated if not existing. If
+  it exists, it must be a character vector of length 1
+* `method_type` must be a character vector of length 1
+* `build` must be a function with the arguments `script`, `prop`,
+  and `debug` (in that order, with no other arguments). Any other
+  arguments needed by your build function should be passed as prop
+  parameters.
+* `using` must be a character vector (of any length, including 0)
+
+If your prop needs data or arguments beyond these, store them as a
+list in `parameters`, which is entirely unchecked.
+}
+\section{The debug argument}{
+
+When `Sys.getenv(unifir_debugmode)` returns anything other than `""`,
+[action] runs in "debug mode". In addition to setting `exec` and `write`
+to `FALSE` in [action], this mode also attempts to disable any prop
+functionality that would make changes to the user's disk -- no files
+or directories should be altered. In this mode, [action] will pass
+`debug = TRUE` as an argument to your prop; your prop should respect
+the debug mode and avoid making any changes.
+}
+
+\examples{
+unifir_prop(
+  prop_file = waiver(), # Must be a file that exists or waiver()
+  method_name = NULL, # Auto-generated if NULL or NA
+  method_type = "ExampleProp", # Length-1 character vector
+  parameters = list(), # Not validated, usually a list
+  build = function(script, prop, debug) {},
+  using = character(0)
+)
+
 }
