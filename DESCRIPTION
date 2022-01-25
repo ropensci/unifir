@@ -26,7 +26,8 @@ Suggests:
     pkgdown,
     rmarkdown,
     styler,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    terra
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.2

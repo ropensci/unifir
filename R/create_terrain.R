@@ -10,6 +10,28 @@
 #'
 #' @family props
 #'
+#' @examples
+#' if (requireNamespace("terra", quietly = TRUE)) {
+#' raster <- tempfile(fileext = ".tiff")
+#' r <- terra::rast(matrix(rnorm(1000^2, mean = 100, sd = 20), 1000),
+#'                  extent = terra::ext(0, 1000, 0, 1000))
+#' terra::writeRaster(r, raster)
+#'
+#' script <- make_script("example_script",
+#'                       unity = waiver())
+#' create_terrain(
+#'   script,
+#'   heightmap_path = raster,
+#'   x_pos = 0,
+#'   z_pos = 0,
+#'   width = 1000,
+#'   height = terra::minmax(r)[[2]],
+#'   length = 1000,
+#'   heightmap_resolution = 1000
+#' )
+#' }
+#'
+#'
 #' @export
 create_terrain <- function(script,
                            method_name = NULL,
