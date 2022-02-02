@@ -62,15 +62,15 @@ add_default_player <- function(script,
     player_path <- tools::R_user_dir("unifir")
   }
 
-  if (!dir.exists(file.path(player_path, "unity_assets-default_cameras"))) {
-    get_asset("default_cameras", player_path)
+  if (!dir.exists(file.path(player_path, "unity_assets-default_players"))) {
+    get_asset("default_players", player_path)
   }
 
   script <- import_asset(
     script = script,
     asset_path = file.path(player_path,
-                           "unity_assets-default_cameras",
-                           "default_cameras"),
+                           "unity_assets-default_players",
+                           "default_players"),
     lazy = lazy
   )
 
@@ -80,7 +80,7 @@ add_default_player <- function(script,
     destination_scene = destination_scene,
     prefab_path = file.path(
       "Assets",
-      "default_cameras",
+      "default_players",
       "Prefabs",
       controller
       ),

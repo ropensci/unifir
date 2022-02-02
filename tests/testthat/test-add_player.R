@@ -50,7 +50,7 @@ test_that("add_default_player adds a prop as expected", {
     list(
       destination_scene = "",
       arguments = data.frame(
-        prefab_path = "Assets/default_cameras/Prefabs/Player.prefab",
+        prefab_path = "Assets/default_players/Prefabs/Player.prefab",
         x_position = 0,
         y_position = 0,
         z_position = 0,
