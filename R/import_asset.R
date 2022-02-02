@@ -40,7 +40,9 @@ import_asset <- function(script,
   # Here seems more friendly (fail fast) but at the same time,
   # it's not impossible that asset_path doesn't exist at script writing time
   # but does at execution
-  stopifnot(class(asset_path) %in% waiver() || file.exists(asset_path))
+  stopifnot(class(asset_path) %in% waiver() ||
+              file.exists(asset_path) ||
+              asset_path %in% available_assets)
 
   if (!lazy ||
     !any(asset_path %in% script$beats$name)) {
@@ -59,6 +61,24 @@ import_asset <- function(script,
         )
 
         if (!debug) {
+          if (!file.exists(asset_path) &&
+              asset_path %in% available_assets) {
+            get_asset(asset = asset_path)
+            # In an ideal world, we'd update asset_path before build() is
+            # called, so that anyone searching $beats can see the actual path.
+            #
+            # That said, this feels like the easiest way to do this, in case
+            # the output of tools::R_user_dir is changed
+            # (via environment variable) pre-action()
+            #
+            # This way, we import the actual asset at its actual location,
+            # rather than where we thought the location was going to be
+            # back when the prop was first added
+            asset_path <- file.path(tools::R_user_dir("unifir"),
+                                    paste0("unity_assets-", asset_path),
+                                    asset_path)
+          }
+
           if (!dir.exists(asset_dir)) {
             dir.create(
               asset_dir,
