@@ -1,6 +1,6 @@
-test_that("get_players gets players", {
+test_that("get_asset gets assets", {
   skip_on_cran()
   players_dir <- file.path(tempdir(), "players")
-  get_players(players_dir)
-  expect_true(dir.exists(file.path(players_dir, "TheFirstPerson-master")))
+  get_asset("default_cameras", players_dir)
+  expect_true(dir.exists(file.path(players_dir, "unity_assets-default_cameras")))
 })

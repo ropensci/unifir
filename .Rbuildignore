@@ -16,3 +16,4 @@ zion
 ^codemeta\.json$
 ^doc$
 ^Meta$
+^data-raw$

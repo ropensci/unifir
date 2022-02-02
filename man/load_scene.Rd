@@ -55,7 +55,7 @@ Other utilities:
 \code{\link{add_prop}()},
 \code{\link{create_unity_project}()},
 \code{\link{find_unity}()},
-\code{\link{get_players}()},
+\code{\link{get_asset}()},
 \code{\link{load_png}()},
 \code{\link{new_scene}()},
 \code{\link{read_raw}()},

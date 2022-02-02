@@ -34,7 +34,7 @@ Other utilities:
 \code{\link{add_default_player}()},
 \code{\link{add_prop}()},
 \code{\link{create_unity_project}()},
-\code{\link{get_players}()},
+\code{\link{get_asset}()},
 \code{\link{load_png}()},
 \code{\link{load_scene}()},
 \code{\link{new_scene}()},
