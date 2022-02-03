@@ -1,0 +1,158 @@
+---
+title: "unifir 103 - Using Assets"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{unifir 103 - Using Assets}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(unifir)
+```
+
+This vignette supplements 
+[unifir 101](unifir-user-guide.html)
+and 
+[unifir 102](unifir-dev-guide.html)
+to get into the weeds of how you can add assets --
+which is to say, any sort of object or event that isn't specifically
+provided by the Unity engine itself -- 
+into your Unity scenes. 
+If you're trying to build scenes with unifir, I recommend checking out
+unifir 101 first; if you're looking to extend unifir, I recommend reading both
+the other vignettes to start. This vignette will be a bit shorter than the other
+two, focused entirely on how to import and instantiate assets in your world.
+
+## Importing Assets
+
+An "asset" in Unity is a really vague category -- it's any item you're including
+in a scene, be it 3D models, code, audio, or really any other type of data. 
+To get away from this vagueness, unifir uses a slightly more pragmatic 
+definition: an asset is any file or directory you want to include in your
+Unity project.
+
+Unity provides a neat format for moving collections of assets around, allowing
+you to compress folders into "unitypackage" files which can be imported into
+other projects. Unfortunately, importing these packages using Unity's batchmode
+API currently does not work (and hasn't worked for a number of years).
+So rather than deal with this format and Unity's tools for moving data around,
+unifir just copies asset files directly into your project when running scripts
+through `action()`.
+
+That's where the function `import_asset()` comes in. This function takes two 
+main arguments: the script to add the prop to and the path to the asset to copy 
+(either a single file or a directory, to copy recursively). For instance, 
+let's say we want to import all of the files stored at `example_asset`:
+
+```{r}
+example_asset <- tempfile()
+file.create(example_asset)
+```
+
+We can import that using `import_asset()` as follows:
+
+```{r}
+script <- make_script(
+  project = file.path(tempdir(), "unifir"),
+  unity = waiver()
+)
+
+script <- import_asset(script, example_asset)
+```
+
+(For more information on `waiver()`, check out unifir 102).
+
+Now when we run `action()` on this script, we'll copy `example_asset` directly
+into the `Assets` folder of our Unity project. Note that this is done entirely 
+in R, using `file.copy(..., recursive = TRUE)`, which has two main implications:
+first, this copy step won't be present in your C# code anywhere, and secondly
+the original file structure will be preserved if `example_asset` points to a 
+directory.
+
+That second point is particularly important when it comes to actually using 
+these objects in a scene, rather than just having them exist in your project.
+To talk about that, we should move along to:
+
+## Instantiating Prefabs
+
+There are a lot of ways to actually bring assets into a Unity scene as things 
+that users will interact with or otherwise be affected by in your environment.
+The easiest one of those to work with, which is the only one unifir puts much
+thought into, is referred to as a "prefab". A prefab is a Unity GameObject 
+that incorporates external data and code, stored as a single file; 
+for more information on prefabs and how to use them I'd recommend the official 
+[Unity documentation](https://docs.unity3d.com/Manual/Prefabs.html).
+For our purposes, I'm going to assume you've already got a prefab created and 
+you want to import it into your scene.
+
+The first step in doing so is to use `import_asset()` in order to bring your 
+prefab _file_ (along with all the external files it relies on) into the Unity 
+project. In order to turn that file into an actual object in the environment, 
+we can use the `instantiate_prefab()` function from unifir.
+This function can work with just two arguments (though there are more, 
+documented in `?instantiate_prefab`): the script object and the path to the 
+prefab you want to instantiate.
+
+Importantly, that path is relative to the Unity project root directory, _not_
+your current working directory. Since we used `import_asset()` to import our
+"asset" earlier, that means our asset is inside the "Assets" directory inside
+our Unity project, and we can instantiate it as follows:
+
+```{r}
+script <- instantiate_prefab(script,
+                             prefab_path = file.path("Assets", 
+                                                     basename(example_asset)))
+```
+
+If you used `import_asset()` to import a directory, the file structure of your
+directory will be preserved. That means that, if `example_asset` were a 
+directory containing a prefab at `sub_directory/example.prefab`, we'd set
+`prefab_path = Assets/example_asset/sub_directory/example.prefab` instead.
+
+We can use the other arguments to `instantiate_prefab()` to customize our object
+further, specifying its location, rotation, and scaling as desired.
+
+## Making it Easier
+
+Because prefabs can exist at different locations in imported assets, and a 
+single asset directory can contain multiple prefabs, unifir can't automatically
+infer what prefab you're trying to create with `instantiate_prefab`.
+That means every time you want to add GameObjects to a scene, you need to 
+go through this two-step process with `import_asset` and `instantiate_prefab`,
+specifying the path to the asset to import and then the path to the prefab 
+itself.
+
+For a small set of objects, however, `unifir` makes things a bit easier. 
+A collection of permissively-licensed assets at 
+[https://github.com/mikemahoney218/unity_assets/](https://github.com/mikemahoney218/unity_assets/)
+can be automatically added to the scene using the helper functions
+`add_default_player` and `add_default_tree`.
+Those functions will handle downloading assets, importing them into Unity, and
+instantiating the prefabs, making it easy to add player controllers and 3D trees
+to your scene. These objects are also all permissively licensed -- the 
+controllers are currently all MIT-licensed, while the trees are CC-0 1.0 --
+making them free to use in any of your projects.
+
+The functions -- which I'm wrapping here in `if (interactive())` to prevent
+them from downloading files on CRAN -- take the same arguements as
+`instantiate_prefab` to let you specify position, scale, and rotation of your
+objects, but handle all the file path trickiness for you:
+
+```{r}
+if (interactive()) {
+  script <- add_default_player(script)
+  script <- add_default_tree(script, "tree_1")
+}
+```
+
+If you have any (permissively-licensed -- no GPL or CC-BY) assets you'd like to
+share as part of this set, 
+[open an issue on GitHub!](https://github.com/mikemahoney218/unity_assets/issues)
