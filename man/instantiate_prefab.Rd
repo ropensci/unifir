@@ -33,7 +33,7 @@ in. Ignored if NULL, the default.}
 
 \item{prefab_path}{File path to the prefab to be instantiated. This should
 be relative to the Unity project root directory, and likely begins with
-"Assets".}
+"Assets". Alternatively, if this is one of the elements in}
 
 \item{x_position, y_position, z_position}{The position of the GameObject in
 world space.}

@@ -2,12 +2,32 @@
 % Please edit documentation in R/add_player.R
 \name{add_default_player}
 \alias{add_default_player}
-\title{Add default player}
+\alias{add_default_tree}
+\title{Add assets to a Unity scene}
 \usage{
 add_default_player(
   script,
   controller = c("Player", "FootstepsPlayer", "JetpackPlayer", "Third Person"),
-  player_path = NULL,
+  asset_directory = NULL,
+  lazy = TRUE,
+  method_name = NULL,
+  destination_scene = NULL,
+  x_position = 0,
+  y_position = 0,
+  z_position = 0,
+  x_scale = 1,
+  y_scale = 1,
+  z_scale = 1,
+  x_rotation = 0,
+  y_rotation = 0,
+  z_rotation = 0,
+  exec = TRUE
+)
+
+add_default_tree(
+  script,
+  tree,
+  asset_directory = NULL,
   lazy = TRUE,
   method_name = NULL,
   destination_scene = NULL,
@@ -27,12 +47,13 @@ add_default_player(
 \item{script}{A `unifir_script` object, created by [make_script] or returned
 by an `add_prop_*` function.}
 
-\item{controller}{Which controller to use? `Player`, the default,
+\item{controller}{Which controller to use. `Player`, the default,
 is a simple first-person controller. `FootstepsPlayer` adds footsteps
 to this controller, while `JetpackPlayer` adds a "jetpack" with limited
 fuel. `Third Person` lets you control a small cylinder in third person.}
 
-\item{player_path}{The path to which the default player should be saved.
+\item{asset_directory}{A file path to the directory containing the asset,
+or alternatively, to which the default assets should be saved.
 Defaults to `tools::R_user_dir("unifir")`.}
 
 \item{lazy}{Boolean: if TRUE, unifir will attempt to only copy the files
@@ -74,13 +95,26 @@ create, as Euler angles.}
 
 \item{exec}{Logical: Should the C# method be included in the set executed by
 MainFunc?}
+
+\item{tree}{Which tree to use. There are currently 12 generic tree objects
+available, named "tree_1" through "tree_12". The number of a tree (1-12)
+can be specified instead of the full name.}
 }
 \description{
-This function adds "player" controllers to a Unity scene. It is
-in effect a thin wrapper across `instantiate_prefab` to add a
-pre-defined player object to a specific location in a scene;
-however, this function will first download the player prefab if
-necessary and handles the default file paths.
+These functions add assets available at
+https://github.com/mikemahoney218/unity_assets/
+to a Unity scene.
+}
+\details{
+In effect, these functions provide a thin wrapper across `instantiate_prefab`
+and `import_asset`. By providing the directory an asset is stored in, and the
+path to the prefab file once that directory has been copied into Unity,
+these files will add prefabs to specified locations throughout the scene.
+This function will also download the necessary assets
+and handles specifying file paths.
+
+`add_default_player` adds "player" controllers to a Unity scene.
+`add_tree` adds tree GameObjects.
 }
 \examples{
 # First, create a script object.
@@ -91,9 +125,10 @@ script <- make_script("example_script",
 
 # Now add props:
 script <- add_default_player(script)
+script <- add_default_tree(script, 1)
+script <- save_scene(script)
 
 # Lastly, execute the script via the `action` function
-
 }
 \seealso{
 Other props: 

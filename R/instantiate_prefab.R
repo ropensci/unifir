@@ -13,7 +13,7 @@
 #' in. Ignored if NULL, the default.
 #' @param prefab_path File path to the prefab to be instantiated. This should
 #' be relative to the Unity project root directory, and likely begins with
-#' "Assets".
+#' "Assets". Alternatively, if this is one of the elements in
 #' @param x_position,y_position,z_position The position of the GameObject in
 #' world space.
 #' @param x_scale,y_scale,z_scale The scale of the GameObject (relative to its

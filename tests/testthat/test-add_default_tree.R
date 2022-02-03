@@ -1,11 +1,12 @@
-test_that("add_default_player adds a prop as expected", {
+test_that("add_default_tree adds a prop as expected", {
   skip_on_cran()
   script <- readRDS("testdata/example_script.rds")
-  players_dir <- file.path(tempdir(), "players")
-  script <- add_default_player(
+  asset_dir <- file.path(tempdir(), "trees")
+  script <- add_default_tree(
     script = script,
-    asset_directory = players_dir,
-    method_name = "PlayerTest"
+    tree = 1,
+    asset_directory = asset_dir,
+    method_name = "TreeTest"
   )
 
   # Generic prop tests
@@ -50,7 +51,7 @@ test_that("add_default_player adds a prop as expected", {
     list(
       destination_scene = "",
       arguments = data.frame(
-        prefab_path = "Assets/default_players/Prefabs/Player.prefab",
+        prefab_path = "Assets/tree_1/tree_1.prefab",
         x_position = 0,
         y_position = 0,
         z_position = 0,
@@ -71,7 +72,7 @@ test_that("add_default_player adds a prop as expected", {
 
   expect_identical(
     script$beats[2, ]$name,
-    "PlayerTest"
+    "TreeTest"
   )
 
   expect_identical(
@@ -82,15 +83,15 @@ test_that("add_default_player adds a prop as expected", {
   rm(script)
 })
 
-test_that("add_default_player actions as expected", {
+test_that("add_default_tree actions as expected", {
   skip_on_cran()
   Sys.setenv("unifir_debugmode" = "true")
   script <- readRDS("testdata/example_script.rds")
-  players_dir <- file.path(tempdir(), "players")
+  tree_dir <- file.path(tempdir(), "trees")
   script <- add_default_player(
     script = script,
-    asset_directory = players_dir,
-    method_name = "PlayerTest"
+    asset_directory = tree_dir,
+    method_name = "TreeTest"
   )
 
   outcome <- action(script)
@@ -100,7 +101,7 @@ test_that("add_default_player actions as expected", {
 
   writeLines(gsub(" |\\n|\\r", "", outcome$props[[2]]), actual)
   writeLines(
-    gsub(" |\\n|\\r", "", "     static void PlayerTest()\n     {\n          using (StreamReader reader = new StreamReader(\"PlayerTest.manifest\"))\n          {\n               string line;\n               while ((line = reader.ReadLine()) != null)\n               {\n               string[] fields = line.Split('\\t');\n               GameObject go = (GameObject)AssetDatabase.LoadAssetAtPath(fields[0], typeof(GameObject));\n               go = (GameObject)PrefabUtility.InstantiatePrefab(go); // second argument: scene\n               go.transform.position = new Vector3(float.Parse(fields[1]), float.Parse(fields[2]), float.Parse(fields[3]));\n               go.transform.localScale = new Vector3(float.Parse(fields[4]), float.Parse(fields[5]), float.Parse(fields[6]));\n               go.transform.eulerAngles = new Vector3(float.Parse(fields[7]), float.Parse(fields[8]), float.Parse(fields[9]));\n               }\n          }\n     }\n"), # nolint
+    gsub(" |\\n|\\r", "", "     static void TreeTest()\n     {\n          using (StreamReader reader = new StreamReader(\"TreeTest.manifest\"))\n          {\n               string line;\n               while ((line = reader.ReadLine()) != null)\n               {\n               string[] fields = line.Split('\\t');\n               GameObject go = (GameObject)AssetDatabase.LoadAssetAtPath(fields[0], typeof(GameObject));\n               go = (GameObject)PrefabUtility.InstantiatePrefab(go); // second argument: scene\n               go.transform.position = new Vector3(float.Parse(fields[1]), float.Parse(fields[2]), float.Parse(fields[3]));\n               go.transform.localScale = new Vector3(float.Parse(fields[4]), float.Parse(fields[5]), float.Parse(fields[6]));\n               go.transform.eulerAngles = new Vector3(float.Parse(fields[7]), float.Parse(fields[8]), float.Parse(fields[9]));\n               }\n          }\n     }\n"), # nolint
     expected
   )
 
