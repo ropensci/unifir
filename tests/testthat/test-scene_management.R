@@ -322,7 +322,7 @@ test_that("set_active_scene adds a prop as expected", {
     script$props[[1]]$using
   )
 
-  expect_true(
+  expect_false(
     script$beats[1, ]$exec
   )
 
@@ -387,7 +387,6 @@ test_that("set_active_scene actions as expected", {
     gsub(" |\\n|\\r", "", "\n"), # nolint
     expected
   )
-
 
   expect_identical(
     readLines(actual),

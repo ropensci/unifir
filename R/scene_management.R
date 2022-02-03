@@ -200,9 +200,9 @@ save_scene <- function(script,
 #'
 #' @export
 set_active_scene <- function(script,
-                             method_name = NULL,
                              scene_name = NULL,
-                             exec = TRUE) {
+                             method_name = NULL,
+                             exec = FALSE) {
   prop <- unifir_prop(
     prop_file = waiver(),
     method_name = method_name,
@@ -211,10 +211,10 @@ set_active_scene <- function(script,
       scene_name = scene_name
     ),
     build = function(script, prop, debug) {
-      scene_name <- if (is.null(prop$parameters$scene_name)) {
-        script$scene_name
+      if (is.null(prop$parameters$scene_name)) {
+        scene_name <- script$scene_name
       } else {
-        prop$parameters$scene_name
+        scene_name <- prop$parameters$scene_name
       }
       stopifnot(!is.null(scene_name))
       if (!debug) {
@@ -232,5 +232,5 @@ set_active_scene <- function(script,
     using = c("UnityEngine", "UnityEditor", "UnityEditor.SceneManagement")
   )
 
-  add_prop(script, prop, exec)
+  add_prop(script, prop, exec = FALSE)
 }

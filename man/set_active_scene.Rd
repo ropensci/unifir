@@ -4,16 +4,16 @@
 \alias{set_active_scene}
 \title{Set a single scene to active.}
 \usage{
-set_active_scene(script, method_name = NULL, scene_name = NULL, exec = TRUE)
+set_active_scene(script, scene_name = NULL, method_name = NULL, exec = FALSE)
 }
 \arguments{
 \item{script}{A `unifir_script` object, created by [make_script] or returned
 by an `add_prop_*` function.}
 
+\item{scene_name}{The name of the scene to set as the active scene.}
+
 \item{method_name}{The internal name to use for the C# method created. Will
 be randomly generated if not set.}
-
-\item{scene_name}{The name of the scene to set as the active scene.}
 
 \item{exec}{Logical: Should the C# method be included in the set executed by
 MainFunc?}
