@@ -44,7 +44,8 @@ find_unity <- function(unity = NULL, check_path = TRUE) {
     )
   }
 
-  unity <- quote_string(unity)
+  if (!grepl("^\"", unity)) unity <- paste0('"', unity)
+  if (!grepl("\"$", unity)) unity <- paste0(unity, '"')
 
   if (Sys.getenv("unifir_unity_path") == "") {
     Sys.setenv("unifir_unity_path" = unity)
@@ -57,7 +58,7 @@ windows_locations <- function() {
   if (dir.exists("C:\\Program Files\\Unity\\Hub\\Editor")) {
     unity <- utils::tail(
       list.files("C:\\Program Files\\Unity\\Hub\\Editor",
-        full.names = TRUE
+                 full.names = TRUE
       ),
       1
     )
@@ -84,9 +85,4 @@ mac_locations <- function() {
     )
     paste0(unity, "Unity.app/Contents/MacOS/Unity")
   }
-}
-
-quote_string <- function(string) {
-  if (!grepl("^\"", string)) string <- paste0('"', string)
-  if (!grepl("\"$", string)) string <- paste0(string, '"')
 }
