@@ -124,7 +124,7 @@ add_default_tree <- function(script,
     paste0(tree, ".prefab")
   )
 
-  stopifnot(tree %in% available_assets)
+  stopifnot(all(unique(tree) %in% available_assets))
 
   add_asset(
     script = script,
@@ -165,21 +165,34 @@ add_asset <- function(script,
                       z_rotation = 0,
                       exec = TRUE) {
 
+  unique_assets <- unique(asset)
+
   if (is.null(asset_directory)) {
     asset_directory <- tools::R_user_dir("unifir")
   }
 
-  if (!dir.exists(file.path(asset_directory, paste0("unity_assets-", asset)))) {
-    get_asset(asset, asset_directory)
+  if (!all(
+    vapply(
+      unique_assets,
+      function(x) dir.exists(file.path(asset_directory, paste0("unity_assets-", x))),
+      logical(1)
+    )
+  )) {
+    lapply(
+      unique_assets,
+      function(x) get_asset(x, asset_directory)
+    )
   }
 
-  script <- import_asset(
-    script = script,
-    asset_path = file.path(asset_directory,
-                           paste0("unity_assets-", asset),
-                           asset),
-    lazy = lazy
-  )
+  for (i in seq_along(unique_assets)) {
+    script <- import_asset(
+      script = script,
+      asset_path = file.path(asset_directory,
+                             paste0("unity_assets-", unique_assets[[i]]),
+                             unique_assets[[i]]),
+      lazy = lazy
+    )
+  }
 
   instantiate_prefab(
     script,
