@@ -93,7 +93,6 @@
 #'   build = function(script, prop, debug) {},
 #'   using = character(0)
 #' )
-#'
 #' @export
 unifir_prop <- function(prop_file, method_name, method_type, parameters, build, using) {
   .unifir_prop$new(prop_file, method_name, method_type, parameters, build, using)
@@ -125,7 +124,6 @@ unifir_prop <- function(prop_file, method_name, method_type, parameters, build, 
 #'   using = character(0)
 #' )
 #' script <- add_prop(script, prop)
-#'
 #' @export
 add_prop <- function(script, prop, exec = TRUE) {
   stopifnot(is.logical(exec))

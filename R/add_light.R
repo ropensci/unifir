@@ -16,13 +16,13 @@
 #' # CRAN doesn't have Unity installed, so pass
 #' # a waiver object to skip the Unity-lookup stage:
 #' script <- make_script("example_script",
-#'                       unity = waiver())
+#'   unity = waiver()
+#' )
 #'
 #' # Now add props:
 #' script <- add_light(script)
 #'
 #' # Lastly, execute the script via the `action` function
-#'
 #' @export
 add_light <- function(script,
                       light_type = c(

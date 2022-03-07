@@ -15,7 +15,6 @@
 #' \donttest{
 #'
 #' if (interactive()) create_unity_project(file.path(tempdir(), "project"))
-#'
 #' }
 #'
 #' @export

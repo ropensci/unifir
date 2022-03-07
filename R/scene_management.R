@@ -22,13 +22,13 @@
 #' # CRAN doesn't have Unity installed, so pass
 #' # a waiver object to skip the Unity-lookup stage:
 #' script <- make_script("example_script",
-#'                       unity = waiver())
+#'   unity = waiver()
+#' )
 #'
 #' # Now add props:
 #' script <- new_scene(script)
 #'
 #' # Lastly, execute the script via the `action` function
-#'
 #' @export
 new_scene <- function(script,
                       setup = c("EmptyScene", "DefaultGameObjects"),
@@ -82,13 +82,13 @@ new_scene <- function(script,
 #' # CRAN doesn't have Unity installed, so pass
 #' # a waiver object to skip the Unity-lookup stage:
 #' script <- make_script("example_script",
-#'                       unity = waiver())
+#'   unity = waiver()
+#' )
 #'
 #' # Now add props:
 #' script <- load_scene(script, scene_name = "some_scene")
 #'
 #' # Lastly, execute the script via the `action` function
-#'
 #' @export
 load_scene <- function(script,
                        scene_name,
@@ -138,13 +138,13 @@ load_scene <- function(script,
 #' # CRAN doesn't have Unity installed, so pass
 #' # a waiver object to skip the Unity-lookup stage:
 #' script <- make_script("example_script",
-#'                       unity = waiver())
+#'   unity = waiver()
+#' )
 #'
 #' # Now add props:
 #' script <- save_scene(script, scene_name = "some_scene")
 #'
 #' # Lastly, execute the script via the `action` function
-#'
 #' @export
 save_scene <- function(script,
                        scene_name = NULL,
@@ -191,13 +191,13 @@ save_scene <- function(script,
 #' # CRAN doesn't have Unity installed, so pass
 #' # a waiver object to skip the Unity-lookup stage:
 #' script <- make_script("example_script",
-#'                       unity = waiver())
+#'   unity = waiver()
+#' )
 #'
 #' # Now add props:
 #' script <- set_active_scene(script, scene_name = "some_scene")
 #'
 #' # Lastly, execute the script via the `action` function
-#'
 #' @export
 set_active_scene <- function(script,
                              scene_name = NULL,

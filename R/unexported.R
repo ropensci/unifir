@@ -14,7 +14,7 @@ create_if_not <- function(path, recur = FALSE) {
 check_debug <- function() {
   debug <- FALSE
   if (Sys.getenv("unifir_debugmode") != "" ||
-      !is.null(options("unifir_debugmode")$unifir_debugmode)) {
+    !is.null(options("unifir_debugmode")$unifir_debugmode)) {
     debug <- TRUE
   }
   debug

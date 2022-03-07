@@ -35,7 +35,8 @@
 #' # CRAN doesn't have Unity installed, so pass
 #' # a waiver object to skip the Unity-lookup stage:
 #' script <- make_script("example_script",
-#'                       unity = waiver())
+#'   unity = waiver()
+#' )
 #'
 #' # Now add props:
 #' script <- add_default_player(script)
@@ -46,10 +47,12 @@
 #' @rdname add_asset
 #' @export
 add_default_player <- function(script,
-                               controller = c("Player",
-                                              "FootstepsPlayer",
-                                              "JetpackPlayer",
-                                              "Third Person"),
+                               controller = c(
+                                 "Player",
+                                 "FootstepsPlayer",
+                                 "JetpackPlayer",
+                                 "Third Person"
+                               ),
                                asset_directory = NULL,
                                lazy = TRUE,
                                method_name = NULL,
@@ -64,12 +67,13 @@ add_default_player <- function(script,
                                y_rotation = 0,
                                z_rotation = 0,
                                exec = TRUE) {
-
   controller <- controller[[1]]
-  stopifnot(controller %in% c("Player",
-                              "FootstepsPlayer",
-                              "JetpackPlayer",
-                              "Third Person"))
+  stopifnot(controller %in% c(
+    "Player",
+    "FootstepsPlayer",
+    "JetpackPlayer",
+    "Third Person"
+  ))
   controller <- file.path(
     "Assets",
     "default_players",
@@ -116,7 +120,6 @@ add_default_tree <- function(script,
                              y_rotation = 0,
                              z_rotation = 0,
                              exec = TRUE) {
-
   if (is.numeric(tree)) tree <- paste0("tree_", tree)
   prefab_path <- file.path(
     "Assets",
@@ -164,7 +167,6 @@ add_asset <- function(script,
                       y_rotation = 0,
                       z_rotation = 0,
                       exec = TRUE) {
-
   unique_assets <- unique(asset)
 
   if (is.null(asset_directory)) {
@@ -174,7 +176,11 @@ add_asset <- function(script,
   if (!all(
     vapply(
       unique_assets,
-      function(x) dir.exists(file.path(asset_directory, paste0("unity_assets-", x))),
+      function(x) {
+        dir.exists(
+          file.path(asset_directory, paste0("unity_assets-", x))
+        )
+      },
       logical(1)
     )
   )) {
@@ -187,9 +193,11 @@ add_asset <- function(script,
   for (i in seq_along(unique_assets)) {
     script <- import_asset(
       script = script,
-      asset_path = file.path(asset_directory,
-                             paste0("unity_assets-", unique_assets[[i]]),
-                             unique_assets[[i]]),
+      asset_path = file.path(
+        asset_directory,
+        paste0("unity_assets-", unique_assets[[i]]),
+        unique_assets[[i]]
+      ),
       lazy = lazy
     )
   }
@@ -211,4 +219,3 @@ add_asset <- function(script,
     exec = exec
   )
 }
-

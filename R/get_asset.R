@@ -16,11 +16,9 @@
 #'   get_asset(asset = "tree_1", directory = tempdir())
 #'   get_players(directory = tempdir())
 #' }
-#'
 #' @rdname get_asset
 #' @export
 get_asset <- function(asset, directory = NULL) {
-
   if (!(asset %in% available_assets)) {
     stop(
       "Asset must be one of: ",
@@ -47,5 +45,4 @@ get_asset <- function(asset, directory = NULL) {
     dl,
     exdir = directory
   )
-
 }

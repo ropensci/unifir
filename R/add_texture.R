@@ -15,19 +15,22 @@
 #' # CRAN doesn't have Unity installed, so pass
 #' # a waiver object to skip the Unity-lookup stage:
 #' script <- make_script("example_script",
-#'                       unity = waiver())
+#'   unity = waiver()
+#' )
 #'
 #' # Now add props:
 #' script <- add_texture(script)
 #'
 #' # Lastly, execute the script via the `action` function
-#'
 #' @export
 add_texture <- function(script,
                         method_name = NULL,
                         exec = FALSE) {
   if (any(script$beats$type == "LoadPNG")) {
-    loadpng_method <- utils::head(script$beats[script$beats$type == "LoadPNG", ]$name, 1)
+    loadpng_method <- utils::head(
+      script$beats[script$beats$type == "LoadPNG", ]$name,
+      1
+    )
   } else {
     loadpng_method <- "LoadPNGAutoAdd"
     script <- load_png(script, loadpng_method, exec = FALSE)

@@ -3,7 +3,8 @@
 #' @inheritParams new_scene
 #' @param heightmap_path The file path to the heightmap to import as terrain.
 #' @param x_pos,z_pos The position of the corner of the terrain.
-#' @param width,height,length The dimensions of the terrain tile, in linear units.
+#' @param width,height,length The dimensions of the terrain tile,
+#' in linear units.
 #' @param heightmap_resolution The resolution of the heightmap image.
 #' @param texture_path Optional: the file path to the image to use as a terrain
 #' overlay.
@@ -12,26 +13,26 @@
 #'
 #' @examples
 #' if (requireNamespace("terra", quietly = TRUE)) {
-#' raster <- tempfile(fileext = ".tiff")
-#' r <- terra::rast(matrix(rnorm(1000^2, mean = 100, sd = 20), 1000),
-#'                  extent = terra::ext(0, 1000, 0, 1000))
-#' terra::writeRaster(r, raster)
+#'   raster <- tempfile(fileext = ".tiff")
+#'   r <- terra::rast(matrix(rnorm(1000^2, mean = 100, sd = 20), 1000),
+#'     extent = terra::ext(0, 1000, 0, 1000)
+#'   )
+#'   terra::writeRaster(r, raster)
 #'
-#' script <- make_script("example_script",
-#'                       unity = waiver())
-#' create_terrain(
-#'   script,
-#'   heightmap_path = raster,
-#'   x_pos = 0,
-#'   z_pos = 0,
-#'   width = 1000,
-#'   height = terra::minmax(r)[[2]],
-#'   length = 1000,
-#'   heightmap_resolution = 1000
-#' )
+#'   script <- make_script("example_script",
+#'     unity = waiver()
+#'   )
+#'   create_terrain(
+#'     script,
+#'     heightmap_path = raster,
+#'     x_pos = 0,
+#'     z_pos = 0,
+#'     width = 1000,
+#'     height = terra::minmax(r)[[2]],
+#'     length = 1000,
+#'     heightmap_resolution = 1000
+#'   )
 #' }
-#'
-#'
 #' @export
 create_terrain <- function(script,
                            method_name = NULL,
@@ -45,14 +46,20 @@ create_terrain <- function(script,
                            texture_path = "",
                            exec = TRUE) {
   if (any(script$beats$type == "AddTexture")) {
-    add_texture_method <- utils::head(script$beats[script$beats$type == "AddTexture", ]$name, 1)
+    add_texture_method <- utils::head(
+      script$beats[script$beats$type == "AddTexture", ]$name,
+      1
+    )
   } else {
     add_texture_method <- "AddTextureAutoAdd"
     script <- add_texture(script, add_texture_method, exec = FALSE)
   }
 
   if (any(script$beats$type == "ReadRaw")) {
-    read_raw_method <- utils::head(script$beats[script$beats$type == "ReadRaw", ]$name, 1)
+    read_raw_method <- utils::head(
+      script$beats[script$beats$type == "ReadRaw", ]$name,
+      1
+    )
   } else {
     read_raw_method <- "ReadRawAutoAdd"
     script <- read_raw(script, read_raw_method, exec = FALSE)

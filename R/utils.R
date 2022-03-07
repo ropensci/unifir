@@ -6,7 +6,6 @@
 #' try(
 #'   unity_version()
 #' )
-#'
 #' @export
 unity_version <- function(unity = NULL) {
   if (is.null(unity)) unity <- find_unity()
@@ -29,4 +28,3 @@ unity_version <- function(unity = NULL) {
 #' waiver()
 #' @export
 waiver <- function() structure(list(), class = "waiver")
-

@@ -17,7 +17,6 @@
 #' if (interactive()) {
 #'   try(find_unity())
 #' }
-#'
 #' @family utilities
 #'
 #' @export
@@ -41,7 +40,10 @@ find_unity <- function(unity = NULL, check_path = TRUE) {
         paste0(unity, "\\Editor\\Unity.exe")
       },
       "linux" = if (dir.exists("~/Unity/Hub/Editor")) {
-        unity <- utils::tail(list.files("~/Unity/Hub/Editor", full.names = TRUE), 1)
+        unity <- utils::tail(
+          list.files("~/Unity/Hub/Editor", full.names = TRUE),
+          1
+        )
         paste0(unity, "/Editor/Unity")
       },
       "darwin" = if (dir.exists("/Applications/Unity/Hub/Editor")) {

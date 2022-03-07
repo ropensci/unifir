@@ -17,7 +17,8 @@
 #' # CRAN doesn't have Unity installed, so pass
 #' # a waiver object to skip the Unity-lookup stage:
 #' script <- make_script("example_script",
-#'                       unity = waiver())
+#'   unity = waiver()
+#' )
 #'
 #' # CRAN also doesn't have any props to install,
 #' # so we'll make a fake prop location:
@@ -28,7 +29,6 @@
 #' script <- import_asset(script, prop_directory)
 #'
 #' # Lastly, execute the script via the `action` function
-#'
 #' @return `script` with a new prop.
 #'
 #' @export
@@ -41,8 +41,8 @@ import_asset <- function(script,
   # it's not impossible that asset_path doesn't exist at script writing time
   # but does at execution
   stopifnot(class(asset_path) %in% waiver() ||
-              file.exists(asset_path) ||
-              asset_path %in% available_assets)
+    file.exists(asset_path) ||
+    asset_path %in% available_assets)
 
   if (!lazy ||
     !any(asset_path %in% script$beats$name)) {
@@ -62,7 +62,7 @@ import_asset <- function(script,
 
         if (!debug) {
           if (!file.exists(asset_path) &&
-              asset_path %in% available_assets) {
+            asset_path %in% available_assets) {
             get_asset(asset = asset_path)
             # In an ideal world, we'd update asset_path before build() is
             # called, so that anyone searching $beats can see the actual path.
@@ -74,9 +74,11 @@ import_asset <- function(script,
             # This way, we import the actual asset at its actual location,
             # rather than where we thought the location was going to be
             # back when the prop was first added
-            asset_path <- file.path(tools::R_user_dir("unifir"),
-                                    paste0("unity_assets-", asset_path),
-                                    asset_path)
+            asset_path <- file.path(
+              tools::R_user_dir("unifir"),
+              paste0("unity_assets-", asset_path),
+              asset_path
+            )
           }
 
           if (!dir.exists(asset_dir)) {

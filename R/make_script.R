@@ -20,7 +20,6 @@
 #' # In practice, you'll want to set `project` to the project path to create
 #' # and `unity` to `NULL` (the default)
 #' make_script(project = waiver(), unity = waiver())
-#'
 #' @export
 make_script <- function(project,
                         script_name = NULL,
