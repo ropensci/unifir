@@ -7,8 +7,8 @@
 #' This function is not currently vectorized; call it separately for each asset
 #' you need to import.
 #' @param lazy Boolean: if TRUE, unifir will attempt to only copy the files
-#' once per run of a script; if FALSE, unifir will copy the files as many times as
-#' requested, overwriting pre-existing files each time.
+#' once per run of a script; if FALSE, unifir will copy the files as many times
+#' as requested, overwriting pre-existing files each time.
 #'
 #' @family props
 #'

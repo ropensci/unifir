@@ -33,7 +33,8 @@ action <- function(script, write = TRUE, exec = TRUE, quit = TRUE) {
 
   if (
     !debug &&
-      ( # If initialize_project is NULL and the directory is missing:
+      (
+        # If initialize_project is NULL and the directory is missing:
         (is.null(script$initialize_project) && !dir.exists(script$project)) ||
           # Or if initialize_project is TRUE:
           (!is.null(script$initialize_project) && script$initialize_project))) {

@@ -1,6 +1,7 @@
 #' Create an empty unifir_script object.
 #'
-#' unifir relies upon "script" objects, which collect "prop" objects (C# methods)
+#' unifir relies upon "script" objects, which collect "prop" objects
+#' (C# methods)
 #' which then may be executed within a Unity project via the [action] function.
 #'
 #' @param project The directory path of the Unity project.
@@ -10,8 +11,8 @@
 #' a scene name and one is not provided, this field will be used.
 #' @param unity The location of the Unity executable to create projects with.
 #' @param initialize_project If TRUE, will call [create_unity_project] to create
-#' a Unity project at `project`. If FALSE, will not create a new project. If NULL,
-#' will create a new project if `project` does not exist.
+#' a Unity project at `project`. If FALSE, will not create a new project.
+#' If NULL, will create a new project if `project` does not exist.
 #'
 #' @family scripts
 #'

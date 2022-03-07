@@ -104,7 +104,13 @@ instantiate_prefab <- function(script,
         manifest_path = basename(manifest_path)
       )
     },
-    using = c("System", "System.IO", "System.Collections", "System.Collections.Generic", "UnityEngine")
+    using = c(
+      "System",
+      "System.IO",
+      "System.Collections",
+      "System.Collections.Generic",
+      "UnityEngine"
+    )
   )
 
   add_prop(script, prop, exec)

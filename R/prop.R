@@ -7,9 +7,18 @@
     parameters = list(),
     build = NULL,
     using = NA_character_,
-    initialize = function(prop_file, method_name, method_type, parameters, build, using) {
+    initialize = function(prop_file,
+                          method_name,
+                          method_type,
+                          parameters,
+                          build,
+                          using) {
       if (!("waiver" %in% class(prop_file))) {
-        stopifnot(is.character(prop_file), length(prop_file) == 1, file.exists(prop_file))
+        stopifnot(
+          is.character(prop_file),
+          length(prop_file) == 1,
+          file.exists(prop_file)
+        )
       }
       if (is.null(method_name) || is.na(method_name)) {
         method_name <- proceduralnames::make_english_names(
@@ -94,8 +103,20 @@
 #'   using = character(0)
 #' )
 #' @export
-unifir_prop <- function(prop_file, method_name, method_type, parameters, build, using) {
-  .unifir_prop$new(prop_file, method_name, method_type, parameters, build, using)
+unifir_prop <- function(prop_file,
+                        method_name,
+                        method_type,
+                        parameters,
+                        build,
+                        using) {
+  .unifir_prop$new(
+    prop_file,
+    method_name,
+    method_type,
+    parameters,
+    build,
+    using
+  )
 }
 
 #' Add a prop to a unifir script
