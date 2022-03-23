@@ -61,13 +61,13 @@ times if you need to manipulate multiple scenes.
 # CRAN doesn't have Unity installed, so pass
 # a waiver object to skip the Unity-lookup stage:
 script <- make_script("example_script",
-                      unity = waiver())
+  unity = waiver()
+)
 
 # Now add props:
 script <- instantiate_prefab(script, prefab_path = "Assets/some.prefab")
 
 # Lastly, execute the script via the `action` function
-
 }
 \seealso{
 Other props: 

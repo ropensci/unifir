@@ -39,13 +39,13 @@ Create a new scene in a Unity project.
 # CRAN doesn't have Unity installed, so pass
 # a waiver object to skip the Unity-lookup stage:
 script <- make_script("example_script",
-                      unity = waiver())
+  unity = waiver()
+)
 
 # Now add props:
 script <- new_scene(script)
 
 # Lastly, execute the script via the `action` function
-
 }
 \seealso{
 Other props: 

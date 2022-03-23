@@ -19,5 +19,4 @@ Print the version of the Unity Editor in use.
 try(
   unity_version()
 )
-
 }

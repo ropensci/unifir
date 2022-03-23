@@ -31,7 +31,6 @@ prop <- unifir_prop(
   using = character(0)
 )
 script <- add_prop(script, prop)
-
 }
 \seealso{
 Other props: 

@@ -23,7 +23,6 @@ if (interactive()) {
   get_asset(asset = "tree_1", directory = tempdir())
   get_players(directory = tempdir())
 }
-
 }
 \seealso{
 Other utilities: 

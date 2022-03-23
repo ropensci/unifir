@@ -27,7 +27,6 @@ to attempt to find it. To do so, it goes through the following steps:
 if (interactive()) {
   try(find_unity())
 }
-
 }
 \seealso{
 Other utilities: 

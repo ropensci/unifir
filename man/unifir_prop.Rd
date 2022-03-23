@@ -70,5 +70,4 @@ unifir_prop(
   build = function(script, prop, debug) {},
   using = character(0)
 )
-
 }

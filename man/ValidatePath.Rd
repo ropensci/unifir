@@ -33,13 +33,15 @@ allows you to specify the path to check from R.
 # CRAN doesn't have Unity installed, so pass
 # a waiver object to skip the Unity-lookup stage:
 script <- make_script("example_script",
-                      unity = waiver())
+  unity = waiver()
+)
 
 # Now add props:
 script <- validate_path(script) # Don't specify the path in R
-script <- validate_single_path(script,
-                               "file_that_exists.txt") # Specify the path in R
-
+script <- validate_single_path(
+  script,
+  "file_that_exists.txt"
+) # Specify the path in R
 }
 \seealso{
 Other props: 

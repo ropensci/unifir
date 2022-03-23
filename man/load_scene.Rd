@@ -26,13 +26,13 @@ Load a scene in a Unity project.
 # CRAN doesn't have Unity installed, so pass
 # a waiver object to skip the Unity-lookup stage:
 script <- make_script("example_script",
-                      unity = waiver())
+  unity = waiver()
+)
 
 # Now add props:
 script <- load_scene(script, scene_name = "some_scene")
 
 # Lastly, execute the script via the `action` function
-
 }
 \seealso{
 Other props: 

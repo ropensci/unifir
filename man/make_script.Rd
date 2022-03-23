@@ -24,11 +24,12 @@ a scene name and one is not provided, this field will be used.}
 \item{unity}{The location of the Unity executable to create projects with.}
 
 \item{initialize_project}{If TRUE, will call [create_unity_project] to create
-a Unity project at `project`. If FALSE, will not create a new project. If NULL,
-will create a new project if `project` does not exist.}
+a Unity project at `project`. If FALSE, will not create a new project.
+If NULL, will create a new project if `project` does not exist.}
 }
 \description{
-unifir relies upon "script" objects, which collect "prop" objects (C# methods)
+unifir relies upon "script" objects, which collect "prop" objects
+(C# methods)
 which then may be executed within a Unity project via the [action] function.
 }
 \examples{
@@ -36,6 +37,5 @@ which then may be executed within a Unity project via the [action] function.
 # In practice, you'll want to set `project` to the project path to create
 # and `unity` to `NULL` (the default)
 make_script(project = waiver(), unity = waiver())
-
 }
 \concept{scripts}

@@ -28,13 +28,13 @@ at the C# level, and so is almost always called with `exec = FALSE`.
 # CRAN doesn't have Unity installed, so pass
 # a waiver object to skip the Unity-lookup stage:
 script <- make_script("example_script",
-                      unity = waiver())
+  unity = waiver()
+)
 
 # Now add props:
 script <- read_raw(script)
 
 # Lastly, execute the script via the `action` function
-
 }
 \seealso{
 Other props: 

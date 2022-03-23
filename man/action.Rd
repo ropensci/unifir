@@ -24,13 +24,13 @@ Build and execute a `unifir_script`
 # CRAN doesn't have Unity installed, so pass
 # a waiver object to skip the Unity-lookup stage:
 script <- make_script("example_script",
-                      unity = waiver())
+  unity = waiver()
+)
 
 # Then add any number of props to it:
 script <- add_light(script)
 
 # Then call `action` to execute the script!
-
 \donttest{
 if (interactive()) {
   action(script)

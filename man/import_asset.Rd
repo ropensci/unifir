@@ -17,8 +17,8 @@ This function is not currently vectorized; call it separately for each asset
 you need to import.}
 
 \item{lazy}{Boolean: if TRUE, unifir will attempt to only copy the files
-once per run of a script; if FALSE, unifir will copy the files as many times as
-requested, overwriting pre-existing files each time.}
+once per run of a script; if FALSE, unifir will copy the files as many times
+as requested, overwriting pre-existing files each time.}
 }
 \value{
 `script` with a new prop.
@@ -31,7 +31,8 @@ Import assets into Unity.
 # CRAN doesn't have Unity installed, so pass
 # a waiver object to skip the Unity-lookup stage:
 script <- make_script("example_script",
-                      unity = waiver())
+  unity = waiver()
+)
 
 # CRAN also doesn't have any props to install,
 # so we'll make a fake prop location:
@@ -42,7 +43,6 @@ dir.create(prop_directory)
 script <- import_asset(script, prop_directory)
 
 # Lastly, execute the script via the `action` function
-
 }
 \seealso{
 Other props: 

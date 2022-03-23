@@ -57,8 +57,8 @@ or alternatively, to which the default assets should be saved.
 Defaults to `tools::R_user_dir("unifir")`.}
 
 \item{lazy}{Boolean: if TRUE, unifir will attempt to only copy the files
-once per run of a script; if FALSE, unifir will copy the files as many times as
-requested, overwriting pre-existing files each time.}
+once per run of a script; if FALSE, unifir will copy the files as many times
+as requested, overwriting pre-existing files each time.}
 
 \item{method_name}{The internal name to use for the C# method created. Will
 be randomly generated if not set.}
@@ -121,7 +121,8 @@ and handles specifying file paths.
 # CRAN doesn't have Unity installed, so pass
 # a waiver object to skip the Unity-lookup stage:
 script <- make_script("example_script",
-                      unity = waiver())
+  unity = waiver()
+)
 
 # Now add props:
 script <- add_default_player(script)
