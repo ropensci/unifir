@@ -106,6 +106,36 @@ While unifir can be used by itself, you'll probably want to
 [install Unity](https://unity.com/download) in order to actually make Unity 
 projects.
 
+## Why do this?
+
+There's been a lot of interest in using immersive virtual environments for 
+research on topics including 
+[science communication](https://doi.org/10.1080/13658816.2020.1830997),
+[landscape planning](https://doi.org/10.1016/j.apgeog.2019.102102),
+[environmental economics](https://doi.org/10.1016/j.jeem.2008.08.002)
+and beyond. 
+This is an incredibly exciting area of research, which looks likely to present
+new methods for participatory planning, data visualization, and skill training.
+However, right now, much of the research in this area relies upon closed-source
+tooling which puts up hurdles in front of the equitability, accessibility, 
+and interoperability of the field. 
+In addition, a challenge when assessing hand-build environments (say to assess
+participant preferences between two scenes) is that us as researchers might
+accidentally "tilt the scales" in favor of our preferred option, by putting a 
+little more effort into making the scene we personally prefer look more 
+aesthetically pleasing than the alternative.
+
+unifir is a first step towards an open-source, fully reproducible approach for
+constructing immersive virtual environments. While it currently only targets
+Unity, a proprietary source-available game engine, 
+unifir hopes to improve the openness and interoperability of immersive virtual
+environments by encoding all of the 
+decisions involved in building a scene in standard R and C# code.
+A partially open system is better than a fully closed one, and if 
+other game engines become more feasible options for
+large scale immersive virtual environments, unifir may be extended to 
+support those as well.
+
 ## Code of Conduct
 
 Please note that the unifir project is released with a [Contributor Code of Conduct](https://mikemahoney218.github.io/unifir/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
