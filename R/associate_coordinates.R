@@ -60,8 +60,6 @@ associate_coordinates <- function(object,
     )
   )
 
-
-
   coords <- as.data.frame(sf::st_coordinates(object))
   bounds <- as.vector(terra::ext(terra::rast(raster)))
   coords$X <- (side_length *
