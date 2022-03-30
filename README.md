@@ -17,6 +17,8 @@ status](https://www.r-pkg.org/badges/version/unifir)](https://CRAN.R-project.org
 [![R-CMD-check](https://github.com/mikemahoney218/unifir/workflows/R-CMD-check/badge.svg)](https://github.com/mikemahoney218/unifir/actions)
 [![Codecov test
 coverage](https://codecov.io/gh/mikemahoney218/unifir/branch/main/graph/badge.svg)](https://app.codecov.io/gh/mikemahoney218/unifir?branch=main)
+[![Status at rOpenSci Software Peer
+Review](https://badges.ropensci.org/521_status.svg)](https://github.com/ropensci/software-review/issues/521)
 <!-- badges: end -->
 
 unifir is a unifying API for creating and managing
