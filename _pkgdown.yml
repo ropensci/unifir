@@ -1,4 +1,12 @@
 url: https://mikemahoney218.github.io/unifir/
 template:
   bootstrap: 5
-
+   articles:
+    text: Articles
+    menu:
+    - text: "unifir 101 - A user's guide"
+      href: articles/unifir-user-guide.html
+    - text: "unifir 102 - A developer's guide"
+      href: articles/unifir-dev-guide.html
+    - text: "unifir 103 - Using Assets"
+      href: articles/unifir-asset-guide.html
