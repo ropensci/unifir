@@ -7,8 +7,8 @@
 add_texture(script, method_name = NULL, exec = FALSE)
 }
 \arguments{
-\item{script}{A `unifir_script` object, created by [make_script] or returned
-by an `add_prop_*` function.}
+\item{script}{A \code{unifir_script} object, created by \link{make_script} or returned
+by an \verb{add_prop_*} function.}
 
 \item{method_name}{The internal name to use for the C# method created. Will
 be randomly generated if not set.}
@@ -17,11 +17,11 @@ be randomly generated if not set.}
 MainFunc?}
 }
 \description{
-This function adds a helper method, `AddTexture`, to the
+This function adds a helper method, \code{AddTexture}, to the
 C# script. This function is typically used to add textures to
 heightmaps in a Unity scene, for instance by functions
-like `create_terrain`. It requires some arguments be provided
-at the C# level, and so is almost always called with `exec = FALSE`.
+like \code{create_terrain}. It requires some arguments be provided
+at the C# level, and so is almost always called with \code{exec = FALSE}.
 }
 \examples{
 # First, create a script object.

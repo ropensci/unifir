@@ -7,12 +7,12 @@
 import_asset(script, asset_path, lazy = TRUE)
 }
 \arguments{
-\item{script}{A `unifir_script` object, created by [make_script] or returned
-by an `add_prop_*` function.}
+\item{script}{A \code{unifir_script} object, created by \link{make_script} or returned
+by an \verb{add_prop_*} function.}
 
 \item{asset_path}{The file path to the asset to import. If a directory, the
 entire directory will be recursively copied. Note that this function doesn't
-have a `method_name` argument: the `asset_path` is used as the method name.
+have a \code{method_name} argument: the \code{asset_path} is used as the method name.
 This function is not currently vectorized; call it separately for each asset
 you need to import.}
 
@@ -21,7 +21,7 @@ once per run of a script; if FALSE, unifir will copy the files as many times
 as requested, overwriting pre-existing files each time.}
 }
 \value{
-`script` with a new prop.
+\code{script} with a new prop.
 }
 \description{
 Import assets into Unity.

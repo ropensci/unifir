@@ -8,10 +8,10 @@ get_asset(asset, directory = NULL)
 }
 \arguments{
 \item{asset}{The asset to download. Available asset names are provided in
-[available_assets].}
+\link{available_assets}.}
 
 \item{directory}{Optionally, the directory to extract the downloaded models
-in. If NULL, the default, saves to `tools::R_user_dir("unifir")`.}
+in. If NULL, the default, saves to \code{tools::R_user_dir("unifir")}.}
 }
 \description{
 This is a simple helper function downloading the assets stored at

@@ -22,8 +22,8 @@ instantiate_prefab(
 )
 }
 \arguments{
-\item{script}{A `unifir_script` object, created by [make_script] or returned
-by an `add_prop_*` function.}
+\item{script}{A \code{unifir_script} object, created by \link{make_script} or returned
+by an \verb{add_prop_*} function.}
 
 \item{method_name}{The internal name to use for the C# method created. Will
 be randomly generated if not set.}
@@ -49,8 +49,8 @@ MainFunc?}
 }
 \description{
 This function creates objects (specifically, prefabs) within a Unity scene.
-This function is vectorized over all functions from `prefab_path` through
-`z_rotation`; to add multiple objects, simply provide vectors to each
+This function is vectorized over all functions from \code{prefab_path} through
+\code{z_rotation}; to add multiple objects, simply provide vectors to each
 argument. Note that all arguments will be automatically recycled if not the
 same length; this may produce undesired results. This function is only
 capable of altering a single scene at once -- call the function multiple

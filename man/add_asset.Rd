@@ -44,17 +44,17 @@ add_default_tree(
 )
 }
 \arguments{
-\item{script}{A `unifir_script` object, created by [make_script] or returned
-by an `add_prop_*` function.}
+\item{script}{A \code{unifir_script} object, created by \link{make_script} or returned
+by an \verb{add_prop_*} function.}
 
-\item{controller}{Which controller to use. `Player`, the default,
-is a simple first-person controller. `FootstepsPlayer` adds footsteps
-to this controller, while `JetpackPlayer` adds a "jetpack" with limited
-fuel. `Third Person` lets you control a small cylinder in third person.}
+\item{controller}{Which controller to use. \code{Player}, the default,
+is a simple first-person controller. \code{FootstepsPlayer} adds footsteps
+to this controller, while \code{JetpackPlayer} adds a "jetpack" with limited
+fuel. \verb{Third Person} lets you control a small cylinder in third person.}
 
 \item{asset_directory}{A file path to the directory containing the asset,
 or alternatively, to which the default assets should be saved.
-Defaults to `tools::R_user_dir("unifir")`.}
+Defaults to \code{tools::R_user_dir("unifir")}.}
 
 \item{lazy}{Boolean: if TRUE, unifir will attempt to only copy the files
 once per run of a script; if FALSE, unifir will copy the files as many times
@@ -106,15 +106,15 @@ https://github.com/mikemahoney218/unity_assets/
 to a Unity scene.
 }
 \details{
-In effect, these functions provide a thin wrapper across `instantiate_prefab`
-and `import_asset`. By providing the directory an asset is stored in, and the
+In effect, these functions provide a thin wrapper across \code{instantiate_prefab}
+and \code{import_asset}. By providing the directory an asset is stored in, and the
 path to the prefab file once that directory has been copied into Unity,
 these files will add prefabs to specified locations throughout the scene.
 This function will also download the necessary assets
 and handles specifying file paths.
 
-`add_default_player` adds "player" controllers to a Unity scene.
-`add_tree` adds tree GameObjects.
+\code{add_default_player} adds "player" controllers to a Unity scene.
+\code{add_tree} adds tree GameObjects.
 }
 \examples{
 # First, create a script object.

@@ -37,3 +37,4 @@ Config/testthat/parallel: true
 URL: https://mikemahoney218.github.io/unifir/, https://github.com/mikemahoney218/unifir
 BugReports: https://github.com/mikemahoney218/unifir/issues
 VignetteBuilder: knitr
+Roxygen: list(markdown = TRUE)

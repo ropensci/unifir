@@ -13,8 +13,8 @@ new_scene(
 )
 }
 \arguments{
-\item{script}{A `unifir_script` object, created by [make_script] or returned
-by an `add_prop_*` function.}
+\item{script}{A \code{unifir_script} object, created by \link{make_script} or returned
+by an \verb{add_prop_*} function.}
 
 \item{setup}{One of "EmptyScene"
 ("No game objects are added to the new Scene.") or "DefaultGameObjects"

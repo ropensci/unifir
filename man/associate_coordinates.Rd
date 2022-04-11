@@ -7,13 +7,13 @@
 associate_coordinates(object, raster, side_length = 4097)
 }
 \arguments{
-\item{object}{The `sf` object to take coordinates from. The object will be
-reprojected to align with `raster`.}
+\item{object}{The \code{sf} object to take coordinates from. The object will be
+reprojected to align with \code{raster}.}
 
 \item{raster}{A raster or file path to a raster to associate coordinates
 with. Note that different rasters will produce different coordinate outputs;
 you should run this function with the same raster you plan on bringing into
-Unity. Any file or object that can be read via [terra::rast] can be used.}
+Unity. Any file or object that can be read via \link[terra:rast]{terra::rast} can be used.}
 
 \item{side_length}{The side length of terrain tiles, in map units,
 you intend to bring into Unity. Must be a value equal to 2^x + 1, for x
@@ -21,9 +21,9 @@ between 5 and 12. All functions in the unifir family default to 4097.}
 }
 \value{
 A data.frame with two columns, X and Y, representing the re-aligned
-coordinates. If `object` is point data (or anything object that
-[sf::st_coordinates] returns a single row for each row of), these rows will
-be in the same order as `object` (and so can be appended via `cbind`).
+coordinates. If \code{object} is point data (or anything object that
+\link[sf:st_coordinates]{sf::st_coordinates} returns a single row for each row of), these rows will
+be in the same order as \code{object} (and so can be appended via \code{cbind}).
 }
 \description{
 Unity uses a left-handed coordinate system, which is effectively "flipped"
@@ -33,7 +33,7 @@ can only import terrain as square tiles of side 2^x + 1, for x between 5 and
 with terrain surfaces is trickier than you'd expect.
 }
 \details{
-This function "associates" the XY coordinates from some `sf` object, likely a
+This function "associates" the XY coordinates from some \code{sf} object, likely a
 point data set, with some raster object.
 }
 \examples{

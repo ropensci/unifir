@@ -8,8 +8,8 @@ unity_version(unity = NULL)
 }
 \arguments{
 \item{unity}{The path to the Unity executable on your system (importantly,
-_not_ the UnityHub executable). If `NULL`, checks to see if the environment
-variable or option `unifir_unity_path` is set; if so, uses that path
+\emph{not} the UnityHub executable). If \code{NULL}, checks to see if the environment
+variable or option \code{unifir_unity_path} is set; if so, uses that path
 (preferring the environment variable over the option if the two disagree).}
 }
 \description{

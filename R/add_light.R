@@ -5,7 +5,7 @@
 #' more than one light.
 #'
 #' @param light_type One of "Directional", "Point", "Spot", or "Area". See
-#' \url{https://docs.unity3d.com/Manual/Lighting.html} for more information.
+#' <https://docs.unity3d.com/Manual/Lighting.html> for more information.
 #' @param light_name The name to assign the Light object.
 #' @inheritParams instantiate_prefab
 #'

@@ -22,8 +22,8 @@ add_light(
 )
 }
 \arguments{
-\item{script}{A `unifir_script` object, created by [make_script] or returned
-by an `add_prop_*` function.}
+\item{script}{A \code{unifir_script} object, created by \link{make_script} or returned
+by an \verb{add_prop_*} function.}
 
 \item{light_type}{One of "Directional", "Point", "Spot", or "Area". See
 \url{https://docs.unity3d.com/Manual/Lighting.html} for more information.}

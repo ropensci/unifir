@@ -10,18 +10,20 @@ find_unity(unity = NULL, check_path = TRUE)
 \item{unity}{Character: If provided, this function will quote the provided
 string (if necessary) and return it.}
 
-\item{check_path}{Logical: If `TRUE`, this function will check if the Unity
+\item{check_path}{Logical: If \code{TRUE}, this function will check if the Unity
 executable provided as an argument, environment variable, or option exists.
 If it does not, this function will then attempt to find one, and will error
-if not found. If `FALSE`, this function will never error.}
+if not found. If \code{FALSE}, this function will never error.}
 }
 \description{
 If the path to Unity is not provided to a function, this function is invoked
 to attempt to find it. To do so, it goes through the following steps:
 }
 \details{
-1. Attempt to load the "unifir_unity_path" environment variable.
-2. Attempt to load the "unifir_unity_path" option.
+\enumerate{
+\item Attempt to load the "unifir_unity_path" environment variable.
+\item Attempt to load the "unifir_unity_path" option.
+}
 }
 \examples{
 if (interactive()) {

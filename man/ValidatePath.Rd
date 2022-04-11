@@ -10,8 +10,8 @@ validate_path(script, method_name = NULL, exec = FALSE)
 validate_single_path(script, path, method_name = NULL, exec = TRUE)
 }
 \arguments{
-\item{script}{A `unifir_script` object, created by [make_script] or returned
-by an `add_prop_*` function.}
+\item{script}{A \code{unifir_script} object, created by \link{make_script} or returned
+by an \verb{add_prop_*} function.}
 
 \item{method_name}{The internal name to use for the C# method created. Will
 be randomly generated if not set.}
@@ -22,10 +22,10 @@ MainFunc?}
 \item{path}{The file path to validate}
 }
 \description{
-`validate_path` creates a generic C# method which takes a single argument
+\code{validate_path} creates a generic C# method which takes a single argument
 and checks to make sure it exists. Your C# code calling the method must
 provide the path to validate.
-`validate_single_path` hard-codes the path to check in the C# code. This
+\code{validate_single_path} hard-codes the path to check in the C# code. This
 allows you to specify the path to check from R.
 }
 \examples{

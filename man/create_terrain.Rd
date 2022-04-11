@@ -19,8 +19,8 @@ create_terrain(
 )
 }
 \arguments{
-\item{script}{A `unifir_script` object, created by [make_script] or returned
-by an `add_prop_*` function.}
+\item{script}{A \code{unifir_script} object, created by \link{make_script} or returned
+by an \verb{add_prop_*} function.}
 
 \item{method_name}{The internal name to use for the C# method created. Will
 be randomly generated if not set.}

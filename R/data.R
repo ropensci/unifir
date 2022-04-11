@@ -9,6 +9,6 @@
 #' @format A character vector with 13 elements, each representing an asset
 #' which can be imported.
 #'
-#' @source \url{https://github.com/mikemahoney218/unity_assets}
+#' @source <https://github.com/mikemahoney218/unity_assets>
 "available_assets"
 utils::globalVariables("available_assets")

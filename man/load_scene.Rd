@@ -7,8 +7,8 @@
 load_scene(script, scene_name, method_name = NULL, exec = TRUE)
 }
 \arguments{
-\item{script}{A `unifir_script` object, created by [make_script] or returned
-by an `add_prop_*` function.}
+\item{script}{A \code{unifir_script} object, created by \link{make_script} or returned
+by an \verb{add_prop_*} function.}
 
 \item{scene_name}{The name of the scene to load.}
 

@@ -23,14 +23,14 @@ a scene name and one is not provided, this field will be used.}
 
 \item{unity}{The location of the Unity executable to create projects with.}
 
-\item{initialize_project}{If TRUE, will call [create_unity_project] to create
-a Unity project at `project`. If FALSE, will not create a new project.
-If NULL, will create a new project if `project` does not exist.}
+\item{initialize_project}{If TRUE, will call \link{create_unity_project} to create
+a Unity project at \code{project}. If FALSE, will not create a new project.
+If NULL, will create a new project if \code{project} does not exist.}
 }
 \description{
 unifir relies upon "script" objects, which collect "prop" objects
 (C# methods)
-which then may be executed within a Unity project via the [action] function.
+which then may be executed within a Unity project via the \link{action} function.
 }
 \examples{
 # Create an empty script file

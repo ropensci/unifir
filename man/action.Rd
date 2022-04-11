@@ -2,22 +2,22 @@
 % Please edit documentation in R/action.R
 \name{action}
 \alias{action}
-\title{Build and execute a `unifir_script`}
+\title{Build and execute a \code{unifir_script}}
 \usage{
 action(script, write = TRUE, exec = TRUE, quit = TRUE)
 }
 \arguments{
-\item{script}{The `unifir_script` object to build and execute.}
+\item{script}{The \code{unifir_script} object to build and execute.}
 
 \item{write}{Boolean: Write the generated script to a file?}
 
 \item{exec}{Boolean: Execute the script inside of the Unity project? Note
-that if `write = FALSE`, `exec` cannot be `TRUE`.}
+that if \code{write = FALSE}, \code{exec} cannot be \code{TRUE}.}
 
 \item{quit}{Boolean: Quit Unity after execution?}
 }
 \description{
-Build and execute a `unifir_script`
+Build and execute a \code{unifir_script}
 }
 \examples{
 # First, create a script object.
