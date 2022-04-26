@@ -21,7 +21,6 @@ https://github.com/mikemahoney218/unity_assets .
 
 if (interactive()) {
   get_asset(asset = "tree_1", directory = tempdir())
-  get_players(directory = tempdir())
 }
 }
 \seealso{

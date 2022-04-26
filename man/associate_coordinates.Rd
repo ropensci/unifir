@@ -44,7 +44,11 @@ if (!isTRUE(as.logical(Sys.getenv("CI")))) {
     lat = runif(100, 44.04905, 44.17609),
     lng = runif(100, -74.01188, -73.83493)
   )
-  simulated_data <- sf::st_as_sf(simulated_data, coords = c("lng", "lat"))
+  simulated_data <- sf::st_as_sf(
+    simulated_data,
+    coords = c("lng", "lat"),
+    crs = 4326
+   )
   output_files <- terrainr::get_tiles(simulated_data)
   temptiff <- tempfile(fileext = ".tif")
   terrainr::merge_rasters(output_files["elevation"][[1]], temptiff)

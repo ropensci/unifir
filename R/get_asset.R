@@ -14,7 +14,6 @@
 #'
 #' if (interactive()) {
 #'   get_asset(asset = "tree_1", directory = tempdir())
-#'   get_players(directory = tempdir())
 #' }
 #' @rdname get_asset
 #' @export
