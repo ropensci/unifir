@@ -14,10 +14,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
-library(unifir)
-```
-
 This document provides an overview of the inner workings of unifir, focusing on
 how scripts, props, and actions work together to produce a Unity scene. The 
 tone and focus here are going to be extremely technical and fiddly; for a 
@@ -51,6 +47,7 @@ the simplest function calls will fail on CRAN -- for instance, running the
 following would throw an error:
 
 ```{r eval = FALSE}
+library(unifir)
 make_script("example")
 ```
 
@@ -61,6 +58,7 @@ that it's missing, and that's _fine_. All `waiver()` does is return an object of
 class `waiver`:
 
 ```{r}
+library(unifir)
 waiver()
 ```
 

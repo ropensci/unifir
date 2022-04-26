@@ -14,10 +14,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
-library(unifir)
-```
-
 This document aims to provide a quickstart guide to using unifir. 
 By that, I mean on how an end user could use unifir to produce and create
 Unity scenes. For more information on how the underlying framework functions,

@@ -107,7 +107,7 @@ action <- function(script, write = TRUE, exec = TRUE, quit = TRUE) {
   if (exec) {
     output <- system(
       paste0(
-        find_unity(),
+        shQuote(find_unity()),
         " -batchmode",
         if (quit) " -quit",
         " -projectPath ",

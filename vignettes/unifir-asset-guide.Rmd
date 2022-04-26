@@ -14,10 +14,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
-library(unifir)
-```
-
 This vignette supplements 
 [unifir 101](unifir-user-guide.html)
 and 
@@ -60,6 +56,7 @@ file.create(example_asset)
 We can import that using `import_asset()` as follows:
 
 ```{r}
+library(unifir)
 script <- make_script(
   project = file.path(tempdir(), "unifir"),
   unity = waiver()

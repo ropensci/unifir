@@ -44,9 +44,6 @@ find_unity <- function(unity = NULL, check_path = TRUE) {
     )
   }
 
-  if (!grepl("^\"", unity)) unity <- paste0('"', unity)
-  if (!grepl("\"$", unity)) unity <- paste0(unity, '"')
-
   if (Sys.getenv("unifir_unity_path") == "") {
     Sys.setenv("unifir_unity_path" = unity)
   }
@@ -55,34 +52,36 @@ find_unity <- function(unity = NULL, check_path = TRUE) {
 }
 
 windows_locations <- function() {
-  if (dir.exists("C:\\Program Files\\Unity\\Hub\\Editor")) {
+  if (dir.exists(file.path("C:", "Program Files", "Unity", "Hub", "Editor"))) {
     unity <- utils::tail(
-      list.files("C:\\Program Files\\Unity\\Hub\\Editor",
+      list.files(file.path("C:", "Program Files", "Unity", "Hub", "Editor"),
                  full.names = TRUE
       ),
       1
     )
-    paste0(unity, "\\Editor\\Unity.exe")
+    file.path(unity, "Editor", "Unity.exe")
   }
 }
 
 linux_locations <- function() {
-  if (dir.exists("~/Unity/Hub/Editor")) {
+  if (dir.exists(file.path("~", "Unity", "Hub", "Editor"))) {
     unity <- utils::tail(
-      list.files("~/Unity/Hub/Editor", full.names = TRUE),
+      list.files(file.path("~", "Unity", "Hub", "Editor"),
+                 full.names = TRUE),
       1
     )
-    paste0(unity, "/Editor/Unity")
+    file.path(unity, "Editor", "Unity")
   }
 }
 
 mac_locations <- function() {
-  if (dir.exists("/Applications/Unity/Hub/Editor")) {
+  if (dir.exists(file.path("/Applications", "Unity", "Hub", "Editor"))) {
     # This works on at least one Mac
     unity <- utils::tail(
-      list.files("/Applications/Unity/Hub/Editor", full.names = TRUE),
+      list.files(file.path("/Applications", "Unity", "Hub", "Editor"),
+                 full.names = TRUE),
       1
     )
-    paste0(unity, "Unity.app/Contents/MacOS/Unity")
+    file.path(unity, "Unity.app", "Contents", "MacOS", "Unity")
   }
 }
