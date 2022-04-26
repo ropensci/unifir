@@ -1,7 +1,8 @@
-    
+
     static void %method_name%()
     {
         string heightmapPath = "%heightmap_path%";
+        string basePath = "%base_path%";
         float x_pos = %x_pos%F;
         float z_pos = %z_pos%F;
         float width = %width%F;
@@ -21,6 +22,5 @@
         if(texturePath != string.Empty){
             %add_texture_method%(texturePath, terrainData, width, length);
         }
-        AssetDatabase.CreateAsset(terrainData, "Assets/" + heightmapPath + ".asset");
+        AssetDatabase.CreateAsset(terrainData, "Assets/" + basePath + ".asset");
     }
-    
