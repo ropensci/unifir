@@ -6,6 +6,10 @@
 #' try(
 #'   unity_version()
 #' )
+#'
+#' @return A character vector of length 1
+#' containing the version of Unity in use.
+#'
 #' @export
 unity_version <- function(unity = NULL) {
   if (is.null(unity)) unity <- find_unity()
@@ -26,5 +30,8 @@ unity_version <- function(unity = NULL) {
 #'
 #' @examples
 #' waiver()
+#'
+#' @return An empty list of class `waiver`.
+#'
 #' @export
 waiver <- function() structure(list(), class = "waiver")

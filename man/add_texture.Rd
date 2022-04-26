@@ -16,11 +16,15 @@ be randomly generated if not set.}
 \item{exec}{Logical: Should the C# method be included in the set executed by
 MainFunc?}
 }
+\value{
+The \code{unifir_script} object passed to \code{script}, with an \code{AddTexture}
+method appended.
+}
 \description{
 This function adds a helper method, \code{AddTexture}, to the
 C# script. This function is typically used to add textures to
 heightmaps in a Unity scene, for instance by functions
-like \code{create_terrain}. It requires some arguments be provided
+like \link{create_terrain}. It requires some arguments be provided
 at the C# level, and so is almost always called with \code{exec = FALSE}.
 }
 \examples{
@@ -35,6 +39,7 @@ script <- make_script("example_script",
 script <- add_texture(script)
 
 # Lastly, execute the script via the `action` function
+
 }
 \seealso{
 Other props: 

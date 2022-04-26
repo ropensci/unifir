@@ -59,7 +59,7 @@ We can import that using `import_asset()` as follows:
 library(unifir)
 script <- make_script(
   project = file.path(tempdir(), "unifir"),
-  unity = waiver()
+  unity = waiver() # Makes it so make_script won't error if it can't find Unity
 )
 
 script <- import_asset(script, example_asset)

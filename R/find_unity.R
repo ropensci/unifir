@@ -1,10 +1,15 @@
 #' Find the Unity executable on a machine.
 #'
+#' @description
 #' If the path to Unity is not provided to a function, this function is invoked
 #' to attempt to find it. To do so, it goes through the following steps:
 #'
 #' 1. Attempt to load the "unifir_unity_path" environment variable.
 #' 2. Attempt to load the "unifir_unity_path" option.
+#'
+#' Assuming that neither points to an actual file, this function will then
+#' check the default installation paths for Unity on the user's operating
+#' system. If not found, this function will error.
 #'
 #' @param unity Character: If provided, this function will quote the provided
 #' string (if necessary) and return it.
@@ -18,6 +23,9 @@
 #'   try(find_unity())
 #' }
 #' @family utilities
+#'
+#' @return The path to the Unity executable on the user's machine, as a length-1
+#' character vector.
 #'
 #' @export
 find_unity <- function(unity = NULL, check_path = TRUE) {

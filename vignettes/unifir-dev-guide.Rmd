@@ -51,6 +51,11 @@ library(unifir)
 make_script("example")
 ```
 
+```{r echo = FALSE}
+library(unifir)
+```
+
+
 In order to work around this, I've borrowed an idea (and the entire function)
 from ggplot2: `waiver()`. The `waiver()` function is a way to indicate to unifir
 that yes, you _know_ this value normally needs to be provided, and you _know_
@@ -58,7 +63,6 @@ that it's missing, and that's _fine_. All `waiver()` does is return an object of
 class `waiver`:
 
 ```{r}
-library(unifir)
 waiver()
 ```
 
@@ -75,13 +79,10 @@ The "script" is the core object in unifir. To create a script, we use
 ```{r}
 script <- make_script(
   project = file.path(tempdir(), "unifir"),
-  unity = waiver()
+  unity = waiver() # Don't error if we can't find Unity
 )
 script
 ```
-
-(Note that, for this vignette to build on CRAN, I need to set `unity = waiver()`
-to work around the lack of a Unity executable.)
 
 This creates an [R6](https://github.com/r-lib/R6) object of the class 
 `unifir_script`. If you haven't worked with R6 before, I recommend checking out
@@ -255,8 +256,8 @@ example script through `action()` as so:
 ```{r}
 script <- make_script(
   project = file.path(tempdir(), "unifir"),
-  unity = waiver(),
-  initialize_project = FALSE,
+  unity = waiver(), # Don't error if we can't find Unity
+  initialize_project = FALSE, # Don't create the project -- so this runs on CRAN
   script_name = "example_script"
 )
 script <- new_scene(script)
@@ -265,9 +266,6 @@ exec_script <- action(
   exec = FALSE
 )
 ```
-
-(Note that I've set `initialize_project = FALSE` so this vignette runs on CRAN).
-
 If we're concerned about how unifir translated our prop code, we can find the
 rendered C# inside `props`:
 

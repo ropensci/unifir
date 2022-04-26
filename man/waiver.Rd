@@ -6,6 +6,9 @@
 \usage{
 waiver()
 }
+\value{
+An empty list of class \code{waiver}.
+}
 \description{
 This function is borrowed from ggplot2. It creates a "flag" object indicating
 that a value has been intentionally left blank (because it will be filled in
@@ -15,6 +18,7 @@ elsewhere in the script for an acceptable value.
 }
 \examples{
 waiver()
+
 }
 \references{
 H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York, 2016.

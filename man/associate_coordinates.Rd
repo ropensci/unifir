@@ -8,7 +8,7 @@ associate_coordinates(object, raster, side_length = 4097)
 }
 \arguments{
 \item{object}{The \code{sf} object to take coordinates from. The object will be
-reprojected to align with \code{raster}.}
+reprojected (via \link[sf:st_transform]{sf::st_transform}) to align with \code{raster}.}
 
 \item{raster}{A raster or file path to a raster to associate coordinates
 with. Note that different rasters will produce different coordinate outputs;
@@ -23,7 +23,7 @@ between 5 and 12. All functions in the unifir family default to 4097.}
 A data.frame with two columns, X and Y, representing the re-aligned
 coordinates. If \code{object} is point data (or anything object that
 \link[sf:st_coordinates]{sf::st_coordinates} returns a single row for each row of), these rows will
-be in the same order as \code{object} (and so can be appended via \code{cbind}).
+be in the same order as \code{object} (and so can be appended via \link{cbind}).
 }
 \description{
 Unity uses a left-handed coordinate system, which is effectively "flipped"
@@ -31,8 +31,6 @@ from our normal way of thinking about spatial coordinate systems. It also
 can only import terrain as square tiles of side 2^x + 1, for x between 5 and
 12. As a result, importing objects into a Unity scene so that they align
 with terrain surfaces is trickier than you'd expect.
-}
-\details{
 This function "associates" the XY coordinates from some \code{sf} object, likely a
 point data set, with some raster object.
 }

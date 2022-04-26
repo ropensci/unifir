@@ -12,6 +12,10 @@ unity_version(unity = NULL)
 variable or option \code{unifir_unity_path} is set; if so, uses that path
 (preferring the environment variable over the option if the two disagree).}
 }
+\value{
+A character vector of length 1
+containing the version of Unity in use.
+}
 \description{
 Print the version of the Unity Editor in use.
 }
@@ -19,4 +23,5 @@ Print the version of the Unity Editor in use.
 try(
   unity_version()
 )
+
 }

@@ -20,16 +20,14 @@ MainFunc?}
 This function adds a helper method, \code{ReadRaw}, to the
 C# script. This function is typically used to bring in
 heightmaps into a Unity scene, for instance by functions
-like \code{create_terrain}. It requires some arguments be provided
+like \link{create_terrain}. It requires some arguments be provided
 at the C# level, and so is almost always called with \code{exec = FALSE}.
 }
 \examples{
 # First, create a script object.
 # CRAN doesn't have Unity installed, so pass
 # a waiver object to skip the Unity-lookup stage:
-script <- make_script("example_script",
-  unity = waiver()
-)
+script <- make_script("example_script", unity = waiver())
 
 # Now add props:
 script <- read_raw(script)

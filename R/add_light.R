@@ -15,14 +15,16 @@
 #' # First, create a script object.
 #' # CRAN doesn't have Unity installed, so pass
 #' # a waiver object to skip the Unity-lookup stage:
-#' script <- make_script("example_script",
-#'   unity = waiver()
-#' )
+#' script <- make_script("example_script", unity = waiver())
 #'
 #' # Now add props:
 #' script <- add_light(script)
 #'
 #' # Lastly, execute the script via the `action` function
+#'
+#' @return The `unifir_script` object passed to `script`, with props for adding
+#' lights appended.
+#'
 #' @export
 add_light <- function(script,
                       light_type = c(

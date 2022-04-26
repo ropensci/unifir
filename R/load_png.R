@@ -3,7 +3,7 @@
 #' This function adds a helper method, `LoadPNG`, to the
 #' C# script. This function is typically used by other C# methods
 #' to bring in textures into a Unity scene, for instance by functions
-#' like `create_terrain`. It requires some arguments be provided
+#' like [create_terrain]. It requires some arguments be provided
 #' at the C# level, and so is almost always called with `exec = FALSE`.
 #'
 #' @inheritParams new_scene
@@ -15,9 +15,7 @@
 #' # First, create a script object.
 #' # CRAN doesn't have Unity installed, so pass
 #' # a waiver object to skip the Unity-lookup stage:
-#' script <- make_script("example_script",
-#'   unity = waiver()
-#' )
+#' script <- make_script("example_script", unity = waiver())
 #'
 #' # Then add any number of props to it:
 #' script <- load_png(script)

@@ -9,7 +9,7 @@ add_prop(script, prop, exec = TRUE)
 \arguments{
 \item{script}{A script object (from \link{make_script}) to append the prop to.}
 
-\item{prop}{A \link{unifir_prop} object to add to the script}
+\item{prop}{A \code{unifir_prop} object (from \link{unifir_prop}) to add to the script.}
 
 \item{exec}{Logical: Should the method created by the prop be called in the
 MainFunc method?}

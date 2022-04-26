@@ -4,22 +4,22 @@
 #' https://github.com/mikemahoney218/unity_assets/
 #' to a Unity scene.
 #'
-#' In effect, these functions provide a thin wrapper across `instantiate_prefab`
-#' and `import_asset`. By providing the directory an asset is stored in, and the
+#' In effect, these functions provide a thin wrapper across [instantiate_prefab]
+#' and [import_asset]. By providing the directory an asset is stored in, and the
 #' path to the prefab file once that directory has been copied into Unity,
 #' these files will add prefabs to specified locations throughout the scene.
 #' This function will also download the necessary assets
 #' and handles specifying file paths.
 #'
-#' `add_default_player` adds "player" controllers to a Unity scene.
-#' `add_tree` adds tree GameObjects.
+#' [add_default_player] adds "player" controllers to a Unity scene.
+#' [add_default_tree] adds tree GameObjects.
 #'
 #' @inheritParams instantiate_prefab
 #' @inheritParams import_asset
-#' @param controller Which controller to use. `Player`, the default,
-#' is a simple first-person controller. `FootstepsPlayer` adds footsteps
-#' to this controller, while `JetpackPlayer` adds a "jetpack" with limited
-#' fuel. `Third Person` lets you control a small cylinder in third person.
+#' @param controller Which controller to use. "Player", the default,
+#' is a simple first-person controller. "FootstepsPlayer" adds footsteps
+#' to this controller, while "JetpackPlayer" adds a "jetpack" with limited
+#' fuel. ""Third Person" lets you control a small cylinder in third person.
 #' @param tree Which tree to use. There are currently 12 generic tree objects
 #' available, named "tree_1" through "tree_12". The number of a tree (1-12)
 #' can be specified instead of the full name.
@@ -34,9 +34,7 @@
 #' # First, create a script object.
 #' # CRAN doesn't have Unity installed, so pass
 #' # a waiver object to skip the Unity-lookup stage:
-#' script <- make_script("example_script",
-#'   unity = waiver()
-#' )
+#' script <- make_script("example_script", unity = waiver())
 #'
 #' # Now add props:
 #' script <- add_default_player(script)
@@ -44,6 +42,10 @@
 #' script <- save_scene(script)
 #'
 #' # Lastly, execute the script via the `action` function
+#'
+#' @return The `unifir_script` object passed to `script`, with props for adding
+#' assets appended.
+#'
 #' @rdname add_asset
 #' @export
 add_default_player <- function(script,
