@@ -148,6 +148,7 @@ unifir_prop <- function(prop_file,
 #' @export
 add_prop <- function(script, prop, exec = TRUE) {
   stopifnot(is.logical(exec))
+  stopifnot(methods::is(script, "unifir_script"))
 
   idx <- nrow(script$beats) + 1
 
