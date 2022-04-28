@@ -1,8 +1,5 @@
 # unifir 0.2.0
 
-* Breaking changes:
-* New features:
-* Internal changes:
 * Improvements and bug fixes:
     * `find_unity()` now doesn't escape its Unity path (so the string returned 
       is the actual path to the Unity engine, not a quoted version). 
