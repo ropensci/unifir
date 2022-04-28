@@ -128,6 +128,7 @@ add_default_tree <- function(script,
     tree,
     paste0(tree, ".prefab")
   )
+  if (missing(x_rotation)) x_rotation <- -90
 
   stopifnot(all(unique(tree) %in% available_assets))
 

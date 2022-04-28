@@ -58,7 +58,7 @@ test_that("add_default_tree adds a prop as expected", {
         x_scale = 1,
         y_scale = 1,
         z_scale = 1,
-        x_rotation = 0,
+        x_rotation = -90,
         y_rotation = 0,
         z_rotation = 0
       )
