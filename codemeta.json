@@ -3,18 +3,18 @@
   "@type": "SoftwareSourceCode",
   "identifier": "unifir",
   "description": "Functions for the creation and manipulation of scenes and objects within the 'Unity' '3D' video game engine (<https://unity.com/>). Specific focuses include the creation and import of terrain data and 'GameObjects' as well as scene management.",
-  "name": "unifir: A Unifying API for Calling 'Unity' from R",
+  "name": "unifir: A Unifying API for Calling the 'Unity' '3D' Video Game Engine",
   "relatedLink": "https://mikemahoney218.github.io/unifir/",
   "codeRepository": "https://github.com/mikemahoney218/unifir",
   "issueTracker": "https://github.com/mikemahoney218/unifir/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.1.2 (2021-11-01)",
+  "runtimePlatform": "R version 4.2.0 (2022-04-22)",
   "author": [
     {
       "@type": "Person",
@@ -130,6 +130,30 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=testthat"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "terra",
+      "name": "terra",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=terra"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "sf",
+      "name": "sf",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=sf"
     }
   ],
   "softwareRequirements": {
@@ -182,22 +206,35 @@
     },
     "6": {
       "@type": "SoftwareApplication",
-      "identifier": "rlang",
-      "name": "rlang",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=rlang"
-    },
-    "7": {
-      "@type": "SoftwareApplication",
       "identifier": "utils",
       "name": "utils"
     },
     "SystemRequirements": null
   },
-  "fileSize": "222.77KB"
+  "fileSize": "2217.366KB",
+  "citation": [
+    {
+      "@type": "SoftwareSourceCode",
+      "author": [
+        {
+          "@type": "Person",
+          "givenName": "Michael",
+          "familyName": "Mahoney"
+        }
+      ],
+      "name": "{unifir}: A Unifying API for Calling Unity from R",
+      "url": "https://github.com/mikemahoney218/unifir",
+      "description": "R package version 0.2.0"
+    }
+  ],
+  "releaseNotes": "https://github.com/mikemahoney218/unifir/blob/master/NEWS.md",
+  "readme": "https://github.com/mikemahoney218/unifir/blob/main/README.md",
+  "contIntegration": ["https://github.com/mikemahoney218/unifir/actions", "https://app.codecov.io/gh/mikemahoney218/unifir?branch=main"],
+  "developmentStatus": ["https://www.repostatus.org/#active", "https://lifecycle.r-lib.org/articles/stages.html#maturing-1"],
+  "review": {
+    "@type": "Review",
+    "url": "https://github.com/ropensci/software-review/issues/521",
+    "provider": "https://ropensci.org"
+  },
+  "keywords": ["rstats", "cran", "cran-r", "r", "unifir", "visualization", "unity", "unity3d"]
 }

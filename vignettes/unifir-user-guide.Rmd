@@ -170,11 +170,7 @@ project.
 So now that we know the basics of how a unifir script is built, we should walk
 through how to actually build one to make a scene! We'll walk through adding
 terrain, trees, and a character to a scene and then see what it looks like when
-rendered. This example comes from [Will Jones](https://github.com/wjones127), 
-who helped 
-[improve this vignette](https://github.com/mikemahoney218/unifir/issues/7) 
-during 
-[unifir's review at rOpenSci](https://github.com/ropensci/software-review/issues/521).
+rendered.
 
 First things first, we'll need a script! Just like before, we'll make our script
 using the `make_script()` function:
@@ -182,7 +178,7 @@ using the `make_script()` function:
 ```{r eval = FALSE}
 tree_script <- make_script(
   project = file.path(tempdir(), "unifir", "random_trees")
-  )
+)
 ```
 
 Up next, we need data on the terrain we want to add! We can generate
@@ -201,9 +197,9 @@ library(terrainr)
 
 Importing terrain into Unity is a little bit wonky. First off, Unity can't
 process standard raster data, but rather needs a specialized format that
-most libraries don't work with; for that reason, we're going to need to use
-terrainr's `transform_elevation()` function to transform our elevation raster 
-into a proper format.
+most libraries don't work with (namely, raw bytestreams with planar interlacing); 
+for that reason, we're going to need to use terrainr's `transform_elevation()` 
+function to transform our elevation raster into a proper format.
 
 Additionally, Unity doesn't have a great way for wrangling objects of different
 unit systems -- it assumes that a distance of "1" in a 3D model is also a
