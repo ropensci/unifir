@@ -15,15 +15,21 @@ executable provided as an argument, environment variable, or option exists.
 If it does not, this function will then attempt to find one, and will error
 if not found. If \code{FALSE}, this function will never error.}
 }
+\value{
+The path to the Unity executable on the user's machine, as a length-1
+character vector.
+}
 \description{
 If the path to Unity is not provided to a function, this function is invoked
 to attempt to find it. To do so, it goes through the following steps:
-}
-\details{
 \enumerate{
 \item Attempt to load the "unifir_unity_path" environment variable.
 \item Attempt to load the "unifir_unity_path" option.
 }
+
+Assuming that neither points to an actual file, this function will then
+check the default installation paths for Unity on the user's operating
+system. If not found, this function will error.
 }
 \examples{
 if (interactive()) {

@@ -22,26 +22,24 @@ MainFunc?}
 \item{path}{The file path to validate}
 }
 \description{
-\code{validate_path} creates a generic C# method which takes a single argument
+\link{validate_path} creates a generic C# method which takes a single argument
 and checks to make sure it exists. Your C# code calling the method must
 provide the path to validate.
-\code{validate_single_path} hard-codes the path to check in the C# code. This
+\link{validate_single_path} hard-codes the path to check in the C# code. This
 allows you to specify the path to check from R.
 }
 \examples{
 # First, create a script object.
 # CRAN doesn't have Unity installed, so pass
 # a waiver object to skip the Unity-lookup stage:
-script <- make_script("example_script",
-  unity = waiver()
-)
+script <- make_script("example_script", unity = waiver())
 
 # Now add props:
 script <- validate_path(script) # Don't specify the path in R
-script <- validate_single_path(
+script <- validate_single_path( # Specify the path in R
   script,
   "file_that_exists.txt"
-) # Specify the path in R
+)
 }
 \seealso{
 Other props: 

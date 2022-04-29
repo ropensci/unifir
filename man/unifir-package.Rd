@@ -4,7 +4,7 @@
 \name{unifir-package}
 \alias{unifir}
 \alias{unifir-package}
-\title{unifir: A Unifying API for Calling 'Unity' from R}
+\title{unifir: A Unifying API for Calling the 'Unity' '3D' Video Game Engine}
 \description{
 \if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 

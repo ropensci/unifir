@@ -1,10 +1,21 @@
 Type: Package
 Package: unifir
-Title: A Unifying API for Calling 'Unity' from R
-Version: 0.1.0
-Authors@R: 
-    person("Michael", "Mahoney", , "mike.mahoney.218@gmail.com", role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0003-2402-304X"))
+Title: A Unifying API for Calling the 'Unity' '3D' Video Game Engine
+Version: 0.2.0
+Authors@R: c(
+    person(given = "Michael", 
+           family = "Mahoney", 
+           email = "mike.mahoney.218@gmail.com", 
+           role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0003-2402-304X")),
+    person(given = "Will",
+           family = "Jones",
+           role = c("rev"),
+           comment = c("Will reviewed the package (v. 0.2.0) for rOpenSci, see <https://github.com/ropensci/software-review/issues/521>")),
+           person(given = "Tan",
+           family = "Tran",
+           role = c("rev"),
+           comment = c("Tan reviewed the package (v. 0.2.0) for rOpenSci, see <https://github.com/ropensci/software-review/issues/521>")))
 Description: Functions for the creation and manipulation of scenes and objects
     within the 'Unity' '3D' video game engine (<https://unity.com/>). Specific
     focuses include the creation and import of terrain data and 'GameObjects' as

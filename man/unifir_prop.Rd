@@ -36,8 +36,8 @@ function.
 This function will check each argument for correctness. To be specific,
 it performs the following checks:
 \itemize{
-\item \code{prop_file} must be either a \code{waiver()} object or a file path of
-length 1 pointing to a file that exists
+\item \code{prop_file} must be either a \code{waiver} object (created by \link{waiver})
+or a file path of length 1 pointing to a file that exists
 \item \code{method_name} will be automatically generated if not existing. If
 it exists, it must be a character vector of length 1
 \item \code{method_type} must be a character vector of length 1

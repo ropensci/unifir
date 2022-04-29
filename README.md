@@ -70,7 +70,11 @@ action(script)
 
 Open your new project from UnityHub, open the scene you created with
 `save_scene`, and you’ll see the outputs from your script right in front
-of you!
+of you! To learn more, check out the vignettes that ship with the
+package – particularly [the one for how to use unifir to make
+scenes](https://mikemahoney218.github.io/unifir/articles/unifir-user-guide.html)
+and [the one for how to extend unifir in your own
+packages](https://mikemahoney218.github.io/unifir/articles/unifir-dev-guide.html).
 
 Right now, unifir wraps the elements of the Unity API that I’ve found
 useful in my own work, principally focused around creating GameObjects,

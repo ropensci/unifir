@@ -63,6 +63,10 @@ create, as Euler angles.}
 \item{exec}{Logical: Should the C# method be included in the set executed by
 MainFunc?}
 }
+\value{
+The \code{unifir_script} object passed to \code{script}, with props for adding
+lights appended.
+}
 \description{
 This function creates light objects within a Unity scene. This function can
 only add one light at a time -- call the function multiple times to add
@@ -72,14 +76,13 @@ more than one light.
 # First, create a script object.
 # CRAN doesn't have Unity installed, so pass
 # a waiver object to skip the Unity-lookup stage:
-script <- make_script("example_script",
-  unity = waiver()
-)
+script <- make_script("example_script", unity = waiver())
 
 # Now add props:
 script <- add_light(script)
 
 # Lastly, execute the script via the `action` function
+
 }
 \seealso{
 Other props: 

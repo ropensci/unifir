@@ -57,8 +57,8 @@
 #' This function will check each argument for correctness. To be specific,
 #' it performs the following checks:
 #'
-#' * `prop_file` must be either a `waiver()` object or a file path of
-#'   length 1 pointing to a file that exists
+#' * `prop_file` must be either a `waiver` object (created by [waiver])
+#'   or a file path of length 1 pointing to a file that exists
 #' * `method_name` will be automatically generated if not existing. If
 #'   it exists, it must be a character vector of length 1
 #' * `method_type` must be a character vector of length 1
@@ -127,7 +127,7 @@ unifir_prop <- function(prop_file,
 #' function.
 #'
 #' @param script A script object (from [make_script]) to append the prop to.
-#' @param prop A [unifir_prop] object to add to the script
+#' @param prop A `unifir_prop` object (from [unifir_prop]) to add to the script.
 #' @param exec Logical: Should the method created by the prop be called in the
 #' MainFunc method?
 #'
@@ -148,6 +148,7 @@ unifir_prop <- function(prop_file,
 #' @export
 add_prop <- function(script, prop, exec = TRUE) {
   stopifnot(is.logical(exec))
+  stopifnot(methods::is(script, "unifir_script"))
 
   idx <- nrow(script$beats) + 1
 

@@ -3,7 +3,7 @@
 #' This function adds a helper method, `AddTexture`, to the
 #' C# script. This function is typically used to add textures to
 #' heightmaps in a Unity scene, for instance by functions
-#' like `create_terrain`. It requires some arguments be provided
+#' like [create_terrain]. It requires some arguments be provided
 #' at the C# level, and so is almost always called with `exec = FALSE`.
 #'
 #' @inheritParams new_scene
@@ -22,6 +22,10 @@
 #' script <- add_texture(script)
 #'
 #' # Lastly, execute the script via the `action` function
+#'
+#' @return The `unifir_script` object passed to `script`, with an `AddTexture`
+#' method appended.
+#'
 #' @export
 add_texture <- function(script,
                         method_name = NULL,

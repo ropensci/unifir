@@ -2,7 +2,7 @@
 % Please edit documentation in R/make_script.R
 \name{make_script}
 \alias{make_script}
-\title{Create an empty unifir_script object.}
+\title{Create an empty \code{unifir_script} object.}
 \usage{
 make_script(
   project,
@@ -27,6 +27,9 @@ a scene name and one is not provided, this field will be used.}
 a Unity project at \code{project}. If FALSE, will not create a new project.
 If NULL, will create a new project if \code{project} does not exist.}
 }
+\value{
+A \code{unifir_script} object.
+}
 \description{
 unifir relies upon "script" objects, which collect "prop" objects
 (C# methods)
@@ -37,5 +40,6 @@ which then may be executed within a Unity project via the \link{action} function
 # In practice, you'll want to set `project` to the project path to create
 # and `unity` to `NULL` (the default)
 make_script(project = waiver(), unity = waiver())
+
 }
 \concept{scripts}

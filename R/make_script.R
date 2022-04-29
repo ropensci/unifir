@@ -1,4 +1,4 @@
-#' Create an empty unifir_script object.
+#' Create an empty `unifir_script` object.
 #'
 #' unifir relies upon "script" objects, which collect "prop" objects
 #' (C# methods)
@@ -21,6 +21,9 @@
 #' # In practice, you'll want to set `project` to the project path to create
 #' # and `unity` to `NULL` (the default)
 #' make_script(project = waiver(), unity = waiver())
+#'
+#' @return A `unifir_script` object.
+#'
 #' @export
 make_script <- function(project,
                         script_name = NULL,
