@@ -31,15 +31,17 @@
 #' @family utilities
 #'
 #' @examples
-#' # First, create a script object.
-#' # CRAN doesn't have Unity installed, so pass
-#' # a waiver object to skip the Unity-lookup stage:
-#' script <- make_script("example_script", unity = waiver())
+#' if (interactive()) {
+#'   # First, create a script object.
+#'   # CRAN doesn't have Unity installed, so pass
+#'   # a waiver object to skip the Unity-lookup stage:
+#'   script <- make_script("example_script", unity = waiver())
 #'
-#' # Now add props:
-#' script <- add_default_player(script)
-#' script <- add_default_tree(script, 1)
-#' script <- save_scene(script)
+#'   # Now add props:
+#'   script <- add_default_player(script)
+#'   script <- add_default_tree(script, 1)
+#'   script <- save_scene(script)
+#' }
 #'
 #' # Lastly, execute the script via the `action` function
 #'

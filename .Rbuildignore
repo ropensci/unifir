@@ -17,3 +17,4 @@ zion
 ^doc$
 ^Meta$
 ^data-raw$
+^cran-comments\.md$
