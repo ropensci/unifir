@@ -139,7 +139,7 @@ controllers are currently all MIT-licensed, while the trees are CC-0 1.0 --
 making them free to use in any of your projects.
 
 The functions -- which I'm wrapping here in `if (interactive())` to prevent
-them from downloading files on CRAN -- take the same arguements as
+them from downloading files on CRAN -- take the same arguments as
 `instantiate_prefab` to let you specify position, scale, and rotation of your
 objects, but handle all the file path trickiness for you:
 
