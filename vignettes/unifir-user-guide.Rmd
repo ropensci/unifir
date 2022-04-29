@@ -197,9 +197,9 @@ library(terrainr)
 
 Importing terrain into Unity is a little bit wonky. First off, Unity can't
 process standard raster data, but rather needs a specialized format that
-most libraries don't work with; for that reason, we're going to need to use
-terrainr's `transform_elevation()` function to transform our elevation raster 
-into a proper format.
+most libraries don't work with (namely, raw bytestreams with planar interlacing); 
+for that reason, we're going to need to use terrainr's `transform_elevation()` 
+function to transform our elevation raster into a proper format.
 
 Additionally, Unity doesn't have a great way for wrangling objects of different
 unit systems -- it assumes that a distance of "1" in a 3D model is also a
