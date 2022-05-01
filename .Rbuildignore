@@ -18,3 +18,4 @@ zion
 ^Meta$
 ^data-raw$
 ^cran-comments\.md$
+^CRAN-SUBMISSION$
