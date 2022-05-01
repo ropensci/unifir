@@ -13,14 +13,20 @@ Functions for the creation and manipulation of scenes and objects within the 'Un
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://mikemahoney218.github.io/unifir/}
-  \item \url{https://github.com/mikemahoney218/unifir}
-  \item Report bugs at \url{https://github.com/mikemahoney218/unifir/issues}
+  \item \url{https://ropensci.github.io/unifir/}
+  \item \url{https://github.com/ropensci/unifir}
+  \item Report bugs at \url{https://github.com/ropensci/unifir/issues}
 }
 
 }
 \author{
 \strong{Maintainer}: Michael Mahoney \email{mike.mahoney.218@gmail.com} (\href{https://orcid.org/0000-0003-2402-304X}{ORCID})
+
+Other contributors:
+\itemize{
+  \item Will Jones (Will reviewed the package (v. 0.2.0) for rOpenSci, see <https://github.com/ropensci/software-review/issues/521>) [reviewer]
+  \item Tan Tran (Tan reviewed the package (v. 0.2.0) for rOpenSci, see <https://github.com/ropensci/software-review/issues/521>) [reviewer]
+}
 
 }
 \keyword{internal}

@@ -4,9 +4,9 @@
   "identifier": "unifir",
   "description": "Functions for the creation and manipulation of scenes and objects within the 'Unity' '3D' video game engine (<https://unity.com/>). Specific focuses include the creation and import of terrain data and 'GameObjects' as well as scene management.",
   "name": "unifir: A Unifying API for Calling the 'Unity' '3D' Video Game Engine",
-  "relatedLink": "https://mikemahoney218.github.io/unifir/",
-  "codeRepository": "https://github.com/mikemahoney218/unifir",
-  "issueTracker": "https://github.com/mikemahoney218/unifir/issues",
+  "relatedLink": "https://ropensci.github.io/unifir/",
+  "codeRepository": "https://github.com/ropensci/unifir",
+  "issueTracker": "https://github.com/ropensci/unifir/issues",
   "license": "https://spdx.org/licenses/MIT",
   "version": "0.2.0",
   "programmingLanguage": {
@@ -211,7 +211,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "2217.792KB",
+  "fileSize": "2218.186KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -223,13 +223,13 @@
         }
       ],
       "name": "{unifir}: A Unifying API for Calling Unity from R",
-      "url": "https://github.com/mikemahoney218/unifir",
+      "url": "https://github.com/ropensci/unifir",
       "description": "R package version 0.2.0"
     }
   ],
-  "releaseNotes": "https://github.com/mikemahoney218/unifir/blob/master/NEWS.md",
-  "readme": "https://github.com/mikemahoney218/unifir/blob/main/README.md",
-  "contIntegration": ["https://github.com/mikemahoney218/unifir/actions", "https://app.codecov.io/gh/mikemahoney218/unifir?branch=main"],
+  "releaseNotes": "https://github.com/ropensci/unifir/blob/master/NEWS.md",
+  "readme": "https://github.com/ropensci/unifir/blob/main/README.md",
+  "contIntegration": ["https://github.com/ropensci/unifir/actions", "https://app.codecov.io/gh/ropensci/unifir?branch=main"],
   "developmentStatus": ["https://www.repostatus.org/#active", "https://lifecycle.r-lib.org/articles/stages.html#maturing-1"],
   "review": {
     "@type": "Review",

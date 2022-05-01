@@ -14,9 +14,9 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html#maturing-1)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/unifir)](https://CRAN.R-project.org/package=unifir)
-[![R-CMD-check](https://github.com/mikemahoney218/unifir/workflows/R-CMD-check/badge.svg)](https://github.com/mikemahoney218/unifir/actions)
+[![R-CMD-check](https://github.com/ropensci/unifir/workflows/R-CMD-check/badge.svg)](https://github.com/ropensci/unifir/actions)
 [![Codecov test
-coverage](https://codecov.io/gh/mikemahoney218/unifir/branch/main/graph/badge.svg)](https://app.codecov.io/gh/mikemahoney218/unifir?branch=main)
+coverage](https://codecov.io/gh/ropensci/unifir/branch/main/graph/badge.svg)](https://app.codecov.io/gh/ropensci/unifir?branch=main)
 [![Status at rOpenSci Software Peer
 Review](https://badges.ropensci.org/521_status.svg)](https://github.com/ropensci/software-review/issues/521)
 <!-- badges: end -->
@@ -72,9 +72,9 @@ Open your new project from UnityHub, open the scene you created with
 `save_scene`, and you’ll see the outputs from your script right in front
 of you! To learn more, check out the vignettes that ship with the
 package – particularly [the one for how to use unifir to make
-scenes](https://mikemahoney218.github.io/unifir/articles/unifir-user-guide.html)
+scenes](https://docs.ropensci.org/unifir/articles/unifir-user-guide.html)
 and [the one for how to extend unifir in your own
-packages](https://mikemahoney218.github.io/unifir/articles/unifir-dev-guide.html).
+packages](https://docs.ropensci.org/unifir/articles/unifir-dev-guide.html).
 
 Right now, unifir wraps the elements of the Unity API that I’ve found
 useful in my own work, principally focused around creating GameObjects,
@@ -88,9 +88,9 @@ The easiest way to install unifir is to install it directly from
 R-Universe:
 
 ``` r
-# Enable universe(s) by mikemahoney218
+# Enable universe(s) by rOpenSci
 options(repos = c(
-  mikemahoney218 = 'https://mikemahoney218.r-universe.dev',
+  mikemahoney218 = 'https://ropensci-universe.dev',
   CRAN = 'https://cloud.r-project.org'))
 
 # Install unifir
@@ -101,7 +101,7 @@ You can also install unifir from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("mikemahoney218/unifir")
+remotes::install_github("ropensci/unifir")
 ```
 
 Note that right now there is no release version of unifir; all published
@@ -145,9 +145,8 @@ may be extended to support those as well.
 ## Code of Conduct
 
 Please note that the unifir project is released with a [Contributor Code
-of
-Conduct](https://mikemahoney218.github.io/unifir/CODE_OF_CONDUCT.html).
-By contributing to this project, you agree to abide by its terms.
+of Conduct](https://ropensci.github.io/unifir/CODE_OF_CONDUCT.html). By
+contributing to this project, you agree to abide by its terms.
 
 ## Disclaimer
 
@@ -155,3 +154,5 @@ These materials are not sponsored by or affiliated with Unity
 Technologies or its affiliates. “Unity” is a trademark or registered
 trademark of Unity Technologies or its affiliates in the U.S. and
 elsewhere.
+
+[![ropensci_footer](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)
