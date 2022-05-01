@@ -12,8 +12,7 @@ state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Lifecycle:
 maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html#maturing-1)
-[![CRAN
-status](https://www.r-pkg.org/badges/version/unifir)](https://CRAN.R-project.org/package=unifir)
+![CRAN status](https://www.r-pkg.org/badges/version/unifir)
 [![R-CMD-check](https://github.com/ropensci/unifir/workflows/R-CMD-check/badge.svg)](https://github.com/ropensci/unifir/actions)
 [![Codecov test
 coverage](https://codecov.io/gh/ropensci/unifir/branch/main/graph/badge.svg)](https://app.codecov.io/gh/ropensci/unifir?branch=main)
