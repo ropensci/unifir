@@ -69,9 +69,9 @@ which may serve to make experiments in IVEs
 more similar to "real-life" experiences
 than can normally be obtained through controlled experiments 
 in laboratory settings [@Schone2019].
-However, despite their utility, the difficulty of producing IVEs has limited
-their use, as the creation of IVEs relies upon a number of software tools which
-are not commonly used in standard scientific practice. 
+However, the difficulty of producing IVEs has limited
+their use, as their creation relies upon a number of software tools that
+are not commonly used in scientific practice. 
 These tools are often managed through graphical user interfaces, making it
 difficult to capture the production process in a way that would allow 
 others to reproduce IVEs or replicate IVE-driven experiments. 
@@ -81,17 +81,17 @@ in order to produce virtual representations of real-world places
 [@Keil2020].
 
 The core gap underpinning all of these challenges is a lack of accessible 
-tooling providing a standardized, programmatic method for creating IVEs from
+tooling that provides a standardized, programmatic method for creating IVEs from
 real or simulated data. Some first efforts have been made in this direction; 
 for instance, Keil et al. [-@Keil2020] surveyed methods for incorporating 
 spatial data representing both terrain and buildings into IVEs,
 while Mahoney et al. [-@terrainr] introduced an open-source toolkit for 
 programmatically incorporating terrain data into IVEs. 
-More work is still needed however to both expand the amount of IVE production
-which can be done reproducibly using standard scientific toolkits and to
+Further work is needed to expand the amount of IVE production
+that can be done reproducibly using standard scientific toolkits and to
 extend these tools to a wider variety of commonly available data types.
 
-The unifir R package advances this work by providing an easily-extended toolkit
+The unifir R package addresses these needs by providing an easily-extended toolkit
 for producing IVEs programmatically. Users are able to construct their IVEs 
 through idiomatic R code, which then is translated into C# and executed within
 the Unity video game engine in order to produce IVEs in a fast, reproducible 
