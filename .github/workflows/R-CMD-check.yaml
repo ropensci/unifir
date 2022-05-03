@@ -43,6 +43,11 @@ jobs:
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
 
+      - name: Install remotes
+        run: |
+          install.packages("remotes")
+        shell: Rscript {0}
+
       - name: Install macOS dependencies
         if: runner.os == 'macOS'
         run: |
@@ -59,7 +64,6 @@ jobs:
 
       - name: Install dependencies
         run: |
-          install.packages("remotes")
           remotes::install_deps(dependencies = TRUE)
           remotes::install_cran("rcmdcheck")
         shell: Rscript {0}
