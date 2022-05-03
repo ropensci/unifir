@@ -49,8 +49,9 @@ jobs:
           brew install proj
           brew install gdal
 
-      - uses: r-lib/actions/setup-r-dependencies@v1
+      - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: rcmdcheck R.methodsS3
+          extra-packages: |
+            any::rcmdcheck
 
       - uses: r-lib/actions/check-r-package@v1
