@@ -53,5 +53,6 @@ jobs:
         with:
           extra-packages: |
             any::rcmdcheck
+            package=R.oo?ignore
 
       - uses: r-lib/actions/check-r-package@v1
