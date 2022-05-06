@@ -23,7 +23,7 @@ affiliations:
  - name: Department of Landscape Architecture, State University of New York College of Environmental Science and Forestry, Syracuse, New York, USA
    index: 3
 citation_author: Mahoney et. al.
-date: "2022-05-02"
+date: "2022-05-04"
 year: 2022
 bibliography: paper.bib
 output: rticles::joss_article
