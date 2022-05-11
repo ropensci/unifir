@@ -1,4 +1,8 @@
 test_that("associate_coordinates is stable", {
+  # This test fails on M1 macs, likely due to terra failing on M1 macs.
+  # Being not in the possession of M1 macs nor the ability to fix terra,
+  # I am temporarily skipping this test until one of those things changes
+  skip_on_os(os = "mac", arch = "aarch64")
   expect_identical(
     associate_coordinates(
       sf::st_as_sf(data.frame(x = 5, y = 5), coords = c("x", "y"), crs = "EPSG:5071"),

@@ -1,3 +1,9 @@
+# unifir 0.2.1
+This is intentionally a very small patch release, intended to fix two problems:
+
+* Provides an appropriate citation via `citation("unifir")` and in the README
+* Addresses a failing test on M1 macs
+
 # unifir 0.2.0
 
 * Improvements and bug fixes:
