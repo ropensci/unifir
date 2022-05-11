@@ -5,6 +5,7 @@
 
 <!-- badges: start -->
 
+[![DOI](https://joss.theoj.org/papers/10.21105/joss.04388/status.svg)](https://doi.org/10.21105/joss.04388)
 [![License:
 MIT](https://img.shields.io/badge/license-MIT-green)](https://choosealicense.com/licenses/mit/)
 [![Project Status: Active – The project has reached a stable, usable
@@ -12,7 +13,8 @@ state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Lifecycle:
 maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html#maturing-1)
-![CRAN status](https://www.r-pkg.org/badges/version/unifir)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/unifir)](https://cran.r-project.org/package=unifir)
 [![R-CMD-check](https://github.com/ropensci/unifir/workflows/R-CMD-check/badge.svg)](https://github.com/ropensci/unifir/actions)
 [![Codecov test
 coverage](https://codecov.io/gh/ropensci/unifir/branch/main/graph/badge.svg)](https://app.codecov.io/gh/ropensci/unifir?branch=main)
@@ -140,6 +142,31 @@ in building a scene in standard R and C# code. A partially open system
 is better than a fully closed one, and if other game engines become more
 feasible options for large scale immersive virtual environments, unifir
 may be extended to support those as well.
+
+## Citing unifir
+
+To cite unifir in publications please use:
+
+> Mahoney M. J., Beier C. M., and Ackerman, A. C. (2022). unifir: A
+> Unifying API for Working with Unity in R. Journal of Open Source
+> Software, 7(73), 4388, <https://doi.org/10.21105/joss.04388>
+
+A BibTeX entry for LaTeX users is:
+
+``` bibtex
+  @Article{,
+    year = {2022},
+    publisher = {The Open Journal},
+    volume = {7},
+    number = {73},
+    pages = {4388},
+    author = {Michael J. Mahoney and Colin M. Beier and Aidan C. Ackerman},
+    title = {{unifir:} A Unifying {API} for Working with {Unity} in {R}},
+    journal = {Journal of Open Source Software},
+    doi = {10.21105/joss.04388},
+    url = {https://doi.org/10.21105/joss.04388},
+  }
+```
 
 ## Code of Conduct
 

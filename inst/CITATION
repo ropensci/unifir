@@ -3,14 +3,15 @@ citHeader("To cite unifir in publications please use:")
 year <- sub("-.*", "", meta$Date)
 note <- sprintf("R package version %s", meta$Version)
 
-bibentry(bibtype = "Manual",
-         title = "{unifir}: A Unifying API for Calling Unity from R",
-         author = person("Michael", "Mahoney"),
-         year = year,
-         note = note,
-         url = "https://github.com/ropensci/unifir")
-
- textVersion = paste0("Michael J Mahoney, (", year, ").",
-  " unifir: A Unifying API for Calling Unity from R. ",
-  note, ".",
-  "")
+bibentry(bibtype = "Article",
+         year = "2022",
+         publisher = "The Open Journal",
+         volume = "7",
+         number = "73",
+         pages = "4388",
+         author = "Michael J. Mahoney and Colin M. Beier and Aidan C. Ackerman",
+         title = "{unifir:} A Unifying {API} for Working with {Unity} in {R}",
+         journal = "Journal of Open Source Software",
+         doi = "10.21105/joss.04388",
+         url = "https://doi.org/10.21105/joss.04388",
+         textVersion = "Mahoney M. J., Beier C. M., and Ackerman, A. C. (2022). unifir: A Unifying API for Working with Unity in R. Journal of Open Source Software, 7(73), 4388, https://doi.org/10.21105/joss.04388")
