@@ -1,8 +1,9 @@
 # unifir 0.2.1
-This is intentionally a very small patch release, intended to fix two problems:
+This is intentionally a very small patch release, intended to fix three problems:
 
 * Provides an appropriate citation via `citation("unifir")` and in the README
 * Addresses a failing test on M1 macs
+* Uses `match.arg()` in appropriate places
 
 # unifir 0.2.0
 

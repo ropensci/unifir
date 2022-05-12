@@ -35,15 +35,8 @@ new_scene <- function(script,
                       mode = c("Additive", "Single"),
                       method_name = NULL,
                       exec = TRUE) {
-  setup <- setup[[1]]
-  mode <- mode[[1]]
-  if (!(mode %in% c("Additive", "Single"))) {
-    stop("mode must be one of Additive or Single")
-  }
-
-  if (!(setup %in% c("EmptyScene", "DefaultGameObjects"))) {
-    stop("setup must be one of EmptyScene or DefaultGameObjects")
-  }
+  setup <- match.arg(setup)
+  mode <- match.arg(mode)
 
   prop <- unifir_prop(
     prop_file = system.file("NewScene.cs", package = "unifir"),

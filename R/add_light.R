@@ -45,13 +45,7 @@ add_light <- function(script,
                       y_rotation = -30,
                       z_rotation = 0,
                       exec = TRUE) {
-  light_type <- light_type[[1]]
-  stopifnot(light_type %in% c(
-    "Directional",
-    "Point",
-    "Spot",
-    "Area"
-  ))
+  light_type <- match.arg(light_type)
 
   prop <- unifir_prop(
     prop_file = system.file("AddLight.cs", package = "unifir"),

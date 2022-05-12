@@ -71,13 +71,9 @@ add_default_player <- function(script,
                                y_rotation = 0,
                                z_rotation = 0,
                                exec = TRUE) {
-  controller <- controller[[1]]
-  stopifnot(controller %in% c(
-    "Player",
-    "FootstepsPlayer",
-    "JetpackPlayer",
-    "Third Person"
-  ))
+
+  controller <- match.arg(controller)
+
   controller <- file.path(
     "Assets",
     "default_players",
