@@ -1,11 +1,16 @@
+Ackerman
+Beier
 CMD
 Codecov
 DefaultGameObjects
+doi
+DOI
 EmptyScene
 FootstepsPlayer
 GameObject
 GameObjects
 JetpackPlayer
+joss
 Lifecycle
 MainFunc
 ORCID
@@ -37,6 +42,7 @@ rOpenSci
 rasters
 reprojected
 rescale
+ropensci
 terra
 terrainr
 terrainr's

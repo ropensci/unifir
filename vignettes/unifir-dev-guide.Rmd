@@ -263,7 +263,8 @@ script <- make_script(
 script <- new_scene(script)
 exec_script <- action(
   script,
-  exec = FALSE
+  exec = FALSE,
+  write = TRUE
 )
 ```
 If we're concerned about how unifir translated our prop code, we can find the

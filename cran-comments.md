@@ -4,12 +4,16 @@
 * MacOS X 11.6.3 (on GitHub Actions), R release
 * Windows Server 2019 (on GitHub Actions), R release
 * win-builder (devel, release, oldrelease)
+* macbuilder
 
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
+0 errors | 0 warnings | 0 notes
 
-* This is a new release.
+## revdepcheck results
 
-## Downstream dependencies
-There are no downstream dependencies on CRAN at the time of submission.
+We checked 1 reverse dependencies, comparing R CMD check results across CRAN and dev versions of this package.
+
+ * We saw 0 new problems
+ * We failed to check 0 packages
+

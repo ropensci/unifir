@@ -4,17 +4,23 @@
   "identifier": "unifir",
   "description": "Functions for the creation and manipulation of scenes and objects within the 'Unity' '3D' video game engine (<https://unity.com/>). Specific focuses include the creation and import of terrain data and 'GameObjects' as well as scene management.",
   "name": "unifir: A Unifying API for Calling the 'Unity' '3D' Video Game Engine",
-  "relatedLink": "https://ropensci.github.io/unifir/",
+  "relatedLink": ["https://ropensci.github.io/unifir/", "https://CRAN.R-project.org/package=unifir"],
   "codeRepository": "https://github.com/ropensci/unifir",
   "issueTracker": "https://github.com/ropensci/unifir/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
   "runtimePlatform": "R version 4.2.0 (2022-04-22)",
+  "provider": {
+    "@id": "https://cran.r-project.org",
+    "@type": "Organization",
+    "name": "Comprehensive R Archive Network (CRAN)",
+    "url": "https://cran.r-project.org"
+  },
   "author": [
     {
       "@type": "Person",
@@ -211,20 +217,44 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "2218.186KB",
+  "fileSize": "2219.49KB",
   "citation": [
     {
-      "@type": "SoftwareSourceCode",
+      "@type": "ScholarlyArticle",
+      "datePublished": "2022",
       "author": [
         {
           "@type": "Person",
-          "givenName": "Michael",
+          "givenName": ["Michael", "J."],
           "familyName": "Mahoney"
+        },
+        {
+          "@type": "Person",
+          "givenName": ["Colin", "M."],
+          "familyName": "Beier"
+        },
+        {
+          "@type": "Person",
+          "givenName": ["Aidan", "C."],
+          "familyName": "Ackerman"
         }
       ],
-      "name": "{unifir}: A Unifying API for Calling Unity from R",
-      "url": "https://github.com/ropensci/unifir",
-      "description": "R package version 0.2.0"
+      "name": "{unifir:} A Unifying {API} for Working with {Unity} in {R}",
+      "identifier": "10.21105/joss.04388",
+      "url": "https://doi.org/10.21105/joss.04388",
+      "pagination": "4388",
+      "@id": "https://doi.org/10.21105/joss.04388",
+      "sameAs": "https://doi.org/10.21105/joss.04388",
+      "isPartOf": {
+        "@type": "PublicationIssue",
+        "issueNumber": "73",
+        "datePublished": "2022",
+        "isPartOf": {
+          "@type": ["PublicationVolume", "Periodical"],
+          "volumeNumber": "7",
+          "name": "Journal of Open Source Software"
+        }
+      }
     }
   ],
   "releaseNotes": "https://github.com/ropensci/unifir/blob/master/NEWS.md",
