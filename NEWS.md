@@ -1,3 +1,9 @@
+# unifir (development version)
+
+* Internal changes:
+  * `action()` is now much more modular, outsourcing to a handful of new 
+    internal functions
+
 # unifir 0.2.1
 This is intentionally a very small patch release, intended to fix three problems:
 
