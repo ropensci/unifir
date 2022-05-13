@@ -13,7 +13,7 @@ Functions for the creation and manipulation of scenes and objects within the 'Un
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://ropensci.github.io/unifir/}
+  \item \url{https://docs.ropensci.org/unifir/}
   \item \url{https://github.com/ropensci/unifir}
   \item Report bugs at \url{https://github.com/ropensci/unifir/issues}
 }

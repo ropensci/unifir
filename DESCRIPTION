@@ -45,7 +45,7 @@ LazyData: true
 RoxygenNote: 7.1.2
 Config/testthat/edition: 3
 Config/testthat/parallel: true
-URL: https://ropensci.github.io/unifir/, https://github.com/ropensci/unifir
+URL: https://docs.ropensci.org/unifir/, https://github.com/ropensci/unifir
 BugReports: https://github.com/ropensci/unifir/issues
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)

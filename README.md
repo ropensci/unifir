@@ -171,7 +171,7 @@ A BibTeX entry for LaTeX users is:
 ## Code of Conduct
 
 Please note that the unifir project is released with a [Contributor Code
-of Conduct](https://ropensci.github.io/unifir/CODE_OF_CONDUCT.html). By
+of Conduct](https://docs.ropensci.org/unifir/CODE_OF_CONDUCT.html). By
 contributing to this project, you agree to abide by its terms.
 
 ## Disclaimer

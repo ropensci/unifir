@@ -4,7 +4,7 @@
   "identifier": "unifir",
   "description": "Functions for the creation and manipulation of scenes and objects within the 'Unity' '3D' video game engine (<https://unity.com/>). Specific focuses include the creation and import of terrain data and 'GameObjects' as well as scene management.",
   "name": "unifir: A Unifying API for Calling the 'Unity' '3D' Video Game Engine",
-  "relatedLink": ["https://ropensci.github.io/unifir/", "https://CRAN.R-project.org/package=unifir"],
+  "relatedLink": ["https://docs.ropensci.org/unifir/", "https://CRAN.R-project.org/package=unifir"],
   "codeRepository": "https://github.com/ropensci/unifir",
   "issueTracker": "https://github.com/ropensci/unifir/issues",
   "license": "https://spdx.org/licenses/MIT",
@@ -217,7 +217,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "2219.49KB",
+  "fileSize": "2219.487KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
