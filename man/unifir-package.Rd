@@ -6,9 +6,9 @@
 \alias{unifir-package}
 \title{unifir: A Unifying API for Calling the 'Unity' '3D' Video Game Engine}
 \description{
-\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Functions for the creation and manipulation of scenes and objects within the 'Unity' '3D' video game engine (<https://unity.com/>). Specific focuses include the creation and import of terrain data and 'GameObjects' as well as scene management.
+Functions for the creation and manipulation of scenes and objects within the 'Unity' '3D' video game engine (\url{https://unity.com/}). Specific focuses include the creation and import of terrain data and 'GameObjects' as well as scene management.
 }
 \seealso{
 Useful links:
