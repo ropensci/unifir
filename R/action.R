@@ -33,41 +33,14 @@
 action <- function(script, write = TRUE, exec = TRUE, quit = TRUE) {
   debug <- check_debug()
   if (debug) write <- exec <- FALSE
-
   if (!write && exec) stop("Cannot execute script without writing it!")
 
-  if (
-    !debug &&
-      (
-        # If initialize_project is NULL and the directory is missing:
-        (is.null(script$initialize_project) && !dir.exists(script$project)) ||
-          # Or if initialize_project is TRUE:
-          (!is.null(script$initialize_project) && script$initialize_project))) {
-    # Create a unity project at that directory:
-    create_unity_project(script$project, unity = script$unity)
-  }
 
-  scene_dir <- file.path(script$project, "Assets", "Scenes")
-  if (!debug) create_if_not(scene_dir, TRUE)
-  if (is.null(script$scene_name)) {
-    script$scene_name <- proceduralnames::make_english_names(1,
-      4,
-      sep = "",
-      case = "title"
-    )
-  }
-  if (is.null(script$script_name)) {
-    script$script_name <- proceduralnames::make_english_names(1,
-      4,
-      sep = "",
-      case = "title"
-    )
-  }
+  stopifnot(create_scene_folders(script, debug))
+  # Prep script by filling in NULLs with random values:
+  script <- set_script_defaults(script, debug)
 
-  if (file.exists(file.path(scene_dir, script$scene_name))) {
-    script$scene_exists <- TRUE
-  }
-
+  # Execute prop build methods sequentially:
   for (i in seq_along(script$props)) {
     script$props[[i]] <- script$props[[i]]$build(
       script,
@@ -75,13 +48,12 @@ action <- function(script, write = TRUE, exec = TRUE, quit = TRUE) {
       debug
     )
   }
+  # Combine props into single vector, format for C#:
   script$props <- paste0(script$props, sep = "\n")
   beats <- paste0(script$beats[script$beats$exec, ]$name,
     "();",
     collapse = "\n        "
   )
-
-  if (!debug) create_if_not(file.path(script$project, "Assets", "Editor"))
 
   script$using <- unique(script$using)
   script$using <- paste0("using ", script$using, ";", collapse = "\n")
@@ -128,4 +100,54 @@ action <- function(script, write = TRUE, exec = TRUE, quit = TRUE) {
   # nocov end
 
   return(invisible(script))
+}
+
+#' Fill in plot holes in a script
+#'
+#' @param script The unifir_script to fill elements of
+#' @param debug Boolean: run in debug mode?
+set_script_defaults <- function(script, debug) {
+  scene_dir <- file.path(script$project, "Assets", "Scenes")
+
+  if (is.null(script$scene_name)) {
+    script$scene_name <- proceduralnames::make_english_names(1,
+                                                             4,
+                                                             sep = "",
+                                                             case = "title"
+    )
+  }
+  if (is.null(script$script_name)) {
+    script$script_name <- proceduralnames::make_english_names(1,
+                                                              4,
+                                                              sep = "",
+                                                              case = "title"
+    )
+  }
+  if (file.exists(file.path(scene_dir, script$scene_name))) {
+    script$scene_exists <- TRUE
+  }
+
+
+
+  script$clone()
+}
+
+create_scene_folders <- function(script, debug) {
+
+  if (
+    !debug &&
+    (
+      # If initialize_project is NULL and the directory is missing:
+      (is.null(script$initialize_project) && !dir.exists(script$project)) ||
+      # Or if initialize_project is TRUE:
+      (!is.null(script$initialize_project) && script$initialize_project))) {
+    # Create a unity project at that directory:
+    create_unity_project(script$project, unity = script$unity)
+  }
+
+  if (!debug) create_if_not(file.path(script$project, "Assets", "Scenes"), TRUE)
+  if (!debug) create_if_not(file.path(script$project, "Assets", "Editor"))
+
+  return(invisible(TRUE))
+
 }

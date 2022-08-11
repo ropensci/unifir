@@ -1,7 +1,7 @@
 Type: Package
 Package: unifir
 Title: A Unifying API for Calling the 'Unity' '3D' Video Game Engine
-Version: 0.2.1
+Version: 0.2.1.9000
 Authors@R: c(
     person(given = "Michael", 
            family = "Mahoney", 
@@ -42,7 +42,7 @@ Suggests:
     sf
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.1
 Config/testthat/edition: 3
 Config/testthat/parallel: true
 URL: https://docs.ropensci.org/unifir/, https://github.com/ropensci/unifir
