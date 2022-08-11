@@ -1,5 +1,6 @@
-# unifir (development version)
+# unifir 0.2.2
 
+* Redocumented to keep the package on CRAN.
 * Internal changes:
   * `action()` is now much more modular, outsourcing to a handful of new 
     internal functions

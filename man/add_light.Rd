@@ -33,31 +33,13 @@ be randomly generated if not set.}
 
 \item{light_name}{The name to assign the Light object.}
 
-\item{x_position}{The position of the GameObject in
+\item{x_position, y_position, z_position}{The position of the GameObject in
 world space.}
 
-\item{y_position}{The position of the GameObject in
-world space.}
-
-\item{z_position}{The position of the GameObject in
-world space.}
-
-\item{x_scale}{The scale of the GameObject (relative to its
+\item{x_scale, y_scale, z_scale}{The scale of the GameObject (relative to its
 parent object).}
 
-\item{y_scale}{The scale of the GameObject (relative to its
-parent object).}
-
-\item{z_scale}{The scale of the GameObject (relative to its
-parent object).}
-
-\item{x_rotation}{The rotation of the GameObject to
-create, as Euler angles.}
-
-\item{y_rotation}{The rotation of the GameObject to
-create, as Euler angles.}
-
-\item{z_rotation}{The rotation of the GameObject to
+\item{x_rotation, y_rotation, z_rotation}{The rotation of the GameObject to
 create, as Euler angles.}
 
 \item{exec}{Logical: Should the C# method be included in the set executed by
