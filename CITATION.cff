@@ -1,0 +1,281 @@
+# -----------------------------------------------------------
+# CITATION file created with {cffr} R package, v0.3.0
+# See also: https://docs.ropensci.org/cffr/
+# -----------------------------------------------------------
+ 
+cff-version: 1.2.0
+message: 'To cite package "unifir" in publications use:'
+type: software
+license: MIT
+title: 'unifir: A Unifying API for Calling the ''Unity'' ''3D'' Video Game Engine'
+version: 0.2.1.9000
+doi: 10.21105/joss.04388
+abstract: Functions for the creation and manipulation of scenes and objects within
+  the 'Unity' '3D' video game engine (<https://unity.com/>). Specific focuses include
+  the creation and import of terrain data and 'GameObjects' as well as scene management.
+authors:
+- family-names: Mahoney
+  given-names: Michael
+  email: mike.mahoney.218@gmail.com
+  orcid: https://orcid.org/0000-0003-2402-304X
+preferred-citation:
+  type: article
+  title: 'unifir: A Unifying API for Working with Unity in R'
+  authors:
+  - family-names: Mahoney
+    given-names: Michael J.
+  - family-names: Beier
+    given-names: Colin M.
+  - family-names: Ackerman
+    given-names: Aidan C.
+  year: '2022'
+  publisher:
+    name: The Open Journal
+  volume: '7'
+  issue: '73'
+  journal: Journal of Open Source Software
+  doi: 10.21105/joss.04388
+  url: https://doi.org/10.21105/joss.04388
+  start: '4388'
+repository: https://CRAN.R-project.org/package=unifir
+repository-code: https://github.com/ropensci/unifir
+url: https://docs.ropensci.org/unifir/
+contact:
+- family-names: Mahoney
+  given-names: Michael
+  email: mike.mahoney.218@gmail.com
+  orcid: https://orcid.org/0000-0003-2402-304X
+keywords:
+- cran
+- cran-r
+- r
+- rstats
+- unifir
+- unity
+- unity3d
+- visualization
+references:
+- type: software
+  title: 'R: A Language and Environment for Statistical Computing'
+  notes: Depends
+  authors:
+  - name: R Core Team
+  location:
+    name: Vienna, Austria
+  year: '2022'
+  url: https://www.R-project.org/
+  institution:
+    name: R Foundation for Statistical Computing
+  version: '>= 3.5.0'
+- type: software
+  title: glue
+  abstract: 'glue: Interpreted String Literals'
+  notes: Imports
+  authors:
+  - family-names: Hester
+    given-names: Jim
+    orcid: https://orcid.org/0000-0002-2739-7082
+  - family-names: Bryan
+    given-names: Jennifer
+    email: jenny@rstudio.com
+    orcid: https://orcid.org/0000-0002-6983-2759
+  year: '2022'
+  url: https://CRAN.R-project.org/package=glue
+- type: software
+  title: methods
+  abstract: 'R: A Language and Environment for Statistical Computing'
+  notes: Imports
+  authors:
+  - name: R Core Team
+  location:
+    name: Vienna, Austria
+  year: '2022'
+  url: https://www.R-project.org/
+  institution:
+    name: R Foundation for Statistical Computing
+- type: software
+  title: proceduralnames
+  abstract: 'proceduralnames: Several Methods for Procedural Name Generation'
+  notes: Imports
+  authors:
+  - family-names: Mahoney
+    given-names: Michael
+    email: mike.mahoney.218@gmail.com
+    orcid: https://orcid.org/0000-0003-2402-304X
+  year: '2022'
+  url: https://CRAN.R-project.org/package=proceduralnames
+- type: software
+  title: R6
+  abstract: 'R6: Encapsulated Classes with Reference Semantics'
+  notes: Imports
+  authors:
+  - family-names: Chang
+    given-names: Winston
+    email: winston@stdout.org
+  year: '2022'
+  url: https://CRAN.R-project.org/package=R6
+- type: software
+  title: utils
+  abstract: 'R: A Language and Environment for Statistical Computing'
+  notes: Imports
+  authors:
+  - name: R Core Team
+  location:
+    name: Vienna, Austria
+  year: '2022'
+  url: https://www.R-project.org/
+  institution:
+    name: R Foundation for Statistical Computing
+- type: software
+  title: terrainr
+  abstract: 'terrainr: Landscape Visualizations in R and ''Unity'''
+  notes: Suggests
+  authors:
+  - family-names: Mahoney
+    given-names: Michael
+    email: mike.mahoney.218@gmail.com
+    orcid: https://orcid.org/0000-0003-2402-304X
+  year: '2022'
+  url: https://CRAN.R-project.org/package=terrainr
+- type: software
+  title: covr
+  abstract: 'covr: Test Coverage for Packages'
+  notes: Suggests
+  authors:
+  - family-names: Hester
+    given-names: Jim
+    email: james.f.hester@gmail.com
+  year: '2022'
+  url: https://CRAN.R-project.org/package=covr
+- type: software
+  title: knitr
+  abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
+  notes: Suggests
+  authors:
+  - family-names: Xie
+    given-names: Yihui
+    email: xie@yihui.name
+    orcid: https://orcid.org/0000-0003-0645-5666
+  year: '2022'
+  url: https://CRAN.R-project.org/package=knitr
+- type: software
+  title: lintr
+  abstract: 'lintr: A ''Linter'' for R Code'
+  notes: Suggests
+  authors:
+  - family-names: Hester
+    given-names: Jim
+    email: james.f.hester@gmail.com
+  - family-names: Angly
+    given-names: Florent
+  - family-names: Hyde
+    given-names: Russ
+  - family-names: Chirico
+    given-names: Michael
+  - family-names: Ren
+    given-names: Kun
+  - family-names: Rosenstock
+    given-names: Alexander
+  year: '2022'
+  url: https://CRAN.R-project.org/package=lintr
+- type: software
+  title: pkgdown
+  abstract: 'pkgdown: Make Static HTML Documentation for a Package'
+  notes: Suggests
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@rstudio.com
+    orcid: https://orcid.org/0000-0003-4757-117X
+  - family-names: Hesselberth
+    given-names: Jay
+    orcid: https://orcid.org/0000-0002-6299-179X
+  - family-names: Salmon
+    given-names: Maëlle
+    orcid: https://orcid.org/0000-0002-2815-0399
+  year: '2022'
+  url: https://CRAN.R-project.org/package=pkgdown
+- type: software
+  title: rmarkdown
+  abstract: 'rmarkdown: Dynamic Documents for R'
+  notes: Suggests
+  authors:
+  - family-names: Allaire
+    given-names: JJ
+    email: jj@rstudio.com
+  - family-names: Xie
+    given-names: Yihui
+    email: xie@yihui.name
+    orcid: https://orcid.org/0000-0003-0645-5666
+  - family-names: McPherson
+    given-names: Jonathan
+    email: jonathan@rstudio.com
+  - family-names: Luraschi
+    given-names: Javier
+    email: javier@rstudio.com
+  - family-names: Ushey
+    given-names: Kevin
+    email: kevin@rstudio.com
+  - family-names: Atkins
+    given-names: Aron
+    email: aron@rstudio.com
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@rstudio.com
+  - family-names: Cheng
+    given-names: Joe
+    email: joe@rstudio.com
+  - family-names: Chang
+    given-names: Winston
+    email: winston@rstudio.com
+  - family-names: Iannone
+    given-names: Richard
+    email: rich@rstudio.com
+    orcid: https://orcid.org/0000-0003-3925-190X
+  year: '2022'
+  url: https://CRAN.R-project.org/package=rmarkdown
+- type: software
+  title: styler
+  abstract: 'styler: Non-Invasive Pretty Printing of R Code'
+  notes: Suggests
+  authors:
+  - family-names: Müller
+    given-names: Kirill
+    email: krlmlr+r@mailbox.org
+  - family-names: Walthert
+    given-names: Lorenz
+    email: lorenz.walthert@icloud.com
+  year: '2022'
+  url: https://CRAN.R-project.org/package=styler
+- type: software
+  title: testthat
+  abstract: 'testthat: Unit Testing for R'
+  notes: Suggests
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@rstudio.com
+  year: '2022'
+  url: https://CRAN.R-project.org/package=testthat
+  version: '>= 3.0.0'
+- type: software
+  title: terra
+  abstract: 'terra: Spatial Data Analysis'
+  notes: Suggests
+  authors:
+  - family-names: Hijmans
+    given-names: Robert J.
+    email: r.hijmans@gmail.com
+    orcid: https://orcid.org/0000-0001-5872-2872
+  year: '2022'
+  url: https://rspatial.org/terra/
+- type: software
+  title: sf
+  abstract: 'sf: Simple Features for R'
+  notes: Suggests
+  authors:
+  - family-names: Pebesma
+    given-names: Edzer
+    email: edzer.pebesma@uni-muenster.de
+    orcid: https://orcid.org/0000-0001-8049-7069
+  year: '2022'
