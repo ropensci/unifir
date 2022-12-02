@@ -107,7 +107,8 @@ instantiate_prefab <- function(script,
       "System.IO",
       "System.Collections",
       "System.Collections.Generic",
-      "UnityEngine"
+      "UnityEngine",
+      "UnityEditor"
     )
   )
 
