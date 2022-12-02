@@ -13,7 +13,7 @@
 #' @export
 unity_version <- function(unity = NULL) {
   if (is.null(unity)) unity <- find_unity()
-  system(paste(unity, "-version"), intern = TRUE)
+  system(paste(shQuote(unity), "-version"), intern = TRUE)
 }
 
 #' A waiver object.

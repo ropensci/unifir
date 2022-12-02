@@ -56,12 +56,17 @@ associate_coordinates <- function(object,
          " packages be installed. Please install these packages and try again.")
   }
 
-  object <- sf::st_transform(
-    object,
-    terra::crs(
-      terra::rast(raster)
+  sf_has_crs <- !identical(sf::st_crs(object), sf::NA_crs_)
+  terra_has_crs <- !identical(terra::crs(terra::rast(raster)), "")
+
+  if (sf_has_crs && terra_has_crs) {
+    object <- sf::st_transform(
+      object,
+      terra::crs(
+        terra::rast(raster)
+      )
     )
-  )
+  }
 
   coords <- as.data.frame(sf::st_coordinates(object))
   bounds <- as.vector(terra::ext(terra::rast(raster)))
