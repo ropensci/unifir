@@ -67,7 +67,7 @@ test_that("add_default_tree adds a prop as expected", {
 
   expect_identical(
     script$using,
-    c("System", "System.IO", "System.Collections", "System.Collections.Generic", "UnityEngine")
+    c("System", "System.IO", "System.Collections", "System.Collections.Generic", "UnityEngine", "UnityEditor")
   )
 
   expect_identical(

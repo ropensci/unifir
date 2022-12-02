@@ -31,7 +31,7 @@ create_unity_project <- function(path,
 
   output <- system(
     paste0(
-      unity,
+      shQuote(unity),
       " -batchmode",
       if (quit) " -quit",
       " -createProject ",
