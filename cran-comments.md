@@ -1,9 +1,5 @@
-## Test environments
-* local R installation, R 4.2.1
-* ubuntu 20.04 (on GitHub Actions), R devel, release, oldrelease
-* MacOS X 11.6.3 (on GitHub Actions), R release
-* Windows Server 2019 (on GitHub Actions), R release
-* win-builder (devel)
+This release fixes a test in unifir for future versions of terra and sf, and
+additionally patches a few bugs noted by users since the previous release.
 
 ## R CMD check results
 
