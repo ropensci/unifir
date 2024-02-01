@@ -35,3 +35,12 @@ unity_version <- function(unity = NULL) {
 #'
 #' @export
 waiver <- function() structure(list(), class = "waiver")
+
+#' @export
+print.unifir_script <- function(x, ..., n = 6) {
+  cat(paste("A `unifir_script` object with", nrow(x$beats), "props\n\n"))
+  display <- head(x$beats[c("name", "type")], n)
+  rownames(display) <- NULL
+  print(display, ..., n)
+  invisible(x)
+}

@@ -46,8 +46,6 @@ make_script <- function(project,
     ),
     using = character(0)
   )
-
-  class(script) <- "unifir_script"
   script
 }
 
