@@ -35,7 +35,7 @@ read_raw <- function(script,
         readChar(prop$prop_file, file.info(prop$prop_file)$size),
         .open = "%",
         .close = "%",
-        method_name = prop$method_name,
+        method_name = prop$method_name
       )
     },
     using = c("System", "System.IO")

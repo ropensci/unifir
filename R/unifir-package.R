@@ -5,5 +5,6 @@
 #' @importFrom R6 R6Class
 
 ## usethis namespace: start
+#' @importFrom utils head
 ## usethis namespace: end
 NULL

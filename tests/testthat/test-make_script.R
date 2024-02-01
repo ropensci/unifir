@@ -7,8 +7,8 @@ test_that("make_script always produces the same script", {
     initialize_project = NULL
   )
 
-  expect_match(
-    class(example_script),
+  expect_s3_class(
+    example_script,
     "unifir_script"
   )
 
