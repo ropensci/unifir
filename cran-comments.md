@@ -1,5 +1,4 @@
-This release fixes a test in unifir for future versions of terra and sf, and
-additionally patches a few bugs noted by users since the previous release.
+This release fixes a bug in unifir under R devel.
 
 ## R CMD check results
 

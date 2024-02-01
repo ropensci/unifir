@@ -1,5 +1,10 @@
 # unifir (development version)
 
+* New `print.unifir_script` method hides some of the R6 internals backing the
+  package, and makes my dissertation chapter render nicer.
+* Bug fixes:
+    * Removed trailing commas in some calls to `glue()` to fix errors on R devel (#17)
+
 # unifir 0.2.3
 
 * Bug fixes:
