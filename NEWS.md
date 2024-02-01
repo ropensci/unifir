@@ -1,4 +1,4 @@
-# unifir (development version)
+# unifir 0.2.4
 
 * New `print.unifir_script` method hides some of the R6 internals backing the
   package, and makes my dissertation chapter render nicer.
